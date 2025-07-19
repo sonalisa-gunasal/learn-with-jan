@@ -1,5 +1,8 @@
 {
   "routes": [
-    "/"
+    "/",
+    "/about",
+    "/book-demo",
+    "/consultation"
   ]
 }

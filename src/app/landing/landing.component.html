@@ -1,185 +1,263 @@
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom px-4 fixed-header">
-    <div class="text-3xl font-extrabold text-indigo-600 tracking-tight">
-        <span class="bg-indigo-100 px-3 py-1 rounded-lg">LearnWithJan</span>
-    </div>
-    <button class="navbar-toggler navbar-toggler-custom" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon navbar-toggler-icon-custom"></span>
+<!-- Main Navigation Component -->
+<nav class="navbar navbar-expand-lg navbar-light navbar-comcast-style px-4">
+    <a class="navbar-brand navbar-brand-comcast-style" href="#">Learn with Jan</a>
+    
+    <button class="navbar-toggler navbar-toggler-comcast-style" type="button" 
+            (click)="toggleNavbar()" 
+            [attr.aria-expanded]="isNavbarCollapsed"
+            aria-controls="navbarNavDropdown" 
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse" id="navbarNavDropdown" #mainNavbarCollapse>
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link-custom" href="#" id="academicCoursesDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngClass]="{'show': !isNavbarCollapsed}">
+        <ul class="navbar-nav mx-auto"> 
+            <li class="nav-item dropdown" 
+                (mouseenter)="showDropdown('academic')" 
+                (mouseleave)="hideDropdown('academic')">
+                <a class="nav-link dropdown-toggle nav-link-comcast-style" 
+                   href="#" 
+                   id="academicCoursesDropdown" 
+                   role="button"
+                   [attr.aria-expanded]="dropdownStates.academic">
                     <i class="fas fa-graduation-cap"></i> Academic Courses
                 </a>
-                <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="academicCoursesDropdown">
-                    <li><a class="dropdown-item dropdown-item-custom" [routerLink]="['/courses', 'math']"><i
-                                class="fas fa-calculator"></i> Math</a></li>
-                    <li><a class="dropdown-item dropdown-item-custom" [routerLink]="['/courses', 'science']"><i
-                                class="fas fa-flask"></i> Science</a></li>
-                    <li><a class="dropdown-item dropdown-item-custom" [routerLink]="['/courses', 'english']"><i
-                                class="fas fa-book"></i> English</a></li>
+                <ul class="dropdown-menu dropdown-menu-comcast-style" 
+                    [ngClass]="{'show': dropdownStates.academic}"
+                    aria-labelledby="academicCoursesDropdown">
+                    <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Math</a></li>
+                    <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Science</a></li>
+                    <li><a class="dropdown-item dropdown-item-comcast-style" href="#">English</a></li>
 
-                    <li class="dropdown-submenu" #submenu>
-                        <a class="dropdown-item dropdown-toggle dropdown-item-custom" href="#" id="boardsDropdown"
-                            role="button" aria-expanded="false">
+                    <li class="dropdown-submenu" 
+                        (mouseenter)="showDropdown('boards')" 
+                        (mouseleave)="hideDropdown('boards')">
+                        <a class="dropdown-item dropdown-toggle dropdown-item-comcast-style" 
+                           href="#" 
+                           id="boardsDropdown"
+                           role="button" 
+                           [attr.aria-expanded]="dropdownStates.boards">
                             <i class="fas fa-clipboard-list"></i> Boards
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="boardsDropdown">
-                            <li><a class="dropdown-item dropdown-item-custom" href="#"><i
-                                        class="fas fa-check-circle"></i> CBSE</a></li>
-                            <li><a class="dropdown-item dropdown-item-custom" href="#"><i
-                                        class="fas fa-check-circle"></i> ICSE</a></li>
-                            <li><a class="dropdown-item dropdown-item-custom" href="#"><i
-                                        class="fas fa-check-circle"></i> State Board</a></li>
-                            <li><a class="dropdown-item dropdown-item-custom" href="#"><i
-                                        class="fas fa-check-circle"></i> IB</a></li>
-                            <li><a class="dropdown-item dropdown-item-custom" href="#"><i
-                                        class="fas fa-check-circle"></i> Cambridge</a></li>
+                        <ul class="dropdown-menu dropdown-menu-comcast-style" 
+                            [ngClass]="{'show': dropdownStates.boards}"
+                            aria-labelledby="boardsDropdown">
+                            <li><a class="dropdown-item dropdown-item-comcast-style" href="#">CBSE</a></li>
+                            <li><a class="dropdown-item dropdown-item-comcast-style" href="#">ICSE</a></li>
+                            <li><a class="dropdown-item dropdown-item-comcast-style" href="#">State Board</a></li>
+                            <li><a class="dropdown-item dropdown-item-comcast-style" href="#">IB</a></li>
+                            <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Cambridge</a></li>
                         </ul>
                     </li>
                 </ul>
             </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link-custom" href="#" id="professionalCoursesDropdown"
-                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item dropdown" 
+                (mouseenter)="showDropdown('professional')" 
+                (mouseleave)="hideDropdown('professional')">
+                <a class="nav-link dropdown-toggle nav-link-comcast-style" 
+                   href="#" 
+                   id="professionalCoursesDropdown"
+                   role="button" 
+                   [attr.aria-expanded]="dropdownStates.professional">
                     <i class="fas fa-briefcase"></i> Professional Courses
                 </a>
-                <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="professionalCoursesDropdown">
-                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-desktop"></i> Web
-                            Development</a></li>
-                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-mobile-alt"></i> Mobile
-                            Development</a></li>
-                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-chart-line"></i> Data
-                            Science</a></li>
-                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-paint-brush"></i> UI/UX
-                            Design</a></li>
+                <ul class="dropdown-menu dropdown-menu-comcast-style" 
+                    [ngClass]="{'show': dropdownStates.professional}"
+                    aria-labelledby="professionalCoursesDropdown">
+                    <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Web Development</a></li>
+                    <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Mobile Development</a></li>
                 </ul>
             </li>
 
-            <li class="nav-item"><a class="nav-link nav-link-custom" href="#contact"><i class="fas fa-address-book"></i>
-                    Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-custom" href="#query"><i
-                        class="fas fa-question-circle"></i> Raise your Query</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-comcast-style" href="#">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-comcast-style" href="#">Raise your Query</a></li>
+        </ul>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link-custom" href="#" id="moreDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-ellipsis-h"></i> More
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link nav-link-comcast-style" href="#" aria-label="Search">
+                    <i class="fas fa-search"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="moreDropdown">
-                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-info-circle"></i> About
-                            Us</a></li>
-                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-question-circle"></i>
-                            FAQs</a></li>
-                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-shield-alt"></i> Privacy
-                            Policy</a></li>
-                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-undo-alt"></i> Refund
-                            Policy</a></li>
-                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-file-contract"></i>
-                            Terms & Conditions</a></li>
-                </ul>
             </li>
         </ul>
     </div>
 </nav>
 
-
-<main class="p-10 text-center bg-gradient-to-b from-white to-blue-50">
-    <h1 class="text-5xl font-extrabold mb-6 text-indigo-700">Empowering Your Learning Journey</h1>
-
-    <div class="flex flex-col md:flex-row justify-center items-center gap-6 my-10">
-        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl shadow-lg">
-            Book Free Demo
-        </button>
-        <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl shadow-lg"
-            (click)="openDemoForm()">
-            Book a Consultation
-        </button>
-    </div>
-
-    <!-- Why Learn With Us -->
-    <section class="py-10 px-6 bg-gradient-to-br from-indigo-50 to-white min-h-[80vh]">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-indigo-700 mb-6">Why Choose LearnWithJan?</h2>
-            <p class="text-lg text-gray-700 mb-8">
-                We empower students through personalized learning, structured content, and expert guidance.
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">✨ Personalized Coaching</h3>
-                    <p class="text-gray-600">Tailored sessions based on your grade, board, and learning goals.</p>
+<!-- Hero Section with Comcast-inspired Design -->
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Transform Your Learning Journey</h1>
+                    <p class="hero-subtitle">Discover premium educational experiences with our comprehensive academic and professional courses.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-comcast" (click)="openBookingForm('consultation')">Book a Free Consultation</button>
+                        <button class="btn btn-outline-light btn-comcast-outline" (click)="openBookingForm('demo')">Book a Free Demo</button>
+                    </div>
                 </div>
-
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">📚 Comprehensive Curriculum</h3>
-                    <p class="text-gray-600">CBSE, ICSE, State Boards — we’ve got everything covered.</p>
-                </div>
-
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">👨‍🏫 Expert Educators</h3>
-                    <p class="text-gray-600">Learn from certified mentors with years of classroom experience.</p>
-                </div>
-
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">💡 Interactive Learning</h3>
-                    <p class="text-gray-600">Live sessions, quizzes, and feedback for continuous improvement.</p>
-                </div>
-
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">🔒 Safe Learning Environment</h3>
-                    <p class="text-gray-600">Learn from home with complete safety and parental involvement.</p>
-                </div>
-
-                <div class="bg-white shadow-lg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">📞 Dedicated Support</h3>
-                    <p class="text-gray-600">Always available to help you with scheduling, feedback, and support.</p>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <div class="hero-placeholder">
+                            <i class="fas fa-laptop-code hero-icon"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-
-
-
-    <!-- Floating Contact Icons -->
-    <div class="fixed right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4 z-50">
-        <a href="mailto:support@learnwithjan.com" target="_blank">
-            <i class="fas fa-envelope fa-2x email-icon w-10 h-10 animate-bounce" style="color: #EA4335;"></i>
-        </a>
-        <a href="https://wa.me/1234567890" target="_blank">
-            <img src="assets/icons/whatsapp.svg" class="w-10 h-10 animate-bounce" alt="WhatsApp Icon" />
-        </a>
     </div>
+</section>
 
-    <!-- Modal Form -->
-    <div class="modal" *ngIf="showDemoForm">
-        <div class="modal-content">
-            <span class="close" (click)="closeDemoForm()">&times;</span>
-            <h2 class="text-xl font-bold mb-4">Free Demo Booking</h2>
-            <form class="space-y-4" (ngSubmit)="submitForm()">
-                <input class="input" type="text" [(ngModel)]="formData.name" name="name" placeholder="Your Name"
-                    required />
-                <input class="input" type="email" [(ngModel)]="formData.email" name="email" placeholder="Email"
-                    required />
-                <input class="input" type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="Phone Number"
-                    required />
-                <input class="input" type="text" [(ngModel)]="formData.grade" name="grade" placeholder="Grade"
-                    required />
-                <input class="input" type="text" [(ngModel)]="formData.board" name="board" placeholder="Board"
-                    required />
-                <button class="btn-primary w-full" type="submit">Submit</button>
-            </form>
+<!-- Features Section -->
+<section class="features-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">Why Choose Learn with Jan</h2>
+                <p class="section-subtitle">Empowering learners with world-class education and innovative teaching methods</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4" *ngFor="let feature of features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i [class]="feature.icon"></i>
+                    </div>
+                    <h3 class="feature-title">{{feature.title}}</h3>
+                    <p class="feature-description">{{feature.description}}</p>
+                </div>
+            </div>
         </div>
     </div>
-</main>
+</section>
 
-<!-- Fixed Footer -->
-<footer class="fixed-footer">
-    <p>Contact us at support&#64;learnwithjan.com | Phone: +91 12345 67890</p>
+<!-- Courses Section -->
+<section class="courses-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">Featured Courses</h2>
+                <p class="section-subtitle">Explore our most popular academic and professional programs</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4" *ngFor="let course of courses">
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-category">{{course.category}}</div>
+                        <h3 class="course-title">{{course.title}}</h3>
+                    </div>
+                    <p class="course-description">{{course.description}}</p>
+                    <div class="course-footer">
+                        <span class="course-duration">{{course.duration}}</span>
+                        <button class="btn btn-primary btn-sm btn-comcast-small">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-6 text-center mb-4" *ngFor="let stat of stats">
+                <div class="stat-card">
+                    <div class="stat-number">{{stat.number}}</div>
+                    <div class="stat-label">{{stat.label}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Floating Contact Icons -->
+<div class="floating-contacts">
+    <a href="https://wa.me/1234567890" target="_blank" class="contact-icon whatsapp-icon pulse" data-tooltip="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="mailto:info@learnwithjan.com" class="contact-icon email-icon" data-tooltip="Email Us">
+        <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:+1234567890" class="contact-icon call-icon" data-tooltip="Call Us">
+        <i class="fas fa-phone"></i>
+    </a>
+</div>
+
+<!-- Booking Form Modal -->
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true" #bookingModal>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content booking-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel">{{modalTitle}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="submitForm()" #bookingForm="ngForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name *</label>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="formData.name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address *</label>
+                        <input type="email" class="form-control" id="email" [(ngModel)]="formData.email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number *</label>
+                        <input type="tel" class="form-control" id="phone" [(ngModel)]="formData.phone" name="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="grade" class="form-label">Grade/Class *</label>
+                        <select class="form-control" id="grade" [(ngModel)]="formData.grade" name="grade" required>
+                            <option value="">Select Grade</option>
+                            <option value="1-5">Classes 1-5</option>
+                            <option value="6-8">Classes 6-8</option>
+                            <option value="9-10">Classes 9-10</option>
+                            <option value="11-12">Classes 11-12</option>
+                            <option value="college">College</option>
+                            <option value="professional">Professional</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="board" class="form-label">Board *</label>
+                        <select class="form-control" id="board" [(ngModel)]="formData.board" name="board" required>
+                            <option value="">Select Board</option>
+                            <option value="CBSE">CBSE</option>
+                            <option value="ICSE">ICSE</option>
+                            <option value="State Board">State Board</option>
+                            <option value="IB">IB</option>
+                            <option value="Cambridge">Cambridge</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-comcast">{{buttonText}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h5 class="footer-title">Learn with Jan</h5>
+                <p class="footer-text">Quality education for everyone</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="footer-copyright">© 2025 Learn with Jan. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
 </footer>
