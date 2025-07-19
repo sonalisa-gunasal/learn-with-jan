@@ -1,16 +1,360 @@
-.whatsapp-float {
+ /* General Body Styling (for demo purposes) */
+ body {
+     font-family: 'Lato', sans-serif;
+     background-color: #f0f2f5;
+     min-height: 150vh;
+     /* Just to show scroll behavior */
+ }
+
+ /* Navbar Styling */
+ .navbar-custom {
+     background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+     /* Deep blue to fiery red to warm yellow */
+     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+     /* Stronger, modern shadow */
+     padding: 1rem 2rem;
+     /* More generous padding */
+     animation: fadeInDown 0.8s ease-out;
+     /* Subtle entrance animation */
+     position: sticky;
+     /* Make it sticky */
+     top: 0;
+     z-index: 1050;
+     /* Ensure it stays on top */
+ }
+
+ @keyframes fadeInDown {
+     from {
+         opacity: 0;
+         transform: translateY(-20px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .navbar-brand-custom {
+     font-family: 'Poppins', sans-serif;
+     font-weight: 700;
+     font-size: 2rem;
+     /* Slightly larger brand */
+     color: #ffffff !important;
+     /* Pure white */
+     letter-spacing: 0.05em;
+     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+     transition: transform 0.3s ease-in-out;
+ }
+
+ .navbar-brand-custom:hover {
+     transform: scale(1.03);
+     /* Subtle scale on hover */
+ }
+
+ .nav-link-custom {
+     font-family: 'Lato', sans-serif;
+     font-weight: 600;
+     /* Bolder for readability */
+     color: rgba(255, 255, 255, 0.9) !important;
+     /* Slightly transparent white */
+     position: relative;
+     transition: all 0.3s ease-in-out;
+     padding: 0.75rem 1.2rem;
+     /* Adjust padding for better spacing */
+     margin: 0 5px;
+     /* Space between items */
+ }
+
+ .nav-link-custom:hover,
+ .nav-link-custom.active {
+     color: #ffffff !important;
+     /* Accent color from gradient for underline */
+     text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+     /* Subtle glow on hover */
+ }
+
+ .nav-link-custom::after {
+     content: '';
+     position: absolute;
+     width: 0;
+     height: 3px;
+     /* Thicker underline */
+     background-color: #fdbb2d;
+     /* Accent color from gradient for underline */
+     bottom: -5px;
+     /* Position below text */
+     left: 50%;
+     transform: translateX(-50%);
+     transition: width 0.3s ease-in-out;
+     border-radius: 2px;
+ }
+
+ .nav-link-custom:hover::after {
+     width: calc(100% - 20px);
+     /* Underline expands on hover, with a little margin */
+ }
+
+ /* Dropdown Menu Styling */
+ .dropdown-menu-custom {
+     background-color: #2c3e50;
+     /* Darker background for dropdowns */
+     border: none;
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+     padding: 0.5rem 0;
+     animation: fadeInScale 0.2s ease-out;
+     /* Dropdown entrance animation */
+     border-radius: 8px;
+     /* Rounded corners */
+     /* overflow: hidden; */
+     /* Ensures rounded corners apply to content */
+ }
+
+ @keyframes fadeInScale {
+     from {
+         opacity: 0;
+         transform: scale(0.95) translateY(-10px);
+     }
+
+     to {
+         opacity: 1;
+         transform: scale(1) translateY(0);
+     }
+ }
+
+ .dropdown-item-custom {
+     color: #ecf0f1;
+     padding: 0.8rem 1.8rem;
+     /* More padding */
+     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+     font-weight: 500;
+ }
+
+ .dropdown-item-custom:hover {
+     background-color: #2980b9;
+     /* Vibrant blue on hover */
+     color: #ffffff;
+     transform: translateX(5px);
+     /* Subtle slide effect */
+ }
+
+ /* Dropdown Submenu Specific Styling */
+ .dropdown-submenu {
+     position: relative;
+ }
+
+ .dropdown-submenu>.dropdown-menu-custom {
+     top: 0;
+     left: 100%;
+     /* Opens to the right */
+     margin-top: -6px;
+     /* Adjust vertical alignment */
+     margin-left: -5px;
+     /* Slight overlap with parent for seamless look */
+     border-radius: 8px;
+     visibility: hidden;
+     /* Hidden by default for JS control */
+     opacity: 0;
+     transform: scale(0.9) translateX(-10px);
+     transition: all 0.2s ease-in-out;
+ }
+
+ /* Using JS for display, but this ensures styling */
+ .dropdown-submenu:hover>.dropdown-menu-custom {
+     visibility: visible;
+     opacity: 1;
+     transform: scale(1) translateX(0);
+ }
+
+ /* Toggler Icon Styling */
+ .navbar-toggler-custom {
+     border-color: rgba(255, 255, 255, 0.6);
+     /* Lighter border */
+     transition: transform 0.2s ease-in-out;
+ }
+
+ .navbar-toggler-custom:focus {
+     box-shadow: none;
+     /* Remove default focus outline */
+ }
+
+ .navbar-toggler-icon-custom {
+     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+     filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+     /* Subtle shadow for definition */
+ }
+
+ /* Icons in Nav Links (Optional) */
+ .nav-link-custom i {
+     margin-right: 8px;
+     font-size: 1.1em;
+     color: rgba(255, 255, 255, 0.7);
+     transition: color 0.3s ease-in-out;
+ }
+
+ .nav-link-custom:hover i {
+     color: #fdbb2d;
+     /* Match accent color */
+ }
+
+ .dropdown-item-custom i {
+     margin-right: 10px;
+     font-size: 0.9em;
+     color: #ecf0f1;
+ }
+
+
+ /* Responsive Adjustments */
+ @media (max-width: 991.98px) {
+
+     /* For 'lg' breakpoint and smaller */
+     .navbar-collapse {
+         background-color: #2c3e50;
+         /* Darker background for collapsed menu */
+         border-radius: 0 0 8px 8px;
+         padding-bottom: 15px;
+     }
+
+     .nav-link-custom::after {
+         left: 10px;
+         /* Align underline for mobile */
+         transform: translateX(0);
+         width: calc(100% - 20px);
+         /* Full width underline on mobile */
+     }
+
+     .dropdown-menu-custom {
+         box-shadow: none;
+         /* Remove shadow for collapsed menu */
+         border-radius: 0;
+     }
+
+     .dropdown-submenu>.dropdown-menu-custom {
+         position: static;
+         /* Stack vertically in mobile */
+         left: auto;
+         margin-left: 15px;
+         /* Indent sub-items */
+         margin-top: 0;
+         transform: none;
+         visibility: visible;
+         /* Always visible in collapsed state */
+         opacity: 1;
+         display: none;
+         /* Hidden by default, toggled by custom JS/Bootstrap */
+     }
+
+     /* Add this to control nested dropdowns on mobile */
+     .dropdown-submenu.show>.dropdown-menu-custom {
+         display: block;
+         /* Show when parent is toggled */
+     }
+ }
+/* Ensure submenu positions correctly */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+  display: none;
+  position: absolute;
+  background-color: #343a40; /* dark submenu */
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.modal {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  background-color: #25D366;
-  border-radius: 50%;
-  padding: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex; /* important! */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-.whatsapp-float img {
-  width: 32px;
-  height: 32px;
+body {
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
 }
 
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #0d1b2a;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  z-index: 1000;
+}
+
+main {
+  margin-top: 80px; /* height of navbar */
+  margin-bottom: 60px; /* height of footer */
+  /* overflow-y: auto; */
+  /* height: calc(100vh - 140px);  */
+  /* 100vh - navbar - footer */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn-primary {
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+}
+
+.close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

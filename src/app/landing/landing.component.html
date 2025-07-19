@@ -1,73 +1,185 @@
-<main
-    class="text-gray-800 font-sans min-h-screen flex flex-col justify-between overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100">
-    <!-- Header -->
-    <header class="bg-white shadow p-4 sticky top-0 z-10">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-indigo-700">LearnWithJan</h1>
-            <nav class="space-x-6">
-                <a href="#" class="text-indigo-700 hover:underline">Home</a>
-                <a href="#registration" class="text-indigo-700 hover:underline">Registration</a>
-            </nav>
-        </div>
-    </header>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom px-4 fixed-header">
+    <div class="text-3xl font-extrabold text-indigo-600 tracking-tight">
+        <span class="bg-indigo-100 px-3 py-1 rounded-lg">LearnWithJan</span>
+    </div>
+    <button class="navbar-toggler navbar-toggler-custom" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon navbar-toggler-icon-custom"></span>
+    </button>
 
-    <!-- Body -->
-    <section class="flex-grow flex items-center justify-center text-center px-6">
-        <div class="max-w-3xl">
-            <h2 class="text-4xl font-extrabold mb-6 text-indigo-700">Connect for a Free Consultation</h2>
-            <p class="text-lg mb-8 text-gray-700">Start your learning journey with expert guidance and personal support
-                from Jan.</p>
-            <div class="space-x-4">
-                <a href="mailto:learnwithjan@example.com"
-                    class="bg-indigo-600 text-white px-5 py-3 rounded-lg shadow hover:bg-indigo-700 transition">Email
-                    Us</a>
-                <a href="https://wa.me/919876543210" target="_blank"
-                    class="bg-green-500 text-white px-5 py-3 rounded-lg shadow hover:bg-green-600 transition">Connect on
-                    WhatsApp</a>
+    <div class="navbar-collapse" id="navbarNavDropdown" #mainNavbarCollapse>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle nav-link-custom" href="#" id="academicCoursesDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-graduation-cap"></i> Academic Courses
+                </a>
+                <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="academicCoursesDropdown">
+                    <li><a class="dropdown-item dropdown-item-custom" [routerLink]="['/courses', 'math']"><i
+                                class="fas fa-calculator"></i> Math</a></li>
+                    <li><a class="dropdown-item dropdown-item-custom" [routerLink]="['/courses', 'science']"><i
+                                class="fas fa-flask"></i> Science</a></li>
+                    <li><a class="dropdown-item dropdown-item-custom" [routerLink]="['/courses', 'english']"><i
+                                class="fas fa-book"></i> English</a></li>
+
+                    <li class="dropdown-submenu" #submenu>
+                        <a class="dropdown-item dropdown-toggle dropdown-item-custom" href="#" id="boardsDropdown"
+                            role="button" aria-expanded="false">
+                            <i class="fas fa-clipboard-list"></i> Boards
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="boardsDropdown">
+                            <li><a class="dropdown-item dropdown-item-custom" href="#"><i
+                                        class="fas fa-check-circle"></i> CBSE</a></li>
+                            <li><a class="dropdown-item dropdown-item-custom" href="#"><i
+                                        class="fas fa-check-circle"></i> ICSE</a></li>
+                            <li><a class="dropdown-item dropdown-item-custom" href="#"><i
+                                        class="fas fa-check-circle"></i> State Board</a></li>
+                            <li><a class="dropdown-item dropdown-item-custom" href="#"><i
+                                        class="fas fa-check-circle"></i> IB</a></li>
+                            <li><a class="dropdown-item dropdown-item-custom" href="#"><i
+                                        class="fas fa-check-circle"></i> Cambridge</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle nav-link-custom" href="#" id="professionalCoursesDropdown"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-briefcase"></i> Professional Courses
+                </a>
+                <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="professionalCoursesDropdown">
+                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-desktop"></i> Web
+                            Development</a></li>
+                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-mobile-alt"></i> Mobile
+                            Development</a></li>
+                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-chart-line"></i> Data
+                            Science</a></li>
+                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-paint-brush"></i> UI/UX
+                            Design</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#contact"><i class="fas fa-address-book"></i>
+                    Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#query"><i
+                        class="fas fa-question-circle"></i> Raise your Query</a></li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle nav-link-custom" href="#" id="moreDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i> More
+                </a>
+                <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="moreDropdown">
+                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-info-circle"></i> About
+                            Us</a></li>
+                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-question-circle"></i>
+                            FAQs</a></li>
+                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-shield-alt"></i> Privacy
+                            Policy</a></li>
+                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-undo-alt"></i> Refund
+                            Policy</a></li>
+                    <li><a class="dropdown-item dropdown-item-custom" href="#"><i class="fas fa-file-contract"></i>
+                            Terms & Conditions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<main class="p-10 text-center bg-gradient-to-b from-white to-blue-50">
+    <h1 class="text-5xl font-extrabold mb-6 text-indigo-700">Empowering Your Learning Journey</h1>
+
+    <div class="flex flex-col md:flex-row justify-center items-center gap-6 my-10">
+        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl shadow-lg">
+            Book Free Demo
+        </button>
+        <button class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl shadow-lg"
+            (click)="openDemoForm()">
+            Book a Consultation
+        </button>
+    </div>
+
+    <!-- Why Learn With Us -->
+    <section class="py-10 px-6 bg-gradient-to-br from-indigo-50 to-white min-h-[80vh]">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold text-indigo-700 mb-6">Why Choose LearnWithJan?</h2>
+            <p class="text-lg text-gray-700 mb-8">
+                We empower students through personalized learning, structured content, and expert guidance.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">✨ Personalized Coaching</h3>
+                    <p class="text-gray-600">Tailored sessions based on your grade, board, and learning goals.</p>
+                </div>
+
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">📚 Comprehensive Curriculum</h3>
+                    <p class="text-gray-600">CBSE, ICSE, State Boards — we’ve got everything covered.</p>
+                </div>
+
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">👨‍🏫 Expert Educators</h3>
+                    <p class="text-gray-600">Learn from certified mentors with years of classroom experience.</p>
+                </div>
+
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">💡 Interactive Learning</h3>
+                    <p class="text-gray-600">Live sessions, quizzes, and feedback for continuous improvement.</p>
+                </div>
+
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">🔒 Safe Learning Environment</h3>
+                    <p class="text-gray-600">Learn from home with complete safety and parental involvement.</p>
+                </div>
+
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">📞 Dedicated Support</h3>
+                    <p class="text-gray-600">Always available to help you with scheduling, feedback, and support.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Registration Form -->
-    <section id="registration" class="bg-white py-10 px-6">
-        <div class="max-w-2xl mx-auto">
-            <h3 class="text-2xl font-bold text-indigo-700 mb-6 text-center">Register Now</h3>
-            <form class="space-y-4">
-                <input type="text" placeholder="Full Name" class="w-full border p-3 rounded shadow-sm" />
-                <input type="email" placeholder="Email Address" class="w-full border p-3 rounded shadow-sm" />
-                <input type="tel" placeholder="Phone Number" class="w-full border p-3 rounded shadow-sm" />
-                <textarea rows="3" placeholder="Your Message" class="w-full border p-3 rounded shadow-sm"></textarea>
-                <button type="submit"
-                    class="bg-indigo-600 text-white px-5 py-3 rounded-lg shadow hover:bg-indigo-700 transition w-full">Submit</button>
+
+
+
+    <!-- Floating Contact Icons -->
+    <div class="fixed right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4 z-50">
+        <a href="mailto:support@learnwithjan.com" target="_blank">
+            <i class="fas fa-envelope fa-2x email-icon w-10 h-10 animate-bounce" style="color: #EA4335;"></i>
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank">
+            <img src="assets/icons/whatsapp.svg" class="w-10 h-10 animate-bounce" alt="WhatsApp Icon" />
+        </a>
+    </div>
+
+    <!-- Modal Form -->
+    <div class="modal" *ngIf="showDemoForm">
+        <div class="modal-content">
+            <span class="close" (click)="closeDemoForm()">&times;</span>
+            <h2 class="text-xl font-bold mb-4">Free Demo Booking</h2>
+            <form class="space-y-4" (ngSubmit)="submitForm()">
+                <input class="input" type="text" [(ngModel)]="formData.name" name="name" placeholder="Your Name"
+                    required />
+                <input class="input" type="email" [(ngModel)]="formData.email" name="email" placeholder="Email"
+                    required />
+                <input class="input" type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="Phone Number"
+                    required />
+                <input class="input" type="text" [(ngModel)]="formData.grade" name="grade" placeholder="Grade"
+                    required />
+                <input class="input" type="text" [(ngModel)]="formData.board" name="board" placeholder="Board"
+                    required />
+                <button class="btn-primary w-full" type="submit">Submit</button>
             </form>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-4 text-center text-sm">
-        © 2025 LearnWithJan. All rights reserved.
-    </footer>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919876543210" target="_blank"
-        class="fixed bottom-5 right-5 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center animate-bounce"
-        title="Chat with us on WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
-            <path
-                d="M12.04 2.003c-5.528 0-10 4.471-10 10 0 1.767.462 3.495 1.338 5.012L2 22l5.149-1.335a9.942 9.942 0 0 0 4.891 1.248h.001c5.528 0 10-4.471 10-10s-4.472-9.91-10-9.91zm5.72 14.332c-.24.676-1.396 1.293-1.925 1.384-.504.087-1.153.122-1.867-.117-.429-.138-.977-.316-1.677-.621-2.951-1.272-4.878-4.429-5.032-4.637-.154-.209-1.202-1.6-1.202-3.054 0-1.452.758-2.17 1.028-2.474.269-.303.582-.378.776-.378h.497c.173 0 .39.028.6.46.24.524.815 1.81.886 1.94.072.13.115.282.023.462-.086.18-.13.293-.26.45-.13.157-.274.353-.39.475-.13.13-.266.27-.114.53.154.26.682 1.123 1.463 1.82 1.006.93 1.855 1.22 2.114 1.357.26.138.408.115.559-.068.145-.178.618-.717.785-.964.167-.245.345-.2.582-.12.238.078 1.51.713 1.77.842.26.13.43.193.494.3.065.104.065.612-.175 1.288z" />
-        </svg>
-    </a>
-
-    <!-- Floating Email Button -->
-    <!-- Floating Email Button -->
-    <a href="mailto:learnwithjan@example.com"
-        class="fixed bottom-5 right-24 z-50 bg-red-500 hover:bg-red-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center animate-bounce"
-        title="Email us">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
-            <path
-                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-        </svg>
-    </a>
-
-
+    </div>
 </main>
+
+<!-- Fixed Footer -->
+<footer class="fixed-footer">
+    <p>Contact us at support&#64;learnwithjan.com | Phone: +91 12345 67890</p>
+</footer>
