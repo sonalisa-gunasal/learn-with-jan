@@ -1,0 +1,25 @@
+<div class="page-content">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Mathematics Courses</h1>
+            <p class="page-subtitle">Master mathematical concepts with our expert-led courses</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 mb-4" *ngFor="let course of mathCourses">
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="course-level">{{course.level}}</div>
+                        <h3 class="course-title">{{course.title}}</h3>
+                    </div>
+                    <p class="course-description">{{course.description}}</p>
+                    <div class="course-details">
+                        <span class="course-duration"><i class="fas fa-clock"></i> {{course.duration}}</span>
+                        <span class="course-price">{{course.price}}</span>
+                    </div>
+                    <button class="btn btn-comcast btn-sm" (click)="enrollCourse(course.title)">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

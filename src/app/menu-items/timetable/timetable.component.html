@@ -1,0 +1,285 @@
+<div class="page-content timetable-page">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-magic me-3"></i>Smart Timetable Generator
+            </h1>
+            <p class="page-subtitle">Create your perfect study schedule in minutes with AI-powered time allocation</p>
+        </div>
+
+        <div class="row" *ngIf="!showTimetable">
+            <div class="col-lg-8 mx-auto">
+                <div class="generator-form-card">
+                    <div class="form-steps">
+                        <div class="step" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Basic Info</div>
+                        </div>
+                        <div class="step" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Subjects</div>
+                        </div>
+                        <div class="step" [class.active]="currentStep >= 3">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Preferences</div>
+                        </div>
+                    </div>
+
+                    <form (ngSubmit)="generateTimetable()" #timetableForm="ngForm">
+                        <!-- Step 1: Basic Information -->
+                        <div class="form-step" *ngIf="currentStep === 1">
+                            <h3 class="step-title">
+                                <i class="fas fa-user me-2"></i>Tell us about yourself
+                            </h3>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="studentName" class="form-label">Student Name</label>
+                                    <input type="text" class="form-control modern-input" id="studentName"
+                                        [(ngModel)]="formData.studentName" name="studentName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="grade" class="form-label">Grade/Class</label>
+                                    <select class="form-control modern-input" id="grade" [(ngModel)]="formData.grade"
+                                        name="grade" required>
+                                        <option value="">Select Grade</option>
+                                        <option value="6">Class 6</option>
+                                        <option value="7">Class 7</option>
+                                        <option value="8">Class 8</option>
+                                        <option value="9">Class 9</option>
+                                        <option value="10">Class 10</option>
+                                        <option value="11">Class 11</option>
+                                        <option value="12">Class 12</option>
+                                        <option value="college">College</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="studyHours" class="form-label">Daily Study Hours</label>
+                                    <select class="form-control modern-input" id="studyHours"
+                                        [(ngModel)]="formData.studyHours" name="studyHours" required>
+                                        <option value="">Select Hours</option>
+                                        <option value="2">2 hours</option>
+                                        <option value="3">3 hours</option>
+                                        <option value="4">4 hours</option>
+                                        <option value="5">5 hours</option>
+                                        <option value="6">6 hours</option>
+                                        <option value="8">8+ hours</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="startTime" class="form-label">Preferred Start Time</label>
+                                    <select class="form-control modern-input" id="startTime"
+                                        [(ngModel)]="formData.startTime" name="startTime" required>
+                                        <option value="">Select Time</option>
+                                        <option value="06:00">6:00 AM</option>
+                                        <option value="07:00">7:00 AM</option>
+                                        <option value="08:00">8:00 AM</option>
+                                        <option value="09:00">9:00 AM</option>
+                                        <option value="10:00">10:00 AM</option>
+                                        <option value="14:00">2:00 PM</option>
+                                        <option value="16:00">4:00 PM</option>
+                                        <option value="18:00">6:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button type="button" class="btn btn-modern" (click)="nextStep()">
+                                    Next <i class="fas fa-arrow-right ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Subject Selection -->
+                        <div class="form-step" *ngIf="currentStep === 2">
+                            <h3 class="step-title">
+                                <i class="fas fa-books me-2"></i>Select your subjects
+                            </h3>
+
+                            <div class="subjects-grid">
+                                <div class="subject-card" *ngFor="let subject of availableSubjects"
+                                    [class.selected]="isSubjectSelected(subject)" (click)="toggleSubject(subject)">
+                                    <div class="subject-icon">
+                                        <i [class]="subject.icon"></i>
+                                    </div>
+                                    <div class="subject-name">{{subject.name}}</div>
+                                    <div class="subject-check">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button type="button" class="btn btn-outline-modern" (click)="prevStep()">
+                                    <i class="fas fa-arrow-left me-2"></i>Back
+                                </button>
+                                <button type="button" class="btn btn-modern" (click)="nextStep()">
+                                    Next <i class="fas fa-arrow-right ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Preferences -->
+                        <div class="form-step" *ngIf="currentStep === 3">
+                            <h3 class="step-title">
+                                <i class="fas fa-sliders-h me-2"></i>Customize your schedule
+                            </h3>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Study Pattern</label>
+                                    <div class="radio-group">
+                                        <label class="radio-option">
+                                            <input type="radio" name="studyPattern" value="intensive"
+                                                [(ngModel)]="formData.studyPattern">
+                                            <span class="radio-custom"></span>
+                                            <div class="radio-content">
+                                                <div class="radio-title">Intensive</div>
+                                                <div class="radio-desc">Longer sessions, fewer breaks</div>
+                                            </div>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="studyPattern" value="balanced"
+                                                [(ngModel)]="formData.studyPattern">
+                                            <span class="radio-custom"></span>
+                                            <div class="radio-content">
+                                                <div class="radio-title">Balanced</div>
+                                                <div class="radio-desc">Mixed session lengths</div>
+                                            </div>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="studyPattern" value="frequent"
+                                                [(ngModel)]="formData.studyPattern">
+                                            <span class="radio-custom"></span>
+                                            <div class="radio-content">
+                                                <div class="radio-title">Frequent</div>
+                                                <div class="radio-desc">Short sessions, regular breaks</div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Break Duration</label>
+                                    <div class="radio-group">
+                                        <label class="radio-option">
+                                            <input type="radio" name="breakDuration" value="5"
+                                                [(ngModel)]="formData.breakDuration">
+                                            <span class="radio-custom"></span>
+                                            <span class="radio-title">5 minutes</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="breakDuration" value="10"
+                                                [(ngModel)]="formData.breakDuration">
+                                            <span class="radio-custom"></span>
+                                            <span class="radio-title">10 minutes</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="breakDuration" value="15"
+                                                [(ngModel)]="formData.breakDuration">
+                                            <span class="radio-custom"></span>
+                                            <span class="radio-title">15 minutes</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Additional Preferences</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" [(ngModel)]="formData.includeWeekends"
+                                            name="includeWeekends">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="checkbox-title">Include weekends</span>
+                                    </label>
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" [(ngModel)]="formData.includeMeals" name="includeMeals">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="checkbox-title">Include meal breaks</span>
+                                    </label>
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" [(ngModel)]="formData.includeExercise"
+                                            name="includeExercise">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="checkbox-title">Include exercise time</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button type="button" class="btn btn-outline-modern" (click)="prevStep()">
+                                    <i class="fas fa-arrow-left me-2"></i>Back
+                                </button>
+                                <button type="submit" class="btn btn-gradient-modern" [disabled]="isGenerating">
+                                    <i class="fas fa-magic me-2" *ngIf="!isGenerating"></i>
+                                    <i class="fas fa-spinner fa-spin me-2" *ngIf="isGenerating"></i>
+                                    {{isGenerating ? 'Generating...' : 'Generate Timetable'}}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Generated Timetable Display -->
+        <div class="row" *ngIf="showTimetable">
+            <div class="col-12">
+                <div class="timetable-header">
+                    <h2 class="timetable-title">
+                        <i class="fas fa-calendar-check me-3"></i>Your Personalized Study Schedule
+                    </h2>
+                    <div class="timetable-actions">
+                        <button class="btn btn-outline-modern" (click)="editTimetable()">
+                            <i class="fas fa-edit me-2"></i>Edit
+                        </button>
+                        <button class="btn btn-modern" (click)="downloadPDF()">
+                            <i class="fas fa-download me-2"></i>Download PDF
+                        </button>
+                    </div>
+                </div>
+
+                <div class="timetable-container" id="timetable-content">
+                    <div class="timetable-info">
+                        <div class="student-info">
+                            <h3>{{formData.studentName}}</h3>
+                            <p>Grade {{formData.grade}} • {{formData.studyHours}} hours daily</p>
+                        </div>
+                        <div class="schedule-summary">
+                            <div class="summary-item">
+                                <span class="label">Total Subjects:</span>
+                                <span class="value">{{selectedSubjects.length}}</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Study Pattern:</span>
+                                <span class="value">{{formData.studyPattern | titlecase}}</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Start Time:</span>
+                                <span class="value">{{formData.startTime}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="weekly-schedule">
+                        <div class="day-column" *ngFor="let day of weekDays">
+                            <div class="day-header">{{day}}</div>
+                            <div class="time-slots">
+                                <div class="time-slot" *ngFor="let slot of generatedSchedule[day]"
+                                    [class]="'slot-' + slot.type">
+                                    <div class="slot-time">{{slot.time}}</div>
+                                    <div class="slot-subject">{{slot.subject}}</div>
+                                    <div class="slot-duration">{{slot.duration}}min</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

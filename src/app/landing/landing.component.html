@@ -1,106 +1,122 @@
-<!-- Main Navigation Component -->
-<nav class="navbar navbar-expand-lg navbar-light navbar-comcast-style px-4">
-    <a class="navbar-brand navbar-brand-comcast-style" href="#">Learn with Jan</a>
-    
-    <button class="navbar-toggler navbar-toggler-comcast-style" type="button" 
-            (click)="toggleNavbar()" 
-            [attr.aria-expanded]="isNavbarCollapsed"
-            aria-controls="navbarNavDropdown" 
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngClass]="{'show': !isNavbarCollapsed}">
-        <ul class="navbar-nav mx-auto"> 
-            <li class="nav-item dropdown" 
-                (mouseenter)="showDropdown('academic')" 
-                (mouseleave)="hideDropdown('academic')">
-                <a class="nav-link dropdown-toggle nav-link-comcast-style" 
-                   href="#" 
-                   id="academicCoursesDropdown" 
-                   role="button"
-                   [attr.aria-expanded]="dropdownStates.academic">
-                    <i class="fas fa-graduation-cap"></i> Academic Courses
-                </a>
-                <ul class="dropdown-menu dropdown-menu-comcast-style" 
-                    [ngClass]="{'show': dropdownStates.academic}"
-                    aria-labelledby="academicCoursesDropdown">
-                    <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Math</a></li>
-                    <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Science</a></li>
-                    <li><a class="dropdown-item dropdown-item-comcast-style" href="#">English</a></li>
 
-                    <li class="dropdown-submenu" 
-                        (mouseenter)="showDropdown('boards')" 
-                        (mouseleave)="hideDropdown('boards')">
-                        <a class="dropdown-item dropdown-toggle dropdown-item-comcast-style" 
-                           href="#" 
-                           id="boardsDropdown"
-                           role="button" 
-                           [attr.aria-expanded]="dropdownStates.boards">
-                            <i class="fas fa-clipboard-list"></i> Boards
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-comcast-style" 
-                            [ngClass]="{'show': dropdownStates.boards}"
-                            aria-labelledby="boardsDropdown">
-                            <li><a class="dropdown-item dropdown-item-comcast-style" href="#">CBSE</a></li>
-                            <li><a class="dropdown-item dropdown-item-comcast-style" href="#">ICSE</a></li>
-                            <li><a class="dropdown-item dropdown-item-comcast-style" href="#">State Board</a></li>
-                            <li><a class="dropdown-item dropdown-item-comcast-style" href="#">IB</a></li>
-                            <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Cambridge</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav-item dropdown" 
-                (mouseenter)="showDropdown('professional')" 
-                (mouseleave)="hideDropdown('professional')">
-                <a class="nav-link dropdown-toggle nav-link-comcast-style" 
-                   href="#" 
-                   id="professionalCoursesDropdown"
-                   role="button" 
-                   [attr.aria-expanded]="dropdownStates.professional">
-                    <i class="fas fa-briefcase"></i> Professional Courses
-                </a>
-                <ul class="dropdown-menu dropdown-menu-comcast-style" 
-                    [ngClass]="{'show': dropdownStates.professional}"
-                    aria-labelledby="professionalCoursesDropdown">
-                    <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Web Development</a></li>
-                    <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Mobile Development</a></li>
-                </ul>
-            </li>
-
-            <li class="nav-item"><a class="nav-link nav-link-comcast-style" href="#">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-comcast-style" href="#">Raise your Query</a></li>
-        </ul>
-
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link nav-link-comcast-style" href="#" aria-label="Search">
-                    <i class="fas fa-search"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Hero Section with Comcast-inspired Design -->
+<!-- Hero Section with Background Video/Image -->
 <section class="hero-section">
+    <!-- Background Video -->
+    <div class="hero-background">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+    </div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="floating-icon" style="top: 20%; left: 10%; animation-delay: 0s;">📚</div>
+        <div class="floating-icon" style="top: 30%; right: 15%; animation-delay: 1s;">🎓</div>
+        <div class="floating-icon" style="bottom: 30%; left: 20%; animation-delay: 2s;">💡</div>
+        <div class="floating-icon" style="bottom: 20%; right: 25%; animation-delay: 3s;">🚀</div>
+        <div class="floating-icon" style="top: 60%; left: 5%; animation-delay: 4s;">⭐</div>
+        <div class="floating-icon" style="top: 70%; right: 10%; animation-delay: 5s;">🏆</div>
+    </div>
+
     <div class="hero-content">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="hero-title">Transform Your Learning Journey</h1>
-                    <p class="hero-subtitle">Discover premium educational experiences with our comprehensive academic and professional courses.</p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary btn-comcast" (click)="openBookingForm('consultation')">Book a Free Consultation</button>
-                        <button class="btn btn-outline-light btn-comcast-outline" (click)="openBookingForm('demo')">Book a Free Demo</button>
+                    <div class="hero-badge animate__animated animate__fadeInDown">
+                        🎯 #1 Online Learning Platform
+                    </div>
+                    <h1 class="hero-title animate__animated animate__fadeInLeft">
+                        Transform Your <span class="gradient-text">Learning Journey</span> Today!
+                    </h1>
+                    <p class="hero-subtitle animate__animated animate__fadeInLeft animate__delay-1s">
+                        Join 50,000+ successful students who achieved their dreams with our expert-led courses. 
+                        Get personalized learning, live sessions, and guaranteed results!
+                    </p>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="trust-indicators animate__animated animate__fadeInUp animate__delay-2s">
+                        <div class="trust-item">
+                            <i class="fas fa-star"></i>
+                            <span>4.9/5 Rating</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-users"></i>
+                            <span>50K+ Students</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certified Teachers</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
+                        <button class="btn btn-primary btn-modern pulse-button" (click)="openEnrollmentForm()">
+                            <i class="fas fa-rocket"></i> Enroll Now - FREE Demo
+                        </button>
+                        <button class="btn btn-outline-light btn-outline-modern" (click)="openBookingForm('consultation')">
+                            <i class="fas fa-phone"></i> Talk to Expert
+                        </button>
+                    </div>
+
+                    <!-- Limited Time Offer -->
+                    <div class="offer-banner animate__animated animate__fadeInUp animate__delay-4s">
+                        <div class="offer-content">
+                            <span class="offer-text">🔥 Limited Time: Get 50% OFF on all courses!</span>
+                            <span class="offer-timer">Ends in: <span id="countdown">23:59:45</span></span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="hero-image">
-                        <div class="hero-placeholder">
-                            <i class="fas fa-laptop-code hero-icon"></i>
+                    <div class="hero-visual animate__animated animate__fadeInRight animate__delay-1s">
+                        <div class="learning-dashboard">
+                            <div class="dashboard-header">
+                                <div class="user-avatar"></div>
+                                <div>
+                                    <div class="user-name">Sarah Johnson</div>
+                                    <div class="user-progress">Mathematics Student</div>
+                                </div>
+                            </div>
+                            <div class="progress-ring">
+                                <div class="progress-value">95%</div>
+                                <div class="progress-label">Course Completion</div>
+                            </div>
+                            <div class="achievement-badges">
+                                <div class="badge-item">🏆 Top Performer</div>
+                                <div class="badge-item">📈 98% Test Score</div>
+                                <div class="badge-item">⚡ Fast Learner</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Stories Section -->
+<section class="success-stories-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">🌟 Student Success Stories</h2>
+                <p class="section-subtitle">Real results from real students who transformed their lives</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4" *ngFor="let story of successStories">
+                <div class="success-card">
+                    <div class="student-photo">
+                        <img [src]="story.photo" [alt]="story.name" class="student-img">
+                        <div class="success-badge">{{story.achievement}}</div>
+                    </div>
+                    <div class="story-content">
+                        <h4 class="student-name">{{story.name}}</h4>
+                        <p class="student-grade">{{story.grade}}</p>
+                        <p class="story-text">"{{story.testimonial}}"</p>
+                        <div class="improvement-stats">
+                            <span class="stat-improvement">{{story.improvement}}</span>
                         </div>
                     </div>
                 </div>
@@ -114,18 +130,61 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-5">
-                <h2 class="section-title">Why Choose Learn with Jan</h2>
-                <p class="section-subtitle">Empowering learners with world-class education and innovative teaching methods</p>
+                <h2 class="section-title">🚀 Why Parents & Students Choose Us</h2>
+                <p class="section-subtitle">Proven methods that guarantee academic success and personal growth</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4 mb-4" *ngFor="let feature of features">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i [class]="feature.icon"></i>
+                <div class="modern-card">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">
+                            <i [class]="feature.icon"></i>
+                        </div>
+                        <div class="icon-glow"></div>
                     </div>
                     <h3 class="feature-title">{{feature.title}}</h3>
                     <p class="feature-description">{{feature.description}}</p>
+                    <div class="feature-benefits">
+                        <div class="benefit-item" *ngFor="let benefit of feature.benefits">
+                            <i class="fas fa-check-circle"></i>
+                            <span>{{benefit}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Parent Testimonials Section -->
+<section class="parent-testimonials-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">👨‍👩‍👧‍👦 What Parents Say</h2>
+                <p class="section-subtitle">Trusted by thousands of families worldwide</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4" *ngFor="let testimonial of parentTestimonials">
+                <div class="parent-testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="parent-info">
+                            <img [src]="testimonial.photo" [alt]="testimonial.parentName" class="parent-photo">
+                            <div>
+                                <h5 class="parent-name">{{testimonial.parentName}}</h5>
+                                <p class="child-info">Parent of {{testimonial.childName}}, {{testimonial.childGrade}}</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"{{testimonial.testimonial}}"</p>
+                    <div class="result-highlight">
+                        <span class="result-text">{{testimonial.result}}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -137,23 +196,130 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-5">
-                <h2 class="section-title">Featured Courses</h2>
-                <p class="section-subtitle">Explore our most popular academic and professional programs</p>
+                <h2 class="section-title">🎯 Most Popular Courses</h2>
+                <p class="section-subtitle">Join thousands of students in our top-rated programs</p>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 mb-4" *ngFor="let course of courses">
-                <div class="course-card">
+                <div class="course-card enhanced-course-card">
+                    <div class="course-badge">{{course.badge}}</div>
                     <div class="course-header">
                         <div class="course-category">{{course.category}}</div>
                         <h3 class="course-title">{{course.title}}</h3>
                     </div>
                     <p class="course-description">{{course.description}}</p>
+                    
+                    <div class="course-features">
+                        <div class="feature-item" *ngFor="let feature of course.features">
+                            <i class="fas fa-check"></i>
+                            <span>{{feature}}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <span>{{course.students}} students</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-star"></i>
+                            <span>{{course.rating}}/5</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span>{{course.duration}}</span>
+                        </div>
+                    </div>
+                    
                     <div class="course-footer">
-                        <span class="course-duration">{{course.duration}}</span>
-                        <button class="btn btn-primary btn-sm btn-comcast-small">Enroll Now</button>
+                        <div class="price-section">
+                            <span class="original-price">₹{{course.originalPrice}}</span>
+                            <span class="current-price">₹{{course.currentPrice}}</span>
+                            <span class="discount">{{course.discount}}% OFF</span>
+                        </div>
+                        <button class="btn btn-primary btn-enroll pulse-button" (click)="openEnrollmentForm(course.title)">
+                            <i class="fas fa-rocket"></i> Enroll Now
+                        </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Guarantee Section -->
+<section class="guarantee-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="guarantee-content">
+                    <h2 class="guarantee-title">🛡️ 100% Success Guarantee</h2>
+                    <p class="guarantee-subtitle">We're so confident in our teaching methods that we offer a money-back guarantee!</p>
+                    <div class="guarantee-features">
+                        <div class="guarantee-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>30-Day Money Back</h4>
+                                <p>Not satisfied? Get full refund within 30 days</p>
+                            </div>
+                        </div>
+                        <div class="guarantee-item">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <h4>Grade Improvement Promise</h4>
+                                <p>See at least 2 grade improvement or get extra sessions free</p>
+                            </div>
+                        </div>
+                        <div class="guarantee-item">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <h4>24/7 Support</h4>
+                                <p>Round-the-clock academic and technical support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="guarantee-visual">
+                    <div class="guarantee-badge">
+                        <div class="badge-content">
+                            <i class="fas fa-certificate"></i>
+                            <h3>100%</h3>
+                            <p>Success Rate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Urgency Section -->
+<section class="urgency-section">
+    <div class="container">
+        <div class="urgency-banner">
+            <div class="urgency-content">
+                <h2 class="urgency-title">⏰ Don't Miss Out!</h2>
+                <p class="urgency-text">Only <span class="highlight">47 spots</span> left for this month's batch!</p>
+                <div class="urgency-timer">
+                    <div class="timer-item">
+                        <span class="timer-number" id="hours">23</span>
+                        <span class="timer-label">Hours</span>
+                    </div>
+                    <div class="timer-item">
+                        <span class="timer-number" id="minutes">59</span>
+                        <span class="timer-label">Minutes</span>
+                    </div>
+                    <div class="timer-item">
+                        <span class="timer-number" id="seconds">45</span>
+                        <span class="timer-label">Seconds</span>
+                    </div>
+                </div>
+                <button class="btn btn-urgent pulse-button" (click)="openEnrollmentForm()">
+                    <i class="fas fa-bolt"></i> Secure Your Spot Now!
+                </button>
             </div>
         </div>
     </div>
@@ -173,20 +339,171 @@
     </div>
 </section>
 
-<!-- Floating Contact Icons -->
-<div class="floating-contacts">
-    <a href="https://wa.me/1234567890" target="_blank" class="contact-icon whatsapp-icon pulse" data-tooltip="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="mailto:info@learnwithjan.com" class="contact-icon email-icon" data-tooltip="Email Us">
-        <i class="fas fa-envelope"></i>
-    </a>
-    <a href="tel:+1234567890" class="contact-icon call-icon" data-tooltip="Call Us">
-        <i class="fas fa-phone"></i>
-    </a>
+
+<!-- Enhanced Enrollment Form Modal -->
+<div class="modal fade" id="enrollmentModal" tabindex="-1" aria-labelledby="enrollmentModalLabel" aria-hidden="true" #enrollmentModal>
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content enrollment-modal">
+            <div class="modal-header">
+                <div class="modal-header-content">
+                    <h5 class="modal-title" id="enrollmentModalLabel">
+                        <i class="fas fa-rocket"></i> {{modalTitle}}
+                    </h5>
+                    <p class="modal-subtitle">Join 50,000+ successful students today!</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Special Offer Banner -->
+                <div class="offer-banner-modal">
+                    <div class="offer-content">
+                        <span class="offer-icon">🎉</span>
+                        <span class="offer-text">Special Offer: Get 50% OFF + FREE Demo Session!</span>
+                        <span class="offer-timer">Limited Time: <span id="modal-countdown">23:59:45</span></span>
+                    </div>
+                </div>
+
+                <form (ngSubmit)="submitEnrollmentForm()" #enrollmentForm="ngForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="studentName" class="form-label">Student's Full Name *</label>
+                            <input type="text" class="form-control" id="studentName" [(ngModel)]="enrollmentData.studentName" name="studentName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="parentName" class="form-label">Parent's Name *</label>
+                            <input type="text" class="form-control" id="parentName" [(ngModel)]="enrollmentData.parentName" name="parentName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="email" [(ngModel)]="enrollmentData.email" name="email" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="phone" class="form-label">WhatsApp Number *</label>
+                            <input type="tel" class="form-control" id="phone" [(ngModel)]="enrollmentData.phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="grade" class="form-label">Current Grade/Class *</label>
+                            <select class="form-control" id="grade" [(ngModel)]="enrollmentData.grade" name="grade" required>
+                                <option value="">Select Grade</option>
+                                <option value="1">Class 1</option>
+                                <option value="2">Class 2</option>
+                                <option value="3">Class 3</option>
+                                <option value="4">Class 4</option>
+                                <option value="5">Class 5</option>
+                                <option value="6">Class 6</option>
+                                <option value="7">Class 7</option>
+                                <option value="8">Class 8</option>
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10</option>
+                                <option value="11">Class 11</option>
+                                <option value="12">Class 12</option>
+                                <option value="college">College</option>
+                                <option value="professional">Professional</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="board" class="form-label">Board/Curriculum *</label>
+                            <select class="form-control" id="board" [(ngModel)]="enrollmentData.board" name="board" required>
+                                <option value="">Select Board</option>
+                                <option value="CBSE">CBSE</option>
+                                <option value="ICSE">ICSE</option>
+                                <option value="State Board">State Board</option>
+                                <option value="IB">IB (International Baccalaureate)</option>
+                                <option value="Cambridge">Cambridge</option>
+                                <option value="IGCSE">IGCSE</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="subjects" class="form-label">Subjects of Interest *</label>
+                            <select class="form-control" id="subjects" [(ngModel)]="enrollmentData.subjects" name="subjects" required multiple>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science (Physics/Chemistry/Biology)</option>
+                                <option value="English">English</option>
+                                <option value="Social Studies">Social Studies</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Mobile Development">Mobile Development</option>
+                                <option value="All Subjects">All Subjects</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="preferredTime" class="form-label">Preferred Class Time *</label>
+                            <select class="form-control" id="preferredTime" [(ngModel)]="enrollmentData.preferredTime" name="preferredTime" required>
+                                <option value="">Select Time</option>
+                                <option value="Morning (6 AM - 12 PM)">Morning (6 AM - 12 PM)</option>
+                                <option value="Afternoon (12 PM - 6 PM)">Afternoon (12 PM - 6 PM)</option>
+                                <option value="Evening (6 PM - 10 PM)">Evening (6 PM - 10 PM)</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="currentPerformance" class="form-label">Current Academic Performance</label>
+                        <select class="form-control" id="currentPerformance" [(ngModel)]="enrollmentData.currentPerformance" name="currentPerformance">
+                            <option value="">Select Performance Level</option>
+                            <option value="Excellent (90%+)">Excellent (90%+)</option>
+                            <option value="Good (75-89%)">Good (75-89%)</option>
+                            <option value="Average (60-74%)">Average (60-74%)</option>
+                            <option value="Below Average (<60%)">Below Average (<60%)</option>
+                            <option value="Need Improvement">Need Significant Improvement</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="goals" class="form-label">Learning Goals</label>
+                        <textarea class="form-control" id="goals" [(ngModel)]="enrollmentData.goals" name="goals" rows="3" placeholder="What do you want to achieve? (e.g., improve grades, prepare for exams, learn new skills)"></textarea>
+                    </div>
+                    
+                    <!-- Benefits Reminder -->
+                    <div class="benefits-reminder">
+                        <h6>🎁 What You Get:</h6>
+                        <div class="benefit-list">
+                            <div class="benefit-item"><i class="fas fa-check"></i> FREE Demo Session</div>
+                            <div class="benefit-item"><i class="fas fa-check"></i> Personalized Learning Plan</div>
+                            <div class="benefit-item"><i class="fas fa-check"></i> 24/7 Doubt Support</div>
+                            <div class="benefit-item"><i class="fas fa-check"></i> Progress Tracking</div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-enrollment pulse-button">
+                            <i class="fas fa-rocket"></i> {{buttonText}} - Get 50% OFF!
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Trust Indicators -->
+                <div class="trust-indicators-modal">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>100% Secure</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-users"></i>
+                        <span>50K+ Happy Students</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-medal"></i>
+                        <span>Award Winning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<!-- Booking Form Modal -->
+<!-- Booking Form Modal (for consultation) -->
 <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true" #bookingModal>
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content booking-modal">
@@ -240,24 +557,3 @@
         </div>
     </div>
 </div>
-
-<!-- Footer -->
-<footer class="footer-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h5 class="footer-title">Learn with Jan</h5>
-                <p class="footer-text">Quality education for everyone</p>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                </div>
-                <p class="footer-copyright">© 2025 Learn with Jan. All rights reserved.</p>
-            </div>
-        </div>
-    </div>
-</footer>

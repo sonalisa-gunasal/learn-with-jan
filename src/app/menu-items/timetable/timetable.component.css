@@ -1,0 +1,600 @@
+/* Timetable Generator Styles */
+.timetable-page {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+}
+
+.generator-form-card {
+  background: white;
+  border-radius: 25px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 51, 102, 0.1);
+  border: 1px solid rgba(0, 86, 179, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.generator-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #003366, #0056b3, #ff6b35, #f7931e);
+}
+
+/* Form Steps */
+.form-steps {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.form-steps::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: #e9ecef;
+  z-index: 1;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e9ecef;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+  background: linear-gradient(135deg, #0056b3, #003366);
+  color: white;
+  transform: scale(1.1);
+}
+
+.step.completed .step-number {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+}
+
+.step-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+
+.step.active .step-label,
+.step.completed .step-label {
+  color: #003366;
+}
+
+/* Form Steps Content */
+.form-step {
+  min-height: 400px;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.step-title i {
+  color: #ff6b35;
+}
+
+/* Modern Form Controls */
+.modern-input {
+  border: 2px solid #e9ecef;
+  border-radius: 15px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.modern-input:focus {
+  border-color: #0056b3;
+  background: white;
+  box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Subject Selection Grid */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.subject-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.subject-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 86, 179, 0.05), transparent);
+  transition: left 0.6s ease;
+}
+
+.subject-card:hover {
+  border-color: #0056b3;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 86, 179, 0.15);
+}
+
+.subject-card:hover::before {
+  left: 100%;
+}
+
+.subject-card.selected {
+  border-color: #ff6b35;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  transform: translateY(-5px) scale(1.02);
+}
+
+.subject-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #0056b3;
+}
+
+.subject-card.selected .subject-icon {
+  color: white;
+}
+
+.subject-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.subject-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  background: #28a745;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.subject-card.selected .subject-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Radio and Checkbox Groups */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.radio-option,
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.radio-option:hover,
+.checkbox-option:hover {
+  border-color: #0056b3;
+  background: white;
+  transform: translateX(5px);
+}
+
+.radio-option input,
+.checkbox-option input {
+  display: none;
+}
+
+.radio-custom,
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #dee2e6;
+  margin-right: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.radio-custom {
+  border-radius: 50%;
+}
+
+.checkbox-custom {
+  border-radius: 5px;
+}
+
+.radio-option input:checked + .radio-custom,
+.checkbox-option input:checked + .checkbox-custom {
+  border-color: #ff6b35;
+  background: #ff6b35;
+}
+
+.radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease;
+}
+
+.checkbox-custom::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease;
+}
+
+.radio-option input:checked + .radio-custom::after,
+.checkbox-option input:checked + .checkbox-custom::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.radio-content {
+  flex: 1;
+}
+
+.radio-title,
+.checkbox-title {
+  font-weight: 600;
+  color: #003366;
+}
+
+.radio-desc {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
+/* Step Actions */
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.btn-modern,
+.btn-outline-modern,
+.btn-gradient-modern,
+.btn-modern-white {
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-modern {
+  background: linear-gradient(135deg, #0056b3, #003366);
+  color: white;
+}
+
+.btn-outline-modern {
+  background: transparent;
+  color: #0056b3;
+  border: 2px solid #0056b3;
+}
+
+.btn-gradient-modern {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  transform: scale(1);
+}
+
+.btn-modern-white {
+  background: white;
+  color: #003366;
+  border: 2px solid white;
+}
+
+.btn-modern:hover,
+.btn-gradient-modern:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 86, 179, 0.3);
+}
+
+.btn-outline-modern:hover {
+  background: #0056b3;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.btn-modern-white:hover {
+  background: #f8f9fa;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
+}
+
+/* Timetable Display */
+.timetable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 51, 102, 0.1);
+}
+
+.timetable-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003366;
+  margin: 0;
+}
+
+.timetable-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.timetable-container {
+  background: white;
+  border-radius: 25px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 51, 102, 0.1);
+}
+
+.timetable-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #f8f9fa;
+}
+
+.student-info h3 {
+  color: #003366;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.student-info p {
+  color: #6c757d;
+  margin: 0;
+}
+
+.schedule-summary {
+  display: flex;
+  gap: 2rem;
+}
+
+.summary-item {
+  text-align: center;
+}
+
+.summary-item .label {
+  display: block;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+.summary-item .value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #003366;
+}
+
+/* Weekly Schedule Grid */
+.weekly-schedule {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.day-column {
+  background: #f8f9fa;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.day-header {
+  background: linear-gradient(135deg, #003366, #0056b3);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.time-slots {
+  padding: 1rem;
+}
+
+.time-slot {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.slot-study {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border-left: 4px solid #2196f3;
+}
+
+.slot-break {
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  border-left: 4px solid #ff9800;
+}
+
+.slot-meal {
+  background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+  border-left: 4px solid #4caf50;
+}
+
+.slot-exercise {
+  background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+  border-left: 4px solid #e91e63;
+}
+
+.slot-time {
+  font-weight: 700;
+  color: #003366;
+  font-size: 0.8rem;
+}
+
+.slot-subject {
+  font-weight: 600;
+  margin: 0.25rem 0;
+}
+
+.slot-duration {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .generator-form-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .form-steps {
+    margin-bottom: 2rem;
+  }
+  
+  .step {
+    margin: 0 1rem;
+  }
+  
+  .subjects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  
+  .timetable-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .timetable-info {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .schedule-summary {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .weekly-schedule {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation Classes */
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s ease forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

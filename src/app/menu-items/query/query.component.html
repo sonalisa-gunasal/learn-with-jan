@@ -1,0 +1,112 @@
+<div class="page-content">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Raise Your Query</h1>
+            <p class="page-subtitle">Get instant help with your learning questions</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 mb-5">
+                <div class="query-form-card">
+                    <h3>Ask Your Question</h3>
+                    <form (ngSubmit)="submitQuery()" #queryForm="ngForm">
+                        <div class="mb-3">
+                            <label for="studentName" class="form-label">Student Name *</label>
+                            <input type="text" class="form-control" id="studentName" [(ngModel)]="queryData.studentName"
+                                name="studentName" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="grade" class="form-label">Grade/Class *</label>
+                                <select class="form-control" id="grade" [(ngModel)]="queryData.grade" name="grade"
+                                    required>
+                                    <option value="">Select Grade</option>
+                                    <option value="1-5">Classes 1-5</option>
+                                    <option value="6-8">Classes 6-8</option>
+                                    <option value="9-10">Classes 9-10</option>
+                                    <option value="11-12">Classes 11-12</option>
+                                    <option value="college">College</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <select class="form-control" id="subject" [(ngModel)]="queryData.subject" name="subject"
+                                    required>
+                                    <option value="">Select Subject</option>
+                                    <option value="mathematics">Mathematics</option>
+                                    <option value="science">Science</option>
+                                    <option value="english">English</option>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="mobile-development">Mobile Development</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="priority" class="form-label">Priority Level *</label>
+                            <select class="form-control" id="priority" [(ngModel)]="queryData.priority" name="priority"
+                                required>
+                                <option value="">Select Priority</option>
+                                <option value="low">Low - General Question</option>
+                                <option value="medium">Medium - Assignment Help</option>
+                                <option value="high">High - Urgent Doubt</option>
+                                <option value="critical">Critical - Exam Tomorrow</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="question" class="form-label">Your Question *</label>
+                            <textarea class="form-control" id="question" rows="6" [(ngModel)]="queryData.question"
+                                name="question" placeholder="Describe your question in detail..." required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email for Response *</label>
+                            <input type="email" class="form-control" id="email" [(ngModel)]="queryData.email"
+                                name="email" required>
+                        </div>
+                        <button type="submit" class="btn btn-comcast">Submit Query</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="query-info-card">
+                    <h3>Query Guidelines</h3>
+
+                    <div class="guideline-item">
+                        <i class="fas fa-clock text-success"></i>
+                        <div>
+                            <h5>Response Time</h5>
+                            <p>Critical: Within 1 hour<br>High: Within 4 hours<br>Medium: Within 24 hours<br>Low: Within
+                                48 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-item">
+                        <i class="fas fa-lightbulb text-warning"></i>
+                        <div>
+                            <h5>Best Practices</h5>
+                            <p>• Be specific with your question<br>• Include relevant context<br>• Mention what you've
+                                already tried<br>• Add screenshots if helpful</p>
+                        </div>
+                    </div>
+
+                    <div class="guideline-item">
+                        <i class="fas fa-users text-primary"></i>
+                        <div>
+                            <h5>Expert Support</h5>
+                            <p>Our qualified teachers and tutors are ready to help you succeed in your studies.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <h3>Frequently Asked</h3>
+                    <div class="faq-item" *ngFor="let faq of frequentQuestions">
+                        <h6>{{faq.question}}</h6>
+                        <p>{{faq.answer}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
