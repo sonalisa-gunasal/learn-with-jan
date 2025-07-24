@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 })
 export class LandingComponent  {
   // @ViewChildren finds all elements with #submenu (like the 'Boards' li)
- title = 'Learn with Jan';
+ title = 'GlobalEdge';
   isNavbarCollapsed = true;
   modalTitle = '';
   buttonText = '';
@@ -63,7 +63,7 @@ export class LandingComponent  {
       grade: 'Class 12, CBSE',
       photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
       achievement: 'IIT JEE Qualified',
-      testimonial: 'The personalized study plan and mock tests helped me crack JEE with AIR 2847. Thank you Learn with Jan!',
+      testimonial: 'The personalized study plan and mock tests helped me crack JEE with AIR 2847. Thank you GlobalEdge!',
       improvement: 'IIT JEE Success'
     },
     {

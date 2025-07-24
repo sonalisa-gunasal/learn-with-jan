@@ -25,3 +25,9 @@ section {
 .card:hover {
   transform: scale(1.03);
 } */
+
+.site-logo {
+  height: 45px;
+  width: 45px;
+  margin-right: 10px;
+}

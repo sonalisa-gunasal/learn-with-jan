@@ -1,0 +1,186 @@
+<!-- Professional Courses Hero Section -->
+<section class="professional-hero-section">
+  <div class="hero-background-image"></div>
+  <div class="hero-overlay"></div>
+  
+  <div class="floating-elements">
+    <div class="floating-icon" style="top: 15%; left: 10%; animation-delay: 0s;">💻</div>
+    <div class="floating-icon" style="top: 25%; right: 15%; animation-delay: 1s;">🚀</div>
+    <div class="floating-icon" style="bottom: 30%; left: 12%; animation-delay: 2s;">📱</div>
+    <div class="floating-icon" style="bottom: 20%; right: 18%; animation-delay: 3s;">⚡</div>
+    <div class="floating-icon" style="top: 60%; left: 8%; animation-delay: 4s;">🎯</div>
+    <div class="floating-icon" style="top: 45%; right: 10%; animation-delay: 5s;">💡</div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content text-center">
+      <div class="hero-badge animate__animated animate__fadeInDown">
+        <i class="fas fa-briefcase"></i>
+        <span>Professional Development</span>
+      </div>
+      <h1 class="hero-title animate__animated animate__fadeInUp">
+        Launch Your <span class="gradient-text">Tech Career</span>
+      </h1>
+      <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+        Master in-demand skills with industry-focused courses designed by professionals. 
+        Get job-ready with hands-on projects and real-world experience.
+      </p>
+      <div class="hero-stats animate__animated animate__fadeInUp animate__delay-2s">
+        <div class="stat-item">
+          <div class="stat-number">15K+</div>
+          <div class="stat-label">Career Transitions</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">95%</div>
+          <div class="stat-label">Job Placement</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Hiring Partners</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Professional Courses Grid -->
+<section class="professional-courses-section">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title">Professional Courses</h2>
+      <p class="section-subtitle">Choose from our comprehensive range of industry-focused programs</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let course of professionalCourses">
+        <div class="professional-course-card">
+          <div class="course-image">
+            <img [src]="course.image" [alt]="course.title">
+            <div class="course-level-badge">{{course.level}}</div>
+            <div class="course-rating">
+              <i class="fas fa-star"></i>
+              <span>{{course.rating}}</span>
+            </div>
+          </div>
+          
+          <div class="course-content">
+            <h3 class="course-title">{{course.title}}</h3>
+            <p class="course-description">{{course.description}}</p>
+            
+            <div class="course-meta">
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span>{{course.duration}}</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>{{course.students}}+ students</span>
+              </div>
+            </div>
+
+            <div class="course-skills">
+              <span class="skill-tag" *ngFor="let skill of course.skills">{{skill}}</span>
+            </div>
+
+            <div class="course-features">
+              <div class="feature-item" *ngFor="let feature of course.features.slice(0, 3)">
+                <i class="fas fa-check-circle"></i>
+                <span>{{feature}}</span>
+              </div>
+              <div class="more-features" *ngIf="course.features.length > 3">
+                +{{course.features.length - 3}} more features
+              </div>
+            </div>
+
+            <div class="course-pricing">
+              <span class="original-price">{{course.originalPrice}}</span>
+              <span class="current-price">{{course.price}}</span>
+              <span class="discount-badge">50% OFF</span>
+            </div>
+
+            <div class="course-actions">
+              <button class="btn btn-primary-modern btn-enroll">
+                <i class="fas fa-rocket"></i>
+                Enroll Now
+              </button>
+              <button class="btn btn-outline-modern btn-demo">
+                <i class="fas fa-play"></i>
+                Free Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Career Support Section -->
+<section class="career-support-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="support-content">
+          <h2 class="support-title">Complete Career Support</h2>
+          <p class="support-description">
+            We don't just teach you skills - we help you land your dream job with comprehensive career support.
+          </p>
+          <div class="support-features">
+            <div class="support-feature">
+              <div class="feature-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="feature-content">
+                <h4>Resume Building</h4>
+                <p>Professional resume review and optimization</p>
+              </div>
+            </div>
+            <div class="support-feature">
+              <div class="feature-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <div class="feature-content">
+                <h4>Interview Preparation</h4>
+                <p>Mock interviews and technical preparation</p>
+              </div>
+            </div>
+            <div class="support-feature">
+              <div class="feature-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div class="feature-content">
+                <h4>Job Placement</h4>
+                <p>Direct connections with hiring partners</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="support-image">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop" alt="Career Support">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="professional-cta-section">
+  <div class="container">
+    <div class="cta-content text-center">
+      <h2 class="cta-title">Ready to Transform Your Career?</h2>
+      <p class="cta-subtitle">Join thousands of professionals who have successfully transitioned to tech careers</p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary-modern btn-lg">
+          <i class="fas fa-rocket"></i>
+          Start Your Journey
+        </button>
+        <button class="btn btn-outline-light btn-lg">
+          <i class="fas fa-phone"></i>
+          Talk to Counselor
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

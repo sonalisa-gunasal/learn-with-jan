@@ -1,48 +1,37 @@
 <!-- Main Navigation Component -->
-<!-- Main Navigation Component -->
 <nav class="navbar navbar-expand-lg navbar-light navbar-comcast-style px-4">
-    <a class="navbar-brand navbar-brand-comcast-style" routerLink="/">Learn with Jan</a>
-    
-    <button class="navbar-toggler navbar-toggler-comcast-style" type="button" 
-            (click)="toggleNavbar()" 
-            [attr.aria-expanded]="isNavbarCollapsed"
-            aria-controls="navbarNavDropdown" 
-            aria-label="Toggle navigation">
+    <img src="assets/icons/logo.jpeg" alt="Site Logo" class="site-logo">
+    <a class="navbar-brand navbar-brand-comcast-style" routerLink="/">GlobalEdge</a>
+
+    <button class="navbar-toggler navbar-toggler-comcast-style" type="button" (click)="toggleNavbar()"
+        [attr.aria-expanded]="isNavbarCollapsed" aria-controls="navbarNavDropdown" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngClass]="{'show': !isNavbarCollapsed}">
-        <ul class="navbar-nav mx-auto"> 
-            <li class="nav-item dropdown" 
-                (mouseenter)="showDropdown('academic')" 
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/about">About Us</a></li>
+            <li class="nav-item dropdown" (mouseenter)="showDropdown('academic')"
                 (mouseleave)="hideDropdown('academic')">
-                <a class="nav-link dropdown-toggle nav-link-comcast-style" 
-                   href="#" 
-                   id="academicCoursesDropdown" 
-                   role="button"
-                   [attr.aria-expanded]="dropdownStates.academic">
+                <a class="nav-link dropdown-toggle nav-link-comcast-style" href="#" id="academicCoursesDropdown"
+                    role="button" [attr.aria-expanded]="dropdownStates.academic">
                     <i class="fas fa-graduation-cap"></i> Academic Courses
                 </a>
-                <ul class="dropdown-menu dropdown-menu-comcast-style" 
-                    [ngClass]="{'show': dropdownStates.academic}"
+                <ul class="dropdown-menu dropdown-menu-comcast-style" [ngClass]="{'show': dropdownStates.academic}"
                     aria-labelledby="academicCoursesDropdown">
                     <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/math">Math</a></li>
                     <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/science">Science</a></li>
                     <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/english">English</a></li>
 
-                    <li class="dropdown-submenu" 
-                        (mouseenter)="showDropdown('boards')" 
+                    <li class="dropdown-submenu" (mouseenter)="showDropdown('boards')"
                         (mouseleave)="hideDropdown('boards')">
-                        <a class="dropdown-item dropdown-toggle dropdown-item-comcast-style" 
-                           href="#" 
-                           id="boardsDropdown"
-                           role="button" 
-                           [attr.aria-expanded]="dropdownStates.boards">
+                        <a class="dropdown-item dropdown-toggle dropdown-item-comcast-style" href="#"
+                            id="boardsDropdown" role="button" [attr.aria-expanded]="dropdownStates.boards">
                             <i class="fas fa-clipboard-list"></i> Boards
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-comcast-style" 
-                            [ngClass]="{'show': dropdownStates.boards}"
-                            aria-labelledby="boardsDropdown">
+                        <ul class="dropdown-menu dropdown-menu-comcast-style"
+                            [ngClass]="{'show': dropdownStates.boards}" aria-labelledby="boardsDropdown">
                             <li><a class="dropdown-item dropdown-item-comcast-style" href="#">CBSE</a></li>
                             <li><a class="dropdown-item dropdown-item-comcast-style" href="#">ICSE</a></li>
                             <li><a class="dropdown-item dropdown-item-comcast-style" href="#">State Board</a></li>
@@ -53,26 +42,24 @@
                 </ul>
             </li>
 
-            <li class="nav-item dropdown" 
-                (mouseenter)="showDropdown('professional')" 
+            <li class="nav-item dropdown" (mouseenter)="showDropdown('professional')"
                 (mouseleave)="hideDropdown('professional')">
-                <a class="nav-link dropdown-toggle nav-link-comcast-style" 
-                   href="#" 
-                   id="professionalCoursesDropdown"
-                   role="button" 
-                   [attr.aria-expanded]="dropdownStates.professional">
+                <a class="nav-link dropdown-toggle nav-link-comcast-style" href="#" id="professionalCoursesDropdown"
+                    role="button" [attr.aria-expanded]="dropdownStates.professional">
                     <i class="fas fa-briefcase"></i> Professional Courses
                 </a>
-                <ul class="dropdown-menu dropdown-menu-comcast-style" 
-                    [ngClass]="{'show': dropdownStates.professional}"
+                <ul class="dropdown-menu dropdown-menu-comcast-style" [ngClass]="{'show': dropdownStates.professional}"
                     aria-labelledby="professionalCoursesDropdown">
-                    <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/web-development">Web Development</a></li>
-                    <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/mobile-development">Mobile Development</a></li>
+                    <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/web-development">Web
+                            Development</a></li>
+                    <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/mobile-development">Mobile
+                            Development</a></li>
                 </ul>
             </li>
-
+            <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/training">Training</a></li>
             <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/contact">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/query">Raise your Query</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/query">Raise your Query</a>
+            </li>
         </ul>
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -89,13 +76,14 @@
 
 <!-- Floating Contact Icons -->
 <div class="floating-contacts">
-    <a href="https://wa.me/1234567890" target="_blank" class="contact-icon whatsapp-icon pulse" data-tooltip="WhatsApp">
+    <a href="https://wa.me/+919600223892" target="_blank" class="contact-icon whatsapp-icon pulse"
+        data-tooltip="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
-    <a href="mailto:info@learnwithjan.com" class="contact-icon email-icon" data-tooltip="Email Us">
+    <a href="mailto:business.in@gbledge.com" class="contact-icon email-icon" data-tooltip="Email Us">
         <i class="fas fa-envelope"></i>
     </a>
-    <a href="tel:+1234567890" class="contact-icon call-icon" data-tooltip="Call Us">
+    <a href="tel:+919600223892" class="contact-icon call-icon" data-tooltip="Call Us">
         <i class="fas fa-phone"></i>
     </a>
 </div>
@@ -104,8 +92,10 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h5 class="footer-title">Learn with Jan</h5>
-                <p class="footer-text">Quality education for everyone</p>
+                <h5 class="footer-title">GlobalEdge - Quality education for everyone</h5>
+                <p class="footer-text">Get in Touch with Global Edge Training Academy<br>
+                    We’d love to hear from you — whether you’re a student, parent, or working professional!
+                </p>
             </div>
             <div class="col-md-6 text-md-end">
                 <div class="social-links">
@@ -114,9 +104,8 @@
                     <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                 </div>
-                <p class="footer-copyright">© 2025 Learn with Jan. All rights reserved.</p>
+                <p class="footer-copyright">© 2025 GlobalEdge. All rights reserved.</p>
             </div>
         </div>
     </div>
 </footer>
-
