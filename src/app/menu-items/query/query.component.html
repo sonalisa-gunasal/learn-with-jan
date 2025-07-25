@@ -17,30 +17,42 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="grade" class="form-label">Grade/Class *</label>
+                                <label for="grade" class="form-label">Grade/Level *</label>
                                 <select class="form-control" id="grade" [(ngModel)]="queryData.grade" name="grade"
                                     required>
-                                    <option value="">Select Grade</option>
-                                    <option value="1-5">Classes 1-5</option>
-                                    <option value="6-8">Classes 6-8</option>
-                                    <option value="9-10">Classes 9-10</option>
-                                    <option value="11-12">Classes 11-12</option>
-                                    <option value="college">College</option>
+                                    <option value="">Select Grade/Level</option>
+                                    <optgroup label="🎓 Academic Grades">
+                                        <option value="9">Class 9</option>
+                                        <option value="10">Class 10</option>
+                                        <option value="11">Class 11</option>
+                                        <option value="12">Class 12</option>
+                                        <option value="jee">JEE Preparation</option>
+                                        <option value="neet">NEET Preparation</option>
+                                    </optgroup>
+                                    <optgroup label="🏢 Professional Level">
+                                        <option value="graduate">Graduate</option>
+                                        <option value="working-professional">Working Professional</option>
+                                    </optgroup>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="subject" class="form-label">Subject *</label>
+                                <label for="subject" class="form-label">Subject/Area *</label>
                                 <select class="form-control" id="subject" [(ngModel)]="queryData.subject" name="subject"
                                     required>
-                                    <option value="">Select Subject</option>
-                                    <option value="mathematics">Mathematics</option>
-                                    <option value="science">Science</option>
-                                    <option value="english">English</option>
-                                    <option value="web-development">Web Development</option>
-                                    <option value="mobile-development">Mobile Development</option>
-                                    <option value="other">Other</option>
+                                    <option value="">Select Subject/Area</option>
+                                    <option *ngFor="let subject of getAvailableSubjects()" [value]="subject.value">
+                                        {{subject.label}}
+                                    </option>
                                 </select>
                             </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="queryType" class="form-label">Query Type *</label>
+                            <select class="form-control" id="queryType" [(ngModel)]="queryData.queryType" name="queryType" required>
+                                <option value="">Select Query Type</option>
+                                <option *ngFor="let type of queryTypes" [value]="type.value">{{type.label}}</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="priority" class="form-label">Priority Level *</label>
@@ -58,6 +70,28 @@
                             <textarea class="form-control" id="question" rows="6" [(ngModel)]="queryData.question"
                                 name="question" placeholder="Describe your question in detail..." required></textarea>
                         </div>
+                        <div class="mb-3">
+                            <label for="courseInterest" class="form-label">Interested Course *</label>
+                            <select class="form-control" id="courseInterest" name="courseInterest" [(ngModel)]="queryData.courseInterest" required>
+                                <option value="" disabled>Select a course</option>
+                                <optgroup label="🎓 Academic Courses (Grades 9-12)">
+                                    <option *ngFor="let course of academicCourses" [value]="course.value">
+                                        {{course.category}} - {{course.title}}
+                                    </option>
+                                </optgroup>
+                                <optgroup label="🏢 Professional ISO Training">
+                                    <option *ngFor="let course of professionalCourses" [value]="course.value">
+                                        {{course.category}} - {{course.title}}
+                                    </option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <!-- <div class="mb-3">
+                            <label for="attachments" class="form-label">Attachments/Files</label>
+                            <textarea class="form-control" id="attachments" rows="2" [(ngModel)]="queryData.attachments"
+                                name="attachments" placeholder="Mention if you have any files, images, or documents to share (we'll guide you on how to send them)"></textarea>
+                        </div> -->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email for Response *</label>
                             <input type="email" class="form-control" id="email" [(ngModel)]="queryData.email"

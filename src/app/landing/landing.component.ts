@@ -32,7 +32,8 @@ export class LandingComponent  {
     phone: '',
     grade: '',
     board: '',
-    message: ''
+    message: '',
+    courseInterest: ''
   };
 
   enrollmentData = {
@@ -46,8 +47,109 @@ export class LandingComponent  {
     preferredTime: '',
     currentPerformance: '',
     goals: '',
-    courseInterest: ''
+    courseInterest: '',
+    learningMode: '',
+    previousExperience: '',
+    specificRequirements: ''
   };
+
+  // Updated comprehensive course list aligned with academic and professional components
+  academicCourses = [
+    {
+      category: 'Grade 9 Foundation',
+      title: 'Strong Fundamentals for Future Success 📘',
+      subjects: ['Mathematics', 'Physics', 'Chemistry'],
+      duration: '36 weeks',
+      value: 'grade-9-foundation'
+    },
+    {
+      category: 'Grade 10 Mastery',
+      title: 'Board-Level Concept Mastery 📗',
+      subjects: ['Mathematics', 'Physics', 'Chemistry'],
+      duration: '36 weeks',
+      value: 'grade-10-mastery'
+    },
+    {
+      category: 'Grade 11 Deep Dive',
+      title: 'Core Sciences Deep Dive 📕',
+      subjects: ['Mathematics', 'Physics', 'Chemistry'],
+      duration: '36 weeks',
+      value: 'grade-11-deep-dive'
+    },
+    {
+      category: 'Grade 12 Excellence',
+      title: 'Peak Preparation for Boards & Beyond 📙',
+      subjects: ['Mathematics', 'Physics', 'Chemistry'],
+      duration: '36 weeks',
+      value: 'grade-12-excellence'
+    },
+    {
+      category: 'JEE Preparation',
+      title: 'JEE Main & Advanced Mastery 🎯',
+      subjects: ['Physics', 'Chemistry', 'Mathematics'],
+      duration: '48 weeks',
+      value: 'jee-preparation'
+    },
+    {
+      category: 'NEET Preparation',
+      title: 'NEET Excellence Program 🩺',
+      subjects: ['Physics', 'Chemistry', 'Biology'],
+      duration: '48 weeks',
+      value: 'neet-preparation'
+    }
+  ];
+
+  professionalCourses = [
+    {
+      category: 'Quality Management',
+      title: 'ISO 9001:2015 – Quality Management System (QMS) 🏆',
+      duration: '5 days',
+      value: 'iso-9001-qms'
+    },
+    {
+      category: 'Environmental Management',
+      title: 'ISO 14001:2015 – Environmental Management System (EMS) 🌱',
+      duration: '5 days',
+      value: 'iso-14001-ems'
+    },
+    {
+      category: 'Health & Safety',
+      title: 'ISO 45001:2018 – Occupational Health & Safety (OHSMS) 🛡️',
+      duration: '5 days',
+      value: 'iso-45001-ohsms'
+    },
+    {
+      category: 'Food Safety',
+      title: 'ISO 22000:2018 – Food Safety Management System (FSMS) 🍎',
+      duration: '5 days',
+      value: 'iso-22000-fsms'
+    },
+    {
+      category: 'Food Safety Certification',
+      title: 'FSSC 22000 – Food Safety System Certification (V6) 🏅',
+      duration: '6 days',
+      value: 'fssc-22000'
+    },
+    {
+      category: 'Information Security',
+      title: 'ISO 27001:2022 – Information Security Management (ISMS) 🔐',
+      duration: '5 days',
+      value: 'iso-27001-isms'
+    },
+    {
+      category: 'Energy Management',
+      title: 'ISO 50001:2018 – Energy Management System (EnMS) ⚡',
+      duration: '4 days',
+      value: 'iso-50001-enms'
+    }
+  ];
+
+  learningModes = [
+    { value: 'online-live', label: 'Online Live Classes' },
+    { value: 'online-recorded', label: 'Online Recorded Classes' },
+    { value: 'hybrid', label: 'Hybrid (Live + Recorded)' },
+    { value: 'offline', label: 'Offline Classes (if available)' }
+  ];
 
   successStories = [
     {
@@ -267,8 +369,8 @@ export class LandingComponent  {
   submitForm() {
     const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdAeToorwMsxejfqIbczqr3XBBbRwpb9Sq4P9B2ihth0ZKQwA/formResponse';
     
-    if (!this.formData.name || !this.formData.email || !this.formData.phone || !this.formData.grade || !this.formData.board) {
-      alert('❌ Please fill in all fields.');
+    if (!this.formData.name || !this.formData.email || !this.formData.phone || !this.formData.grade || !this.formData.courseInterest) {
+      alert('❌ Please fill in all required fields.');
       return;
     }
 
@@ -278,6 +380,7 @@ export class LandingComponent  {
     form.append('entry.1773824258', this.formData.phone);
     form.append('entry.1604616735', this.formData.grade);
     form.append('entry.389492732', this.formData.board);
+    form.append('entry.555666777', this.formData.courseInterest);
 
     fetch(googleFormUrl, {
       method: 'POST',
@@ -285,10 +388,18 @@ export class LandingComponent  {
       body: form
     })
       .then(() => {
-        this.successMsg = '✅ Your demo has been booked! We\'ll contact you soon.';
+        this.successMsg = '✅ Your demo has been booked! We\'ll contact you soon to schedule your FREE session.';
         alert(this.successMsg);
         this.closeDemoForm();
-        this.formData = { name: '', email: '', phone: '', grade: '', board: '', message: 'need free demo' };
+        this.formData = { 
+          name: '', 
+          email: '', 
+          phone: '', 
+          grade: '', 
+          board: '', 
+          message: 'need free demo',
+          courseInterest: ''
+        };
       }).catch(() => {
         alert('❌ Something went wrong. Please try again.');
       });
@@ -299,8 +410,8 @@ export class LandingComponent  {
     const enrollmentFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdAeToorwMsxejfqIbczqr3XBBbRwpb9Sq4P9B2ihth0ZKQwA/formResponse';
     
     if (!this.enrollmentData.studentName || !this.enrollmentData.parentName || !this.enrollmentData.email || 
-        !this.enrollmentData.phone || !this.enrollmentData.grade || !this.enrollmentData.board || 
-        !this.enrollmentData.preferredTime) {
+        !this.enrollmentData.phone || !this.enrollmentData.grade || !this.enrollmentData.courseInterest || 
+        !this.enrollmentData.preferredTime || !this.enrollmentData.learningMode) {
       alert('❌ Please fill in all required fields.');
       return;
     }
@@ -317,6 +428,9 @@ export class LandingComponent  {
     form.append('entry.789123456', this.enrollmentData.currentPerformance);
     form.append('entry.321654987', this.enrollmentData.goals);
     form.append('entry.654987321', this.enrollmentData.courseInterest);
+    form.append('entry.111222333', this.enrollmentData.learningMode);
+    form.append('entry.444555666', this.enrollmentData.previousExperience);
+    form.append('entry.777888999', this.enrollmentData.specificRequirements);
 
     fetch(enrollmentFormUrl, {
       method: 'POST',
@@ -355,7 +469,16 @@ export class LandingComponent  {
       preferredTime: '',
       currentPerformance: '',
       goals: '',
-      courseInterest: ''
+      courseInterest: '',
+      learningMode: '',
+      previousExperience: '',
+      specificRequirements: ''
     };
+  }
+
+  // Helper method to get selected course details
+  getSelectedCourseDetails() {
+    const allCourses = [...this.academicCourses, ...this.professionalCourses];
+    return allCourses.find(course => course.value === this.enrollmentData.courseInterest);
   }
 }

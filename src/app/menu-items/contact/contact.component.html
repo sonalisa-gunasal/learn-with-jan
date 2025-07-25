@@ -33,18 +33,47 @@
                                 name="phone">
                         </div>
                         <div class="mb-3">
-                            <label for="subject" class="form-label">Subject *</label>
-                            <select class="form-control" id="subject" [(ngModel)]="contactData.subject" name="subject"
+                            <label for="inquiryType" class="form-label">Inquiry Type *</label>
+                            <select class="form-control" id="inquiryType" [(ngModel)]="contactData.inquiryType" name="inquiryType"
                                 required>
-                                <option value="">Select Subject</option>
-                                <option value="course-inquiry">Course Inquiry</option>
-                                <option value="technical-support">Technical Support</option>
-                                <option value="billing">Billing Question</option>
-                                <option value="partnership">Partnership Opportunity</option>
-                                <option value="other">Other</option>
+                                <option value="">Select Inquiry Type</option>
+                                <option *ngFor="let type of inquiryTypes" [value]="type.value">{{type.label}}</option>
                             </select>
                         </div>
                         <div class="mb-3">
+                            <label for="courseInterest" class="form-label">Interested Course *</label>
+                            <select class="form-control" id="courseInterest" name="courseInterest" [(ngModel)]="contactData.courseInterest" required>
+                                <option value="" disabled>Select a course</option>
+                                <optgroup label="🎓 Academic Courses (Grades 9-12)">
+                                    <option *ngFor="let course of academicCourses" [value]="course.value">
+                                        {{course.category}} - {{course.title}}
+                                    </option>
+                                </optgroup>
+                                <optgroup label="🏢 Professional ISO Training">
+                                    <option *ngFor="let course of professionalCourses" [value]="course.value">
+                                        {{course.category}} - {{course.title}}
+                                    </option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="urgencyLevel" class="form-label">Urgency Level *</label>
+                            <select class="form-control" id="urgencyLevel" [(ngModel)]="contactData.urgencyLevel" name="urgencyLevel" required>
+                                <option value="">Select Urgency Level</option>
+                                <option *ngFor="let level of urgencyLevels" [value]="level.value">{{level.label}}</option>
+                            </select>
+                        </div>
+
+                      <div class="mb-3">
+                            <label for="preferredContactTime" class="form-label">Preferred Contact Time</label>
+                            <select class="form-control" id="preferredContactTime" [(ngModel)]="contactData.preferredContactTime" name="preferredContactTime">
+                                <option value="">Select Preferred Time</option>
+                                <option *ngFor="let time of contactTimePreferences" [value]="time.value">{{time.label}}</option>
+                            </select>
+                        </div>
+
+                          <div class="mb-3">
                             <label for="message" class="form-label">Message *</label>
                             <textarea class="form-control" id="message" rows="5" [(ngModel)]="contactData.message"
                                 name="message" required></textarea>
@@ -58,13 +87,13 @@
                 <div class="contact-info-card">
                     <h3>Contact Information</h3>
 
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h5>Address</h5>
-                            <p>Trichy</p>
-                        </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h5>Address</h5>
+                        <p>Trichy</p>
                     </div>
+                </div>
 
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>

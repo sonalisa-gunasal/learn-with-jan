@@ -399,57 +399,72 @@
                         </div>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="courseInterest" class="form-label">Course of Interest *</label>
+                        <select class="form-control" id="courseInterest" [(ngModel)]="enrollmentData.courseInterest" name="courseInterest" required>
+                            <option value="">Select a course</option>
+                            <optgroup label="🎓 Academic Courses (Grades 9-12)">
+                                <option *ngFor="let course of academicCourses" [value]="course.value">
+                                    {{course.category}} - {{course.title}}
+                                </option>
+                            </optgroup>
+                            <optgroup label="🏢 Professional ISO Training">
+                                <option *ngFor="let course of professionalCourses" [value]="course.value">
+                                    {{course.category}} - {{course.title}}
+                                </option>
+                            </optgroup>
+                        </select>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="grade" class="form-label">Current Grade/Class *</label>
+                            <label for="grade" class="form-label">Current Grade/Level *</label>
                             <select class="form-control" id="grade" [(ngModel)]="enrollmentData.grade" name="grade"
                                 required>
-                                <option value="">Select Grade</option>
-                                <option value="1">Class 1</option>
-                                <option value="2">Class 2</option>
-                                <option value="3">Class 3</option>
-                                <option value="4">Class 4</option>
-                                <option value="5">Class 5</option>
-                                <option value="6">Class 6</option>
-                                <option value="7">Class 7</option>
-                                <option value="8">Class 8</option>
-                                <option value="9">Class 9</option>
-                                <option value="10">Class 10</option>
-                                <option value="11">Class 11</option>
-                                <option value="12">Class 12</option>
-                                <option value="college">College</option>
-                                <option value="professional">Professional</option>
+                                <option value="">Select Grade/Level</option>
+                                <optgroup label="🎓 Academic Grades">
+                                    <option value="9">Class 9</option>
+                                    <option value="10">Class 10</option>
+                                    <option value="11">Class 11</option>
+                                    <option value="12">Class 12</option>
+                                    <option value="jee">JEE Preparation</option>
+                                    <option value="neet">NEET Preparation</option>
+                                </optgroup>
+                                <optgroup label="🏢 Professional Level">
+                                    <option value="graduate">Graduate</option>
+                                    <option value="working-professional">Working Professional</option>
+                                </optgroup>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="board" class="form-label">Board/Curriculum *</label>
-                            <select class="form-control" id="board" [(ngModel)]="enrollmentData.board" name="board"
-                                required>
-                                <option value="">Select Board</option>
-                                <option value="CBSE">CBSE</option>
-                                <option value="ICSE">ICSE</option>
-                                <option value="State Board">State Board</option>
-                                <option value="IB">IB (International Baccalaureate)</option>
-                                <option value="Cambridge">Cambridge</option>
-                                <option value="IGCSE">IGCSE</option>
-                                <option value="Other">Other</option>
+                            <label for="learningMode" class="form-label">Preferred Learning Mode *</label>
+                            <select class="form-control" id="learningMode" [(ngModel)]="enrollmentData.learningMode" name="learningMode" required>
+                                <option value="">Select Learning Mode</option>
+                                <option *ngFor="let mode of learningModes" [value]="mode.value">{{mode.label}}</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="subjects" class="form-label">Subjects of Interest *</label>
-                            <select class="form-control" id="subjects" [(ngModel)]="enrollmentData.subjects"
-                                name="subjects" required multiple>
-                                <option value="Mathematics">Mathematics</option>
-                                <option value="Science">Science (Physics/Chemistry/Biology)</option>
-                                <option value="English">English</option>
-                                <option value="Social Studies">Social Studies</option>
-                                <option value="Computer Science">Computer Science</option>
-                                <option value="Web Development">Web Development</option>
-                                <option value="Mobile Development">Mobile Development</option>
-                                <option value="All Subjects">All Subjects</option>
+                            <label for="board" class="form-label">Board/Background</label>
+                            <select class="form-control" id="board" [(ngModel)]="enrollmentData.board" name="board">
+                                <option value="">Select Board/Background</option>
+                                <optgroup label="Academic Boards">
+                                    <option value="CBSE">CBSE</option>
+                                    <option value="ICSE">ICSE</option>
+                                    <option value="State Board">State Board</option>
+                                    <option value="IB">IB (International Baccalaureate)</option>
+                                    <option value="Cambridge">Cambridge</option>
+                                    <option value="IGCSE">IGCSE</option>
+                                </optgroup>
+                                <optgroup label="Professional Background">
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Management">Management</option>
+                                    <option value="Science">Science Graduate</option>
+                                    <option value="Commerce">Commerce</option>
+                                    <option value="Other">Other</option>
+                                </optgroup>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
@@ -479,10 +494,24 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="previousExperience" class="form-label">Previous Learning Experience</label>
+                        <textarea class="form-control" id="previousExperience" [(ngModel)]="enrollmentData.previousExperience" name="previousExperience"
+                            rows="2"
+                            placeholder="Any previous tutoring, online courses, or relevant experience?"></textarea>
+                    </div>
+
+                    <div class="mb-3">
                         <label for="goals" class="form-label">Learning Goals</label>
                         <textarea class="form-control" id="goals" [(ngModel)]="enrollmentData.goals" name="goals"
                             rows="3"
                             placeholder="What do you want to achieve? (e.g., improve grades, prepare for exams, learn new skills)"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="specificRequirements" class="form-label">Specific Requirements</label>
+                        <textarea class="form-control" id="specificRequirements" [(ngModel)]="enrollmentData.specificRequirements" name="specificRequirements"
+                            rows="2"
+                            placeholder="Any specific needs, learning difficulties, or special requirements?"></textarea>
                     </div>
 
                     <!-- Benefits Reminder -->
@@ -550,27 +579,58 @@
                             required>
                     </div>
                     <div class="mb-3">
-                        <label for="grade" class="form-label">Grade/Class *</label>
-                        <select class="form-control" id="grade" [(ngModel)]="formData.grade" name="grade" required>
-                            <option value="">Select Grade</option>
-                            <option value="1-5">Classes 1-5</option>
-                            <option value="6-8">Classes 6-8</option>
-                            <option value="9-10">Classes 9-10</option>
-                            <option value="11-12">Classes 11-12</option>
-                            <option value="college">College</option>
-                            <option value="professional">Professional</option>
+                        <label for="courseInterest" class="form-label">Course of Interest *</label>
+                        <select class="form-control" id="courseInterest" [(ngModel)]="formData.courseInterest" name="courseInterest" required>
+                            <option value="">Select a course</option>
+                            <optgroup label="🎓 Academic Courses (Grades 9-12)">
+                                <option *ngFor="let course of academicCourses" [value]="course.value">
+                                    {{course.category}} - {{course.title}}
+                                </option>
+                            </optgroup>
+                            <optgroup label="🏢 Professional ISO Training">
+                                <option *ngFor="let course of professionalCourses" [value]="course.value">
+                                    {{course.category}} - {{course.title}}
+                                </option>
+                            </optgroup>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="board" class="form-label">Board *</label>
-                        <select class="form-control" id="board" [(ngModel)]="formData.board" name="board" required>
-                            <option value="">Select Board</option>
-                            <option value="CBSE">CBSE</option>
-                            <option value="ICSE">ICSE</option>
-                            <option value="State Board">State Board</option>
-                            <option value="IB">IB</option>
-                            <option value="Cambridge">Cambridge</option>
-                            <option value="Other">Other</option>
+                        <label for="grade" class="form-label">Grade/Level *</label>
+                        <select class="form-control" id="grade" [(ngModel)]="formData.grade" name="grade" required>
+                            <option value="">Select Grade/Level</option>
+                            <optgroup label="🎓 Academic Grades">
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10</option>
+                                <option value="11">Class 11</option>
+                                <option value="12">Class 12</option>
+                                <option value="jee">JEE Preparation</option>
+                                <option value="neet">NEET Preparation</option>
+                            </optgroup>
+                            <optgroup label="🏢 Professional Level">
+                                <option value="graduate">Graduate</option>
+                                <option value="working-professional">Working Professional</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="board" class="form-label">Board/Background</label>
+                        <select class="form-control" id="board" [(ngModel)]="formData.board" name="board">
+                            <option value="">Select Board/Background</option>
+                            <optgroup label="Academic Boards">
+                                <option value="CBSE">CBSE</option>
+                                <option value="ICSE">ICSE</option>
+                                <option value="State Board">State Board</option>
+                                <option value="IB">IB (International Baccalaureate)</option>
+                                <option value="Cambridge">Cambridge</option>
+                                <option value="IGCSE">IGCSE</option>
+                            </optgroup>
+                            <optgroup label="Professional Background">
+                                <option value="Engineering">Engineering</option>
+                                <option value="Management">Management</option>
+                                <option value="Science">Science Graduate</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Other">Other</option>
+                            </optgroup>
                         </select>
                     </div>
                     <div class="d-grid">

@@ -41,7 +41,7 @@
           <div class="course-image">
             <img [src]="course.image" [alt]="course.title" class="img-fluid">
             <div class="course-badge">{{ course.badge }}</div>
-            <div class="discount-badge">{{ course.discount }}% OFF</div>
+            <!-- <div class="discount-badge">{{ course.discount }}% OFF</div> -->
           </div>
           
           <div class="course-content">
@@ -81,10 +81,10 @@
               </div>
             </div>
             
-            <div class="course-pricing">
+            <!-- <div class="course-pricing">
               <div class="original-price">₹{{ course.originalPrice }}</div>
               <div class="current-price">₹{{ course.currentPrice }}</div>
-            </div>
+            </div> -->
             
             <div class="course-actions">
               <button class="btn btn-primary-modern btn-enroll" (click)="openEnrollmentForm(course.title); $event.stopPropagation()">

@@ -1,0 +1,9 @@
+@media (max-width: 991.98px) {
+    .contact-form-card {
+        margin-bottom: 3rem !important;
+    }
+}
+
+.contact-form-card form {
+    margin-bottom: 2.5rem;
+}
