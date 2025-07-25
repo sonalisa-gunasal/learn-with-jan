@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ContactComponent {
 
+  successMsg: string = '';
+
   contactData = {
     firstName: '',
     lastName: '',
@@ -150,8 +152,10 @@ export class ContactComponent {
   ];
 
   submitContactForm() {
-    if (!this.contactData.firstName || !this.contactData.lastName || !this.contactData.email || 
-        !this.contactData.inquiryType || !this.contactData.message || !this.contactData.courseInterest) {
+    const googleFormUrl = ' https://docs.google.com/forms/u/0/d/e/1FAIpQLScVbQhC8jBGSrukuwWObyD0dq7i9WOEWHJSa9akIL6eM-g2jg/formResponse';
+    if (!this.contactData.firstName || !this.contactData.lastName || !this.contactData.email ||
+      !this.contactData.inquiryType || !this.contactData.message || !this.contactData.courseInterest
+      || this.contactData.preferredContactTime === '' || this.contactData.urgencyLevel === '') {
       alert('Please fill in all required fields.');
       return;
     }
@@ -167,25 +171,54 @@ export class ContactComponent {
     }
 
     alert(`Thank you for your inquiry! We will get back to you within ${responseTime} based on your urgency level.`);
-    
-    // Reset form
-    this.contactData = { 
-      firstName: '', 
-      lastName: '', 
-      email: '', 
-      phone: '', 
-      subject: '', 
-      message: '', 
-      courseInterest: '',
-      inquiryType: '',
-      preferredContactTime: '',
-      urgencyLevel: ''
-    };
+
+    const form = new FormData();
+    form.append('entry.1487966399', this.contactData.firstName);
+    form.append('entry.1969319244', this.contactData.lastName);
+    form.append('entry.997439586', this.contactData.email);
+    form.append('entry.36602274', this.contactData.inquiryType);
+    form.append('entry.1873433624', this.contactData.phone);
+    form.append('entry.1067673934', this.contactData.courseInterest);
+    form.append('entry.1266232267', this.contactData.preferredContactTime);
+    form.append('entry.707266762', this.contactData.urgencyLevel);
+    form.append('entry.571912973', this.contactData.message); // Optional field
+
+    fetch(googleFormUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: form
+    })
+      .then(() => {
+        this.successMsg = '✅ Your demo has been booked! We\'ll contact you soon to schedule your FREE session.';
+        alert(this.successMsg);
+        this.closeContactForm();
+      }).catch(() => {
+        alert('❌ Something went wrong. Please try again.');
+      });
+
+    this.closeContactForm();
+
   }
 
   // Helper method to get selected course details
   getSelectedCourseDetails() {
     const allCourses = [...this.academicCourses, ...this.professionalCourses];
     return allCourses.find(course => course.value === this.contactData.courseInterest);
+  }
+
+  closeContactForm() {
+    this.successMsg = '';
+    this.contactData = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+      courseInterest: '',
+      inquiryType: '',
+      preferredContactTime: '',
+      urgencyLevel: ''
+    };
   }
 }

@@ -366,8 +366,8 @@ export class LandingComponent  {
     }
   }
 
-  submitForm() {
-    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdAeToorwMsxejfqIbczqr3XBBbRwpb9Sq4P9B2ihth0ZKQwA/formResponse';
+  submitConsultationForm() {
+    const googleFormUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSfgk40xoIJEWPkLLN4fcPWlvC2c78hFC10bnaMUy5rRhahr_w/formResponse';
     
     if (!this.formData.name || !this.formData.email || !this.formData.phone || !this.formData.grade || !this.formData.courseInterest) {
       alert('❌ Please fill in all required fields.');
@@ -375,12 +375,12 @@ export class LandingComponent  {
     }
 
     const form = new FormData();
-    form.append('entry.1419253346', this.formData.name);
-    form.append('entry.918774199', this.formData.email);
-    form.append('entry.1773824258', this.formData.phone);
-    form.append('entry.1604616735', this.formData.grade);
-    form.append('entry.389492732', this.formData.board);
-    form.append('entry.555666777', this.formData.courseInterest);
+    form.append('entry.1487966399', this.formData.name);
+    form.append('entry.997439586', this.formData.email);
+    form.append('entry.1873433624', this.formData.phone);
+    form.append('entry.36602274', this.formData.grade);
+    form.append('entry.707266762', this.formData.board);
+    form.append('entry.1067673934', this.formData.courseInterest);
 
     fetch(googleFormUrl, {
       method: 'POST',
