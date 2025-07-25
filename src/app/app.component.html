@@ -14,11 +14,11 @@
             <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/about">About Us</a></li>
             <li class="nav-item dropdown" (mouseenter)="showDropdown('academic')"
                 (mouseleave)="hideDropdown('academic')">
-                <a class="nav-link dropdown-toggle nav-link-comcast-style" href="#" id="academicCoursesDropdown"
+                <a class="nav-link dropdown-toggle nav-link-comcast-style" routerLink="/academic-courses" id="academicCoursesDropdown"
                     role="button" [attr.aria-expanded]="dropdownStates.academic">
                     <i class="fas fa-graduation-cap"></i> Academic Courses
                 </a>
-                <ul class="dropdown-menu dropdown-menu-comcast-style" [ngClass]="{'show': dropdownStates.academic}"
+                <!-- <ul class="dropdown-menu dropdown-menu-comcast-style" [ngClass]="{'show': dropdownStates.academic}"
                     aria-labelledby="academicCoursesDropdown">
                     <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/math">Math</a></li>
                     <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/science">Science</a></li>
@@ -39,22 +39,13 @@
                             <li><a class="dropdown-item dropdown-item-comcast-style" href="#">Cambridge</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul> -->
             </li>
 
-            <li class="nav-item dropdown" (mouseenter)="showDropdown('professional')"
-                (mouseleave)="hideDropdown('professional')">
-                <a class="nav-link dropdown-toggle nav-link-comcast-style" href="#" id="professionalCoursesDropdown"
-                    role="button" [attr.aria-expanded]="dropdownStates.professional">
-                    <i class="fas fa-briefcase"></i> Professional Courses
+            <li class="nav-item">
+                <a class="nav-link nav-link-comcast-style" routerLink="/professional-courses">
+                    <i class="fas fa-certificate"></i> Professional ISO Training
                 </a>
-                <ul class="dropdown-menu dropdown-menu-comcast-style" [ngClass]="{'show': dropdownStates.professional}"
-                    aria-labelledby="professionalCoursesDropdown">
-                    <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/web-development">Web
-                            Development</a></li>
-                    <li><a class="dropdown-item dropdown-item-comcast-style" routerLink="/mobile-development">Mobile
-                            Development</a></li>
-                </ul>
             </li>
             <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/training">Training</a></li>
             <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/contact">Contact Us</a></li>
@@ -93,9 +84,9 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h5 class="footer-title">GlobalEdge - Quality education for everyone</h5>
-                <p class="footer-text">Get in Touch with Global Edge Training Academy<br>
+                <!-- <p class="footer-text">Get in Touch with Global Edge Training Academy<br>
                     We’d love to hear from you — whether you’re a student, parent, or working professional!
-                </p>
+                </p> -->
             </div>
             <div class="col-md-6 text-md-end">
                 <div class="social-links">

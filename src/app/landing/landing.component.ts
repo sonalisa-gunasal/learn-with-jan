@@ -99,8 +99,14 @@ export class LandingComponent  {
     {
       icon: 'fas fa-chalkboard-teacher',
       title: 'Expert Teachers',
-      description: 'Learn from IIT/IIM graduates and experienced educators with proven track records.',
-      benefits: ['IIT/IIM qualified teachers', 'Average 8+ years experience', 'Subject matter experts']
+      description: 'Learn from expert graduates and experienced educators with proven track records.',
+      benefits: [
+        'Qualified teachers',
+        'Average 8+ years experience',
+        'Subject matter experts',
+        'Certified ISO Trainers with Industry Experience',
+        'Separate Mentor for Every Student'
+      ]
     },
     {
       icon: 'fas fa-laptop-code',
@@ -112,13 +118,23 @@ export class LandingComponent  {
       icon: 'fas fa-chart-line',
       title: 'Guaranteed Results',
       description: 'See measurable improvement in grades with our proven teaching methodology.',
-      benefits: ['Average 2+ grade improvement', '95% student satisfaction', 'Money-back guarantee']
+      benefits: [
+        'Average 2+ grade improvement',
+        '95% student satisfaction',
+        'Money-back guarantee',
+        'Continuous Performance Tracking'
+      ]
     },
     {
       icon: 'fas fa-clock',
       title: 'Flexible Timing',
       description: 'Choose from multiple time slots that fit your schedule perfectly.',
-      benefits: ['Morning/Evening batches', 'Weekend classes available', 'Recorded sessions']
+      benefits: [
+        'Morning/Evening batches',
+        'Weekend classes available',
+        'Recorded sessions',
+        'Flexible Online & Offline Batches'
+      ]
     },
     {
       icon: 'fas fa-headset',
@@ -136,56 +152,52 @@ export class LandingComponent  {
 
   courses = [
     {
-      category: 'Academic',
-      title: 'Advanced Mathematics',
-      description: 'Master calculus, algebra, and advanced mathematical concepts with expert guidance.',
-      duration: '12 weeks',
-      badge: 'Most Popular',
-      features: ['Live Classes', 'Practice Tests', 'Doubt Support', 'Study Material'],
+      category: 'Academic Tuition (Grades 9–12)',
+      icon: 'fas fa-book-open',
+      title: '📘 Academic Tuition',
+      description: 'Personalized mentoring and board-focused preparation for high school success. Build a strong foundation for JEE/NEET and excel in board exams with our expert faculty.',
+      subjects: ['Mathematics', 'Physics', 'Chemistry'],
+      features: [
+        'Individual attention & progress tracking',
+        'Board-specific curriculum (CBSE/ICSE/State)',
+        'JEE/NEET Foundation & Olympiad support',
+        'Live interactive classes & doubt clearing',
+        'Regular assessments & feedback',
+        'Flexible online/offline batches'
+      ],
+      badge: 'Top Rated',
       students: '15,000+',
       rating: '4.9',
-      originalPrice: '15,999',
-      currentPrice: '7,999',
-      discount: '50'
+      duration: 'Ongoing',
+      priceInfo: 'Contact for details'
     },
     {
-      category: 'Academic',
-      title: 'Science Fundamentals',
-      description: 'Explore physics, chemistry, and biology through interactive experiments.',
-      duration: '16 weeks',
+      category: 'Professional ISO Training',
+      icon: 'fas fa-certificate',
+      title: '🎓 Professional ISO Training',
+      description: 'Advance your career with globally recognized ISO Lead/Internal Auditor Certification programs. Learn from certified industry experts and gain practical skills for QMS, EMS, OHSMS, FSMS, ISMS, EnMS & more.',
+      courses: [
+        'ISO 9001:2015 (QMS)',
+        'ISO 14001:2015 (EMS)',
+        'ISO 45001:2018 (OHSMS)',
+        'ISO 22000:2018 (FSMS)',
+        'ISO 27001:2022 (ISMS)',
+        'ISO 50001:2018 (EnMS)',
+        'And more...'
+      ],
+      features: [
+        'Lead & Internal Auditor courses',
+        'Globally valid certification',
+        'Industry-experienced ISO trainers',
+        'Practical case studies & workshops',
+        'Flexible schedules (weekend/weekday)',
+        'Placement & career guidance'
+      ],
       badge: 'Best Seller',
-      features: ['Virtual Labs', 'Animated Videos', 'Mock Tests', 'Expert Teachers'],
-      students: '12,000+',
-      rating: '4.8',
-      originalPrice: '18,999',
-      currentPrice: '9,499',
-      discount: '50'
-    },
-    {
-      category: 'Professional',
-      title: 'Full Stack Web Development',
-      description: 'Build modern web applications using cutting-edge technologies and frameworks.',
-      duration: '20 weeks',
-      badge: 'Career Focused',
-      features: ['Live Projects', 'Industry Mentors', 'Job Assistance', 'Certification'],
-      students: '8,000+',
-      rating: '4.9',
-      originalPrice: '25,999',
-      currentPrice: '12,999',
-      discount: '50'
-    },
-    {
-      category: 'Professional',
-      title: 'Mobile App Development',
-      description: 'Create native and cross-platform mobile applications for iOS and Android.',
-      duration: '18 weeks',
-      badge: 'High Demand',
-      features: ['React Native', 'Flutter', 'App Store Deployment', 'Portfolio Building'],
-      students: '6,000+',
-      rating: '4.7',
-      originalPrice: '22,999',
-      currentPrice: '11,499',
-      discount: '50'
+      students: '5,000+',
+      rating: '5.0',
+      duration: 'Short-term & Fast Track',
+      priceInfo: 'Contact for details'
     }
   ];
 

@@ -1,15 +1,15 @@
-
-
 <!-- Hero Section with Background Video/Image -->
 <section class="hero-section">
     <!-- Background Video -->
     <div class="hero-background">
         <video autoplay muted loop class="hero-video">
-            <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+            <source
+                src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761"
+                type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
     </div>
-    
+
     <!-- Floating Elements -->
     <div class="floating-elements">
         <div class="floating-icon" style="top: 20%; left: 10%; animation-delay: 0s;">📚</div>
@@ -23,7 +23,7 @@
     <div class="hero-content">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                     <div class="hero-badge animate__animated animate__fadeInDown">
                         🎯 #1 Online Learning Platform
                     </div>
@@ -31,10 +31,13 @@
                         Transform Your <span class="gradient-text">Learning Journey</span> Today!
                     </h1>
                     <p class="hero-subtitle animate__animated animate__fadeInLeft animate__delay-1s">
-                        Join 50,000+ successful students who achieved their dreams with our expert-led courses. 
-                        Get personalized learning, live sessions, and guaranteed results!
+                        <span class="ad-highlight">🎓 <b>5000+ Students Transformed</b> at Global Edge!</span><br>
+                        <span class="ad-highlight">🚀 <b>Personalized Learning, Live Sessions, Guaranteed Results</b></span><br>
+                        <span class="ad-highlight">🌟 <b>Empowering Future Professionals & Scholars</b></span><br>
+                        <span class="ad-highlight">🏅 <b>ISO Auditor Certification for Professionals</b> | <b>Academic Excellence for Grades 9-12</b></span><br>
+                        <span class="ad-highlight">🤝 <b>Dedicated Mentors</b> | <b>Globally Recognized Training</b> | <b>Proven Success Stories</b></span>
                     </p>
-                    
+
                     <!-- Trust Indicators -->
                     <div class="trust-indicators animate__animated animate__fadeInUp animate__delay-2s">
                         <div class="trust-item">
@@ -55,7 +58,8 @@
                         <button class="btn btn-primary btn-modern pulse-button" (click)="openEnrollmentForm()">
                             <i class="fas fa-rocket"></i> Enroll Now - FREE Demo
                         </button>
-                        <button class="btn btn-outline-light btn-outline-modern" (click)="openBookingForm('consultation')">
+                        <button class="btn btn-outline-light btn-outline-modern"
+                            (click)="openBookingForm('consultation')">
                             <i class="fas fa-phone"></i> Talk to Expert
                         </button>
                     </div>
@@ -68,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="hero-visual animate__animated animate__fadeInRight animate__delay-1s">
                         <div class="learning-dashboard">
                             <div class="dashboard-header">
@@ -130,7 +134,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-5">
-                <h2 class="section-title">🚀 Why Parents & Students Choose Us</h2>
+                <h2 class="section-title">🚀 Why Parents & Students Choose <span class="gradient-text">Global
+                        Edge?</span></h2>
                 <p class="section-subtitle">Proven methods that guarantee academic success and personal growth</p>
             </div>
         </div>
@@ -174,7 +179,8 @@
                             <img [src]="testimonial.photo" [alt]="testimonial.parentName" class="parent-photo">
                             <div>
                                 <h5 class="parent-name">{{testimonial.parentName}}</h5>
-                                <p class="child-info">Parent of {{testimonial.childName}}, {{testimonial.childGrade}}</p>
+                                <p class="child-info">Parent of {{testimonial.childName}}, {{testimonial.childGrade}}
+                                </p>
                             </div>
                         </div>
                         <div class="rating">
@@ -209,14 +215,14 @@
                         <h3 class="course-title">{{course.title}}</h3>
                     </div>
                     <p class="course-description">{{course.description}}</p>
-                    
+
                     <div class="course-features">
                         <div class="feature-item" *ngFor="let feature of course.features">
                             <i class="fas fa-check"></i>
                             <span>{{feature}}</span>
                         </div>
                     </div>
-                    
+
                     <div class="course-stats">
                         <div class="stat-item">
                             <i class="fas fa-users"></i>
@@ -231,14 +237,15 @@
                             <span>{{course.duration}}</span>
                         </div>
                     </div>
-                    
+
                     <div class="course-footer">
-                        <div class="price-section">
+                        <!-- <div class="price-section">
                             <span class="original-price">₹{{course.originalPrice}}</span>
                             <span class="current-price">₹{{course.currentPrice}}</span>
                             <span class="discount">{{course.discount}}% OFF</span>
-                        </div>
-                        <button class="btn btn-primary btn-enroll pulse-button" (click)="openEnrollmentForm(course.title)">
+                        </div> -->
+                        <button class="btn btn-primary btn-enroll pulse-button"
+                            (click)="openEnrollmentForm(course.title)">
                             <i class="fas fa-rocket"></i> Enroll Now
                         </button>
                     </div>
@@ -255,7 +262,8 @@
             <div class="col-lg-6">
                 <div class="guarantee-content">
                     <h2 class="guarantee-title">🛡️ 100% Success Guarantee</h2>
-                    <p class="guarantee-subtitle">We're so confident in our teaching methods that we offer a money-back guarantee!</p>
+                    <p class="guarantee-subtitle">We're so confident in our teaching methods that we offer a money-back
+                        guarantee!</p>
                     <div class="guarantee-features">
                         <div class="guarantee-item">
                             <i class="fas fa-shield-alt"></i>
@@ -341,7 +349,8 @@
 
 
 <!-- Enhanced Enrollment Form Modal -->
-<div class="modal fade" id="enrollmentModal" tabindex="-1" aria-labelledby="enrollmentModalLabel" aria-hidden="true" #enrollmentModal>
+<div class="modal fade" id="enrollmentModal" tabindex="-1" aria-labelledby="enrollmentModalLabel" aria-hidden="true"
+    #enrollmentModal>
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content enrollment-modal">
             <div class="modal-header">
@@ -367,29 +376,34 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="studentName" class="form-label">Student's Full Name *</label>
-                            <input type="text" class="form-control" id="studentName" [(ngModel)]="enrollmentData.studentName" name="studentName" required>
+                            <input type="text" class="form-control" id="studentName"
+                                [(ngModel)]="enrollmentData.studentName" name="studentName" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="parentName" class="form-label">Parent's Name *</label>
-                            <input type="text" class="form-control" id="parentName" [(ngModel)]="enrollmentData.parentName" name="parentName" required>
+                            <input type="text" class="form-control" id="parentName"
+                                [(ngModel)]="enrollmentData.parentName" name="parentName" required>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" class="form-control" id="email" [(ngModel)]="enrollmentData.email" name="email" required>
+                            <input type="email" class="form-control" id="email" [(ngModel)]="enrollmentData.email"
+                                name="email" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="phone" class="form-label">WhatsApp Number *</label>
-                            <input type="tel" class="form-control" id="phone" [(ngModel)]="enrollmentData.phone" name="phone" required>
+                            <input type="tel" class="form-control" id="phone" [(ngModel)]="enrollmentData.phone"
+                                name="phone" required>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="grade" class="form-label">Current Grade/Class *</label>
-                            <select class="form-control" id="grade" [(ngModel)]="enrollmentData.grade" name="grade" required>
+                            <select class="form-control" id="grade" [(ngModel)]="enrollmentData.grade" name="grade"
+                                required>
                                 <option value="">Select Grade</option>
                                 <option value="1">Class 1</option>
                                 <option value="2">Class 2</option>
@@ -409,7 +423,8 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="board" class="form-label">Board/Curriculum *</label>
-                            <select class="form-control" id="board" [(ngModel)]="enrollmentData.board" name="board" required>
+                            <select class="form-control" id="board" [(ngModel)]="enrollmentData.board" name="board"
+                                required>
                                 <option value="">Select Board</option>
                                 <option value="CBSE">CBSE</option>
                                 <option value="ICSE">ICSE</option>
@@ -421,11 +436,12 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="subjects" class="form-label">Subjects of Interest *</label>
-                            <select class="form-control" id="subjects" [(ngModel)]="enrollmentData.subjects" name="subjects" required multiple>
+                            <select class="form-control" id="subjects" [(ngModel)]="enrollmentData.subjects"
+                                name="subjects" required multiple>
                                 <option value="Mathematics">Mathematics</option>
                                 <option value="Science">Science (Physics/Chemistry/Biology)</option>
                                 <option value="English">English</option>
@@ -438,7 +454,8 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="preferredTime" class="form-label">Preferred Class Time *</label>
-                            <select class="form-control" id="preferredTime" [(ngModel)]="enrollmentData.preferredTime" name="preferredTime" required>
+                            <select class="form-control" id="preferredTime" [(ngModel)]="enrollmentData.preferredTime"
+                                name="preferredTime" required>
                                 <option value="">Select Time</option>
                                 <option value="Morning (6 AM - 12 PM)">Morning (6 AM - 12 PM)</option>
                                 <option value="Afternoon (12 PM - 6 PM)">Afternoon (12 PM - 6 PM)</option>
@@ -447,24 +464,27 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="currentPerformance" class="form-label">Current Academic Performance</label>
-                        <select class="form-control" id="currentPerformance" [(ngModel)]="enrollmentData.currentPerformance" name="currentPerformance">
+                        <select class="form-control" id="currentPerformance"
+                            [(ngModel)]="enrollmentData.currentPerformance" name="currentPerformance">
                             <option value="">Select Performance Level</option>
                             <option value="Excellent (90%+)">Excellent (90%+)</option>
                             <option value="Good (75-89%)">Good (75-89%)</option>
                             <option value="Average (60-74%)">Average (60-74%)</option>
-                            <option value="Below Average (<60%)">Below Average (<60%)</option>
+                            <option value="Below Average (<60%)">Below Average (<60%)< /option>
                             <option value="Need Improvement">Need Significant Improvement</option>
                         </select>
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="goals" class="form-label">Learning Goals</label>
-                        <textarea class="form-control" id="goals" [(ngModel)]="enrollmentData.goals" name="goals" rows="3" placeholder="What do you want to achieve? (e.g., improve grades, prepare for exams, learn new skills)"></textarea>
+                        <textarea class="form-control" id="goals" [(ngModel)]="enrollmentData.goals" name="goals"
+                            rows="3"
+                            placeholder="What do you want to achieve? (e.g., improve grades, prepare for exams, learn new skills)"></textarea>
                     </div>
-                    
+
                     <!-- Benefits Reminder -->
                     <div class="benefits-reminder">
                         <h6>🎁 What You Get:</h6>
@@ -475,14 +495,14 @@
                             <div class="benefit-item"><i class="fas fa-check"></i> Progress Tracking</div>
                         </div>
                     </div>
-                    
+
                     <div class="d-grid">
                         <button type="submit" class="btn btn-enrollment pulse-button">
                             <i class="fas fa-rocket"></i> {{buttonText}} - Get 50% OFF!
                         </button>
                     </div>
                 </form>
-                
+
                 <!-- Trust Indicators -->
                 <div class="trust-indicators-modal">
                     <div class="trust-item">
@@ -504,7 +524,8 @@
 </div>
 
 <!-- Booking Form Modal (for consultation) -->
-<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true" #bookingModal>
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true"
+    #bookingModal>
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content booking-modal">
             <div class="modal-header">
@@ -515,15 +536,18 @@
                 <form (ngSubmit)="submitForm()" #bookingForm="ngForm">
                     <div class="mb-3">
                         <label for="name" class="form-label">Full Name *</label>
-                        <input type="text" class="form-control" id="name" [(ngModel)]="formData.name" name="name" required>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="formData.name" name="name"
+                            required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email Address *</label>
-                        <input type="email" class="form-control" id="email" [(ngModel)]="formData.email" name="email" required>
+                        <input type="email" class="form-control" id="email" [(ngModel)]="formData.email" name="email"
+                            required>
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone Number *</label>
-                        <input type="tel" class="form-control" id="phone" [(ngModel)]="formData.phone" name="phone" required>
+                        <input type="tel" class="form-control" id="phone" [(ngModel)]="formData.phone" name="phone"
+                            required>
                     </div>
                     <div class="mb-3">
                         <label for="grade" class="form-label">Grade/Class *</label>

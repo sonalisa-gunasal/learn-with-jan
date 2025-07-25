@@ -1,0 +1,138 @@
+
+<!-- Hero Section with Background Image -->
+<section class="courses-hero-section">
+  <div class="hero-background-image">
+    <div class="hero-overlay"></div>
+    <div class="floating-elements">
+      <div class="floating-icon" style="top: 15%; left: 8%; animation-delay: 0s;">📚</div>
+      <div class="floating-icon" style="top: 25%; right: 12%; animation-delay: 1s;">🎯</div>
+      <div class="floating-icon" style="bottom: 35%; left: 15%; animation-delay: 2s;">💡</div>
+      <div class="floating-icon" style="bottom: 25%; right: 20%; animation-delay: 3s;">🚀</div>
+      <div class="floating-icon" style="top: 55%; left: 3%; animation-delay: 4s;">⭐</div>
+      <div class="floating-icon" style="top: 65%; right: 8%; animation-delay: 5s;">🏆</div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="hero-content text-center">
+      <div class="hero-badge animate__animated animate__fadeInDown">
+        <span class="badge-icon">🎓</span>
+        <span class="badge-text">Academic Excellence Awaits</span>
+      </div>
+      
+      <h1 class="hero-title animate__animated animate__fadeInUp">
+        Transform Your Academic Journey 
+        <span class="gradient-text">Grade by Grade</span>
+      </h1>
+      
+      <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+        From Grade 9 foundations to JEE/NEET mastery - comprehensive academic programs with dedicated mentorship for guaranteed success!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Courses Grid Section -->
+<section class="courses-grid-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let course of courses">
+        <div class="course-card modern-card" (click)="navigateToCourse(course)">
+          <div class="course-image">
+            <img [src]="course.image" [alt]="course.title" class="img-fluid">
+            <div class="course-badge">{{ course.badge }}</div>
+            <div class="discount-badge">{{ course.discount }}% OFF</div>
+          </div>
+          
+          <div class="course-content">
+            <div class="course-category">
+              <span class="grade-icon" *ngIf="course.gradeIcon">{{ course.gradeIcon }}</span>
+              {{ course.category }}
+            </div>
+            <h3 class="course-title">{{ course.title }}</h3>
+            <p class="course-description">{{ course.description }}</p>
+            
+            <div class="subjects-list" *ngIf="course.subjects">
+              <div class="subjects-label">Subjects Covered:</div>
+              <div class="subjects-tags">
+                <span class="subject-tag" *ngFor="let subject of course.subjects">{{ subject }}</span>
+              </div>
+            </div>
+            
+            <div class="course-stats">
+              <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <span>{{ course.students }} students</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-star"></i>
+                <span>{{ course.rating }}/5</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <span>{{ course.duration }}</span>
+              </div>
+            </div>
+            
+            <div class="course-features">
+              <div class="feature-item" *ngFor="let feature of course.features">
+                <i class="fas fa-check"></i>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+            
+            <div class="course-pricing">
+              <div class="original-price">₹{{ course.originalPrice }}</div>
+              <div class="current-price">₹{{ course.currentPrice }}</div>
+            </div>
+            
+            <div class="course-actions">
+              <button class="btn btn-primary-modern btn-enroll" (click)="openEnrollmentForm(course.title); $event.stopPropagation()">
+                <i class="fas fa-rocket"></i>
+                Enroll Now
+              </button>
+              <button class="btn btn-outline-modern btn-demo" (click)="openDemoForm(course.title); $event.stopPropagation()">
+                <i class="fas fa-play"></i>
+                Free Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content text-center">
+      <h2 class="cta-title">Ready to Excel in Your Academic Goals? 🎯</h2>
+      <p class="cta-subtitle">Join 100,000+ students who achieved academic excellence with our proven grade-wise programs and dedicated mentorship!</p>
+      <div class="cta-stats">
+        <div class="stat-highlight">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Board Exam Success</div>
+        </div>
+        <div class="stat-highlight">
+          <div class="stat-number">2.5x</div>
+          <div class="stat-label">Grade Improvement</div>
+        </div>
+        <div class="stat-highlight">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Mentor Support</div>
+        </div>
+      </div>
+      <div class="cta-buttons">
+        <button class="btn btn-primary-modern btn-lg" (click)="openEnrollmentForm()">
+          <i class="fas fa-rocket"></i>
+          Start Your Success Journey
+        </button>
+        <button class="btn btn-outline-modern btn-lg" (click)="openDemoForm()">
+          <i class="fas fa-video"></i>
+          Get Free Demo Class
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

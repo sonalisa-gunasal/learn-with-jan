@@ -577,6 +577,7 @@ textarea:focus {
   z-index: 999;
   box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.2);
   border-top: 2px solid #ff6b35;
+  height: 80px;
 }
 
 .footer-title {
@@ -1616,7 +1617,7 @@ router-outlet {
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
   margin-bottom: 2.5rem;
-  max-width: 500px;
+  max-width: 830px;
 }
 
 .hero-buttons {

@@ -10,10 +10,13 @@ import { QueryComponent } from './menu-items/query/query.component';
 import { EnglishComponent } from './menu-items/english/english.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { MentorshipAndTrainingComponent } from './mentorship-and-training/mentorship-and-training.component';
+import { AcademicCoursesComponent } from './academic-courses/academic-courses.component';
+import { ProfessionalCoursesComponent } from './professional-courses/professional-courses.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'courses/:id', component: CourseDetailsComponent },
+  { path: 'academic-courses', component: AcademicCoursesComponent },
+  { path: 'academic-courses/:id', component: CourseDetailsComponent },
   { path: 'book-demo', component: LandingComponent },
   { path: 'consultation', component: LandingComponent },
   { path: 'training', component: MentorshipAndTrainingComponent },
@@ -25,6 +28,9 @@ export const routes: Routes = [
   { path: 'mobile-development', component: MobileDevelopmentComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'query', component: QueryComponent },
+  { path: 'professional-courses', component: ProfessionalCoursesComponent }
+    // loadComponent: () => import('./professional-courses/professional-courses.component').then(m => m.ProfessionalCoursesComponent) },
+
 ];
 
 export const appConfig = {

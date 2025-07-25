@@ -1,0 +1,138 @@
+
+<!-- Hero Section with Background Image -->
+<section class="professional-hero-section">
+  <div class="hero-background-image">
+    <div class="hero-overlay"></div>
+    <div class="floating-elements">
+      <div class="floating-icon" style="top: 15%; left: 8%; animation-delay: 0s;">🎓</div>
+      <div class="floating-icon" style="top: 25%; right: 12%; animation-delay: 1s;">🏆</div>
+      <div class="floating-icon" style="bottom: 35%; left: 15%; animation-delay: 2s;">🔐</div>
+      <div class="floating-icon" style="bottom: 25%; right: 20%; animation-delay: 3s;">🌱</div>
+      <div class="floating-icon" style="top: 55%; left: 3%; animation-delay: 4s;">🛡️</div>
+      <div class="floating-icon" style="top: 65%; right: 8%; animation-delay: 5s;">⚡</div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="hero-content text-center">
+      <div class="hero-badge animate__animated animate__fadeInDown">
+        <span class="badge-icon">🎯</span>
+        <span class="badge-text">Professional Excellence Through Certification</span>
+      </div>
+      
+      <h1 class="hero-title animate__animated animate__fadeInUp">
+        Master Global Standards with 
+        <span class="gradient-text">ISO Certification Programs</span>
+      </h1>
+      
+      <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+        Internationally recognized ISO Lead Auditor and Internal Auditor training programs with certified instructors, practical case studies, and global certification included!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Courses Grid Section -->
+<section class="courses-grid-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let course of courses">
+        <div class="course-card modern-card" (click)="navigateToCourse(course)">
+          <div class="course-image">
+            <img [src]="course.image" [alt]="course.title" class="img-fluid">
+            <div class="course-badge">{{ course.badge }}</div>
+            <div class="discount-badge">{{ course.discount }}% OFF</div>
+          </div>
+          
+          <div class="course-content">
+            <div class="course-category">
+              <span class="course-icon" *ngIf="course.courseIcon">{{ course.courseIcon }}</span>
+              {{ course.category }}
+            </div>
+            <h3 class="course-title">{{ course.title }}</h3>
+            <p class="course-description">{{ course.description }}</p>
+            
+            <div class="target-audience-list" *ngIf="course.targetAudience">
+              <div class="audience-label">Target Audience:</div>
+              <div class="audience-tags">
+                <span class="audience-tag" *ngFor="let audience of course.targetAudience">{{ audience }}</span>
+              </div>
+            </div>
+            
+            <div class="course-stats">
+              <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <span>{{ course.students }} professionals</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-star"></i>
+                <span>{{ course.rating }}/5</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <span>{{ course.duration }}</span>
+              </div>
+            </div>
+            
+            <div class="course-features">
+              <div class="feature-item" *ngFor="let feature of course.features">
+                <i class="fas fa-check"></i>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+            
+            <div class="course-pricing">
+              <div class="original-price">₹{{ course.originalPrice }}</div>
+              <div class="current-price">₹{{ course.currentPrice }}</div>
+            </div>
+            
+            <div class="course-actions">
+              <button class="btn btn-primary-modern btn-enroll" (click)="openEnrollmentForm(course.title); $event.stopPropagation()">
+                <i class="fas fa-certificate"></i>
+                Get Certified
+              </button>
+              <button class="btn btn-outline-modern btn-demo" (click)="openDemoForm(course.title); $event.stopPropagation()">
+                <i class="fas fa-info-circle"></i>
+                Course Info
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content text-center">
+      <h2 class="cta-title">Ready to Advance Your Professional Career? 🚀</h2>
+      <p class="cta-subtitle">Join 80,000+ professionals who achieved global certification with our internationally recognized ISO training programs!</p>
+      <div class="cta-stats">
+        <div class="stat-highlight">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Certification Rate</div>
+        </div>
+        <div class="stat-highlight">
+          <div class="stat-number">Global</div>
+          <div class="stat-label">Recognition</div>
+        </div>
+        <div class="stat-highlight">
+          <div class="stat-number">Expert</div>
+          <div class="stat-label">Instructors</div>
+        </div>
+      </div>
+      <div class="cta-buttons">
+        <button class="btn btn-primary-modern btn-lg" (click)="openEnrollmentForm()">
+          <i class="fas fa-certificate"></i>
+          Start Your Certification Journey
+        </button>
+        <button class="btn btn-outline-modern btn-lg" (click)="openDemoForm()">
+          <i class="fas fa-download"></i>
+          Download Course Brochure
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
