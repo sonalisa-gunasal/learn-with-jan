@@ -32,10 +32,13 @@
                     </h1>
                     <p class="hero-subtitle animate__animated animate__fadeInLeft animate__delay-1s">
                         <span class="ad-highlight">🎓 <b>5000+ Students Transformed</b> at Global Edge!</span><br>
-                        <span class="ad-highlight">🚀 <b>Personalized Learning, Live Sessions, Guaranteed Results</b></span><br>
+                        <span class="ad-highlight">🚀 <b>Personalized Learning, Live Sessions, Guaranteed
+                                Results</b></span><br>
                         <span class="ad-highlight">🌟 <b>Empowering Future Professionals & Scholars</b></span><br>
-                        <span class="ad-highlight">🏅 <b>ISO Auditor Certification for Professionals</b> | <b>Academic Excellence for Grades 9-12</b></span><br>
-                        <span class="ad-highlight">🤝 <b>Dedicated Mentors</b> | <b>Globally Recognized Training</b> | <b>Proven Success Stories</b></span>
+                        <span class="ad-highlight">🏅 <b>ISO Auditor Certification for Professionals</b> | <b>Academic
+                                Excellence for Grades 9-12</b></span><br>
+                        <span class="ad-highlight">🤝 <b>Dedicated Mentors</b> | <b>Globally Recognized Training</b> |
+                            <b>Proven Success Stories</b></span>
                     </p>
 
                     <!-- Trust Indicators -->
@@ -55,13 +58,23 @@
                     </div>
 
                     <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
-                        <button class="btn btn-primary btn-modern pulse-button" (click)="openEnrollmentForm()">
-                            <i class="fas fa-rocket"></i> Enroll Now - FREE Demo
-                        </button>
-                        <button class="btn btn-outline-light btn-outline-modern"
-                            (click)="openBookingForm('consultation')">
-                            <i class="fas fa-phone"></i> Talk to Expert
-                        </button>
+                        <div class="ad-highlight-btn enroll-mobile-first">
+                            <button
+                                class="btn btn-modern pulse-button enroll-highlight-btn animate__animated animate__tada animate__infinite"
+                                (click)="openEnrollmentForm()">
+                                <span class="badge badge-ad">🔥 Hot Offer</span>
+                                <i class="fas fa-rocket"></i> <span class="gradient-text-light">Enroll Now</span> <span
+                                    class="ad-flash">FREE Demo</span>
+                            </button>
+                        </div>
+                        <div class="ad-highlight-btn consult-mobile-second">
+                            <button
+                                class="btn btn-outline-light btn-outline-modern consult-highlight-btn animate__animated animate__heartBeat animate__infinite"
+                                (click)="openBookingForm('consultation')">
+                                <span class="badge badge-ad">💬 Expert Advice</span>
+                                <i class="fas fa-phone"></i> <span class="gradient-text">Book Consultation</span>
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Limited Time Offer -->
@@ -401,7 +414,8 @@
 
                     <div class="mb-3">
                         <label for="courseInterest" class="form-label">Course of Interest *</label>
-                        <select class="form-control" id="courseInterest" [(ngModel)]="enrollmentData.courseInterest" name="courseInterest" required>
+                        <select class="form-control" id="courseInterest" [(ngModel)]="enrollmentData.courseInterest"
+                            name="courseInterest" required>
                             <option value="">Select a course</option>
                             <optgroup label="🎓 Academic Courses (Grades 9-12)">
                                 <option *ngFor="let course of academicCourses" [value]="course.value">
@@ -438,7 +452,8 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="learningMode" class="form-label">Preferred Learning Mode *</label>
-                            <select class="form-control" id="learningMode" [(ngModel)]="enrollmentData.learningMode" name="learningMode" required>
+                            <select class="form-control" id="learningMode" [(ngModel)]="enrollmentData.learningMode"
+                                name="learningMode" required>
                                 <option value="">Select Learning Mode</option>
                                 <option *ngFor="let mode of learningModes" [value]="mode.value">{{mode.label}}</option>
                             </select>
@@ -495,8 +510,8 @@
 
                     <div class="mb-3">
                         <label for="previousExperience" class="form-label">Previous Learning Experience</label>
-                        <textarea class="form-control" id="previousExperience" [(ngModel)]="enrollmentData.previousExperience" name="previousExperience"
-                            rows="2"
+                        <textarea class="form-control" id="previousExperience"
+                            [(ngModel)]="enrollmentData.previousExperience" name="previousExperience" rows="2"
                             placeholder="Any previous tutoring, online courses, or relevant experience?"></textarea>
                     </div>
 
@@ -509,8 +524,8 @@
 
                     <div class="mb-3">
                         <label for="specificRequirements" class="form-label">Specific Requirements</label>
-                        <textarea class="form-control" id="specificRequirements" [(ngModel)]="enrollmentData.specificRequirements" name="specificRequirements"
-                            rows="2"
+                        <textarea class="form-control" id="specificRequirements"
+                            [(ngModel)]="enrollmentData.specificRequirements" name="specificRequirements" rows="2"
                             placeholder="Any specific needs, learning difficulties, or special requirements?"></textarea>
                     </div>
 
@@ -531,8 +546,6 @@
                         </button>
                     </div>
                 </form>
-
-                <!-- Trust Indicators -->
                 <div class="trust-indicators-modal">
                     <div class="trust-item">
                         <i class="fas fa-shield-alt"></i>
@@ -580,7 +593,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="courseInterest" class="form-label">Course of Interest *</label>
-                        <select class="form-control" id="courseInterest" [(ngModel)]="formData.courseInterest" name="courseInterest" required>
+                        <select class="form-control" id="courseInterest" [(ngModel)]="formData.courseInterest"
+                            name="courseInterest" required>
                             <option value="">Select a course</option>
                             <optgroup label="🎓 Academic Courses (Grades 9-12)">
                                 <option *ngFor="let course of academicCourses" [value]="course.value">
