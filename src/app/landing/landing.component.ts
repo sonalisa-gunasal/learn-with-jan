@@ -1,7 +1,7 @@
 // src/app/landing/landing.component.ts
 
-import { Component, OnInit, OnDestroy, AfterViewInit, Inject, PLATFORM_ID, ViewChildren, ViewChild, ElementRef, QueryList } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
