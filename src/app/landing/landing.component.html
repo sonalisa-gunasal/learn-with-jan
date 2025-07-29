@@ -31,7 +31,7 @@
                         Transform Your <span class="gradient-text">Learning Journey</span> Today!
                     </h1>
                     <p class="hero-subtitle animate__animated animate__fadeInLeft animate__delay-1s">
-                        <span class="ad-highlight">🎓 <b>5000+ Students Transformed</b> at Global Edge!</span><br>
+                        <span class="ad-highlight"><b>Batches Ongoing</b></span><br>
                         <span class="ad-highlight">🚀 <b>Personalized Learning, Live Sessions, Guaranteed
                                 Results</b></span><br>
                         <span class="ad-highlight">🌟 <b>Empowering Future Professionals & Scholars</b></span><br>
@@ -42,48 +42,19 @@
                     </p>
 
                     <!-- Trust Indicators -->
-                    <div class="trust-indicators animate__animated animate__fadeInUp animate__delay-2s">
-                        <div class="trust-item">
-                            <i class="fas fa-star"></i>
-                            <span>4.9/5 Rating</span>
-                        </div>
-                        <div class="trust-item">
-                            <i class="fas fa-users"></i>
-                            <span>50K+ Students</span>
-                        </div>
-                        <div class="trust-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Certified Teachers</span>
-                        </div>
-                    </div>
+                    <!-- Trust indicators removed as per new theme -->
 
                     <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
-                        <div class="ad-highlight-btn enroll-mobile-first">
-                            <button
-                                class="btn btn-modern pulse-button enroll-highlight-btn animate__animated animate__tada animate__infinite"
-                                (click)="openEnrollmentForm()">
-                                <span class="badge badge-ad">🔥 Hot Offer</span>
-                                <i class="fas fa-rocket"></i> <span class="gradient-text-light">Enroll Now</span> <span
-                                    class="ad-flash">FREE Demo</span>
-                            </button>
-                        </div>
-                        <div class="ad-highlight-btn consult-mobile-second">
-                            <button
-                                class="btn btn-outline-light btn-outline-modern consult-highlight-btn animate__animated animate__heartBeat animate__infinite"
-                                (click)="openBookingForm('consultation')">
-                                <span class="badge badge-ad">💬 Expert Advice</span>
-                                <i class="fas fa-phone"></i> <span class="gradient-text">Book Consultation</span>
-                            </button>
-                        </div>
+                        <button class="btn btn-modern btn-lg btn-primary me-3" (click)="openEnrollmentForm()">
+                            <i class="fas fa-calendar-check"></i> Book a Demo
+                        </button>
+                        <button class="btn btn-outline-dark btn-lg btn-secondary"
+                            (click)="openBookingForm('consultation')">
+                            <i class="fas fa-user-tie"></i> Talk to the Experts
+                        </button>
                     </div>
 
-                    <!-- Limited Time Offer -->
-                    <div class="offer-banner animate__animated animate__fadeInUp animate__delay-4s">
-                        <div class="offer-content">
-                            <span class="offer-text">🔥 Limited Time: Get 50% OFF on all courses!</span>
-                            <span class="offer-timer">Ends in: <span id="countdown">23:59:45</span></span>
-                        </div>
-                    </div>
+                    <!-- Discount offer removed -->
                 </div>
                 <div class="col-lg-4">
                     <div class="hero-visual animate__animated animate__fadeInRight animate__delay-1s">
@@ -112,35 +83,7 @@
     </div>
 </section>
 
-<!-- Success Stories Section -->
-<section class="success-stories-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="section-title">🌟 Student Success Stories</h2>
-                <p class="section-subtitle">Real results from real students who transformed their lives</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 mb-4" *ngFor="let story of successStories">
-                <div class="success-card">
-                    <div class="student-photo">
-                        <img [src]="story.photo" [alt]="story.name" class="student-img">
-                        <div class="success-badge">{{story.achievement}}</div>
-                    </div>
-                    <div class="story-content">
-                        <h4 class="student-name">{{story.name}}</h4>
-                        <p class="student-grade">{{story.grade}}</p>
-                        <p class="story-text">"{{story.testimonial}}"</p>
-                        <div class="improvement-stats">
-                            <span class="stat-improvement">{{story.improvement}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- Achievements/Success Stories removed as per new requirements -->
 
 <!-- Features Section -->
 <section class="features-section">
@@ -175,40 +118,6 @@
     </div>
 </section>
 
-<!-- Parent Testimonials Section -->
-<section class="parent-testimonials-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="section-title">👨‍👩‍👧‍👦 What Parents Say</h2>
-                <p class="section-subtitle">Trusted by thousands of families worldwide</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mb-4" *ngFor="let testimonial of parentTestimonials">
-                <div class="parent-testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="parent-info">
-                            <img [src]="testimonial.photo" [alt]="testimonial.parentName" class="parent-photo">
-                            <div>
-                                <h5 class="parent-name">{{testimonial.parentName}}</h5>
-                                <p class="child-info">Parent of {{testimonial.childName}}, {{testimonial.childGrade}}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="rating">
-                            <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"{{testimonial.testimonial}}"</p>
-                    <div class="result-highlight">
-                        <span class="result-text">{{testimonial.result}}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Courses Section -->
 <section class="courses-section">
@@ -237,14 +146,14 @@
                     </div>
 
                     <div class="course-stats">
-                        <div class="stat-item">
+                        <!-- <div class="stat-item">
                             <i class="fas fa-users"></i>
                             <span>{{course.students}} students</span>
-                        </div>
-                        <div class="stat-item">
+                        </div> -->
+                        <!-- <div class="stat-item">
                             <i class="fas fa-star"></i>
                             <span>{{course.rating}}/5</span>
-                        </div>
+                        </div> -->
                         <div class="stat-item">
                             <i class="fas fa-clock"></i>
                             <span>{{course.duration}}</span>
@@ -268,23 +177,47 @@
     </div>
 </section>
 
+<!-- Professional Testimonials Section -->
+<section class="professional-testimonials-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">� Professional Testimonials</h2>
+                <p class="section-subtitle">Hear from our certified ISO professionals and industry leaders</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4" *ngFor="let testimonial of professionalTestimonials">
+                <div class="professional-testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="pro-info">
+                            <!-- <img [src]="testimonial.photo" [alt]="testimonial.name" class="pro-photo"> -->
+                            <div>
+                                <h5 class="pro-name">{{testimonial.name}}</h5>
+                                <p class="pro-title">{{testimonial.title}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"{{testimonial.testimonial}}"</p>
+                    <!-- <div class="result-highlight">
+                        <span class="result-text">{{testimonial.result}}</span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Guarantee Section -->
 <section class="guarantee-section">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="guarantee-content">
-                    <h2 class="guarantee-title">🛡️ 100% Success Guarantee</h2>
-                    <p class="guarantee-subtitle">We're so confident in our teaching methods that we offer a money-back
-                        guarantee!</p>
-                    <div class="guarantee-features">
-                        <div class="guarantee-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <div>
-                                <h4>30-Day Money Back</h4>
-                                <p>Not satisfied? Get full refund within 30 days</p>
-                            </div>
-                        </div>
+                    <!-- <h2 class="guarantee-title">🛡️ 100% Success Guarantee</h2> -->
+                    <!-- <p class="guarantee-subtitle">We're so confident in our teaching methods that we offer a money-back
+                        guarantee!</p> -->
+                    <div class="guarantee-features-flex">
                         <div class="guarantee-item">
                             <i class="fas fa-trophy"></i>
                             <div>
@@ -302,23 +235,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <!-- <div class="col-lg-6">
                 <div class="guarantee-visual">
                     <div class="guarantee-badge">
                         <div class="badge-content">
                             <i class="fas fa-certificate"></i>
-                            <h3>100%</h3>
-                            <p>Success Rate</p>
+                            <h3>See</h3>
+                            <p>Grade Improvements</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
 
 <!-- Urgency Section -->
-<section class="urgency-section">
+<!-- <section class="urgency-section">
     <div class="container">
         <div class="urgency-banner">
             <div class="urgency-content">
@@ -344,10 +277,10 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Stats Section -->
-<section class="stats-section">
+<!-- <section class="stats-section">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-6 text-center mb-4" *ngFor="let stat of stats">
@@ -358,7 +291,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <!-- Enhanced Enrollment Form Modal -->
@@ -371,19 +304,19 @@
                     <h5 class="modal-title" id="enrollmentModalLabel">
                         <i class="fas fa-rocket"></i> {{modalTitle}}
                     </h5>
-                    <p class="modal-subtitle">Join 50,000+ successful students today!</p>
+                    <p class="modal-subtitle">Join our successful students today!</p>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- Special Offer Banner -->
-                <div class="offer-banner-modal">
+                <!-- <div class="offer-banner-modal">
                     <div class="offer-content">
                         <span class="offer-icon">🎉</span>
                         <span class="offer-text">Special Offer: Get 50% OFF + FREE Demo Session!</span>
                         <span class="offer-timer">Limited Time: <span id="modal-countdown">23:59:45</span></span>
                     </div>
-                </div>
+                </div> -->
 
                 <form (ngSubmit)="submitEnrollmentForm()" #enrollmentForm="ngForm">
                     <div class="row">
@@ -542,7 +475,7 @@
 
                     <div class="d-grid">
                         <button type="submit" class="btn btn-enrollment pulse-button">
-                            <i class="fas fa-rocket"></i> {{buttonText}} - Get 50% OFF!
+                            <i class="fas fa-rocket"></i> {{buttonText}}
                         </button>
                     </div>
                 </form>
@@ -553,7 +486,7 @@
                     </div>
                     <div class="trust-item">
                         <i class="fas fa-users"></i>
-                        <span>50K+ Happy Students</span>
+                        <span>Happy Students</span>
                     </div>
                     <div class="trust-item">
                         <i class="fas fa-medal"></i>

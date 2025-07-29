@@ -1167,7 +1167,8 @@ body {
 
 /* Guarantee Section */
 .guarantee-section {
-  padding: 80px 0;
+  padding: 40px 0;
+  margin-bottom: 80px;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 

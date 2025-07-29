@@ -65,10 +65,6 @@
                 <span>{{ course.students }} students</span>
               </div>
               <div class="stat-item">
-                <i class="fas fa-star"></i>
-                <span>{{ course.rating }}/5</span>
-              </div>
-              <div class="stat-item">
                 <i class="fas fa-clock"></i>
                 <span>{{ course.duration }}</span>
               </div>
@@ -81,10 +77,7 @@
               </div>
             </div>
             
-            <!-- <div class="course-pricing">
-              <div class="original-price">₹{{ course.originalPrice }}</div>
-              <div class="current-price">₹{{ course.currentPrice }}</div>
-            </div> -->
+            <!-- Pricing and discount removed for professional/academic theme -->
             
             <div class="course-actions">
               <button class="btn btn-primary-modern btn-enroll" (click)="openEnrollmentForm(course.title); $event.stopPropagation()">
@@ -107,30 +100,16 @@
 <section class="cta-section">
   <div class="container">
     <div class="cta-content text-center">
-      <h2 class="cta-title">Ready to Excel in Your Academic Goals? 🎯</h2>
-      <p class="cta-subtitle">Join 100,000+ students who achieved academic excellence with our proven grade-wise programs and dedicated mentorship!</p>
-      <div class="cta-stats">
-        <div class="stat-highlight">
-          <div class="stat-number">98%</div>
-          <div class="stat-label">Board Exam Success</div>
-        </div>
-        <div class="stat-highlight">
-          <div class="stat-number">2.5x</div>
-          <div class="stat-label">Grade Improvement</div>
-        </div>
-        <div class="stat-highlight">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Mentor Support</div>
-        </div>
-      </div>
+      <h2 class="cta-title">Advance Your Academic Journey</h2>
+      <p class="cta-subtitle">Enroll in our board-focused programs for CBSE, ICSE, and State Boards. Learn from expert educators and achieve academic excellence.</p>
       <div class="cta-buttons">
         <button class="btn btn-primary-modern btn-lg" (click)="openEnrollmentForm()">
-          <i class="fas fa-rocket"></i>
-          Start Your Success Journey
+          <i class="fas fa-calendar-check"></i>
+          Book a Demo
         </button>
         <button class="btn btn-outline-modern btn-lg" (click)="openDemoForm()">
-          <i class="fas fa-video"></i>
-          Get Free Demo Class
+          <i class="fas fa-user-tie"></i>
+          Talk to the Experts
         </button>
       </div>
     </div>

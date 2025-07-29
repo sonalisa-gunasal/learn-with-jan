@@ -82,20 +82,6 @@ export class LandingComponent  {
       subjects: ['Mathematics', 'Physics', 'Chemistry'],
       duration: '36 weeks',
       value: 'grade-12-excellence'
-    },
-    {
-      category: 'JEE Preparation',
-      title: 'JEE Main & Advanced Mastery 🎯',
-      subjects: ['Physics', 'Chemistry', 'Mathematics'],
-      duration: '48 weeks',
-      value: 'jee-preparation'
-    },
-    {
-      category: 'NEET Preparation',
-      title: 'NEET Excellence Program 🩺',
-      subjects: ['Physics', 'Chemistry', 'Biology'],
-      duration: '48 weeks',
-      value: 'neet-preparation'
     }
   ];
 
@@ -151,49 +137,24 @@ export class LandingComponent  {
     { value: 'offline', label: 'Offline Classes (if available)' }
   ];
 
-  successStories = [
-    {
-      name: 'Arjun Sharma',
-      grade: 'Class 10, CBSE',
-      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-      achievement: '95% in Boards',
-      testimonial: 'I improved from 65% to 95% in just 6 months! The teachers are amazing and always available for doubts.',
-      improvement: '+30% Grade Improvement'
-    },
-    {
-      name: 'Priya Patel',
-      grade: 'Class 12, CBSE',
-      photo: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-      achievement: 'IIT JEE Qualified',
-      testimonial: 'The personalized study plan and mock tests helped me crack JEE with AIR 2847. Thank you GlobalEdge!',
-      improvement: 'IIT JEE Success'
-    },
-    {
-      name: 'Rahul Kumar',
-      grade: 'Class 9, ICSE',
-      photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-      achievement: 'Math Olympiad Winner',
-      testimonial: 'From struggling with basic math to winning the state Math Olympiad - this platform changed my life!',
-      improvement: 'Olympiad Winner'
-    }
-  ];
+  // Removed student success stories as per new requirements
 
-  parentTestimonials = [
+  // Removed parent testimonials as per new requirements
+  professionalTestimonials = [
     {
-      parentName: 'Mrs. Sunita Sharma',
-      childName: 'Arjun',
-      childGrade: 'Class 10',
-      photo: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-      testimonial: 'My son\'s confidence and grades have improved dramatically. The teachers provide individual attention and regular progress updates. Best investment for my child\'s future!',
-      result: 'Son scored 95% in boards'
+      name: 'R. Suresh (Tamil Nadu)',
+      title: 'ISO 9001 Lead Auditor',
+      testimonial: 'The ISO training was practical and helped me advance my career in quality management.'
     },
     {
-      parentName: 'Mr. Rajesh Patel',
-      childName: 'Priya',
-      childGrade: 'Class 12',
-      photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-      testimonial: 'Priya was struggling with Physics and Chemistry. Within 3 months, she became the top performer in her class. The teaching methodology is excellent!',
-      result: 'Daughter got admission in top engineering college'
+      name: 'K. Priya (Tamil Nadu)',
+      title: 'ISO 27001 Internal Auditor',
+      testimonial: 'The ISMS course was clear and actionable. I could apply the concepts at my workplace immediately.'
+    },
+    {
+      name: 'M. Aravind (Tamil Nadu)',
+      title: 'ISO 14001 Environmental Consultant',
+      testimonial: 'The trainers are industry experts and the sessions were very interactive.'
     }
   ];
 
@@ -201,7 +162,7 @@ export class LandingComponent  {
     {
       icon: 'fas fa-chalkboard-teacher',
       title: 'Expert Teachers',
-      description: 'Learn from expert graduates and experienced educators with proven track records.',
+      description: 'Learn from experienced educators with proven track records.',
       benefits: [
         'Qualified teachers',
         'Average 8+ years experience',
@@ -215,17 +176,6 @@ export class LandingComponent  {
       title: 'Interactive Learning',
       description: 'Engage with live classes, virtual labs, and gamified learning experiences.',
       benefits: ['Live interactive sessions', 'Virtual science labs', 'Gamified learning modules']
-    },
-    {
-      icon: 'fas fa-chart-line',
-      title: 'Guaranteed Results',
-      description: 'See measurable improvement in grades with our proven teaching methodology.',
-      benefits: [
-        'Average 2+ grade improvement',
-        '95% student satisfaction',
-        'Money-back guarantee',
-        'Continuous Performance Tracking'
-      ]
     },
     {
       icon: 'fas fa-clock',
@@ -243,12 +193,6 @@ export class LandingComponent  {
       title: '24/7 Doubt Support',
       description: 'Get instant help with our round-the-clock doubt clearing sessions.',
       benefits: ['WhatsApp doubt support', 'Live doubt sessions', 'AI-powered help']
-    },
-    {
-      icon: 'fas fa-medal',
-      title: 'Proven Track Record',
-      description: 'Join 50,000+ successful students who achieved their academic goals.',
-      benefits: ['50K+ successful students', '98% pass rate', 'Award-winning platform']
     }
   ];
 
@@ -257,19 +201,17 @@ export class LandingComponent  {
       category: 'Academic Tuition (Grades 9–12)',
       icon: 'fas fa-book-open',
       title: '📘 Academic Tuition',
-      description: 'Personalized mentoring and board-focused preparation for high school success. Build a strong foundation for JEE/NEET and excel in board exams with our expert faculty.',
+      description: 'Personalized mentoring and board-focused preparation for high school success. Build a strong foundation for board exams with our expert faculty. NCERT, CBSE, ICSE, and State Boards covered.',
       subjects: ['Mathematics', 'Physics', 'Chemistry'],
       features: [
         'Individual attention & progress tracking',
         'Board-specific curriculum (CBSE/ICSE/State)',
-        'JEE/NEET Foundation & Olympiad support',
         'Live interactive classes & doubt clearing',
         'Regular assessments & feedback',
         'Flexible online/offline batches'
       ],
       badge: 'Top Rated',
       students: '15,000+',
-      rating: '4.9',
       duration: 'Ongoing',
       priceInfo: 'Contact for details'
     },
@@ -297,7 +239,6 @@ export class LandingComponent  {
       ],
       badge: 'Best Seller',
       students: '5,000+',
-      rating: '5.0',
       duration: 'Short-term & Fast Track',
       priceInfo: 'Contact for details'
     }
@@ -342,7 +283,7 @@ export class LandingComponent  {
   }
 
   openEnrollmentForm(courseTitle?: string) {
-    this.modalTitle = 'Enroll Now - Get 50% OFF!';
+    this.modalTitle = 'Enroll Now';
     this.buttonText = 'Enroll Now';
     if (courseTitle) {
       this.enrollmentData.courseInterest = courseTitle;

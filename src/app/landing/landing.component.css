@@ -1,3 +1,46 @@
+/* Professional Testimonial Card Styles */
+.professional-testimonial-card {
+  background: #f9fafb;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px 0 rgba(60,60,60,0.08);
+  border: 1.5px solid #ececec;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+.professional-testimonial-card:hover {
+  box-shadow: 0 6px 32px 0 rgba(255,152,0,0.10), 0 3px 12px 0 rgba(120,120,120,0.10);
+  transform: translateY(-4px) scale(1.02);
+}
+.professional-testimonial-card .testimonial-header {
+  margin-bottom: 0.75rem;
+}
+.professional-testimonial-card .pro-name {
+  font-weight: 700;
+  color: #333;
+  font-size: 1.15rem;
+}
+.professional-testimonial-card .pro-title {
+  color: #757575;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.professional-testimonial-card .testimonial-text {
+  font-style: italic;
+  color: #444;
+  font-size: 1.08rem;
+  margin-bottom: 1rem;
+}
+.professional-testimonial-card .result-highlight {
+  background: #f5f5f5;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-block;
+}
 /* Mobile-first order for buttons */
 .hero-buttons {
     display: flex;
@@ -27,41 +70,6 @@
         order: 2;
         width: 100%;
     }
-}
-
-.enroll-highlight-btn {
-    box-shadow: 0 0 24px 6px #ffe0b2, 0 0 4px 1px #fff;
-    border-radius: 2rem;
-    font-size: 1.35rem;
-    font-weight: 700;
-    background: linear-gradient(90deg, #ffe0b2 0%, #ffd180 100%);
-    color: #e65100;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s;
-    border: 2px solid #ffb74d;
-}
-
-.enroll-highlight-btn:hover {
-    transform: scale(1.08) rotate(-2deg);
-    box-shadow: 0 0 32px 12px #ffd180, 0 0 8px 2px #fff;
-    background: linear-gradient(90deg, #ffe0b2 0%, #ffd180 100%);
-    color: #ff9800;
-}
-
-.gradient-text-light {
-    background: linear-gradient(90deg, #ffb74d 0%, #ffd180 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* text-fill-color: transparent; */
-}
-
-/* ...existing styles... */
-.ad-highlight-btn {
-    display: inline-block;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
 }
 
 .enroll-highlight-btn {
@@ -150,4 +158,93 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     /* text-fill-color: transparent; */
+}
+
+body, .landing-root, .hero-section, .features-section, .courses-section, .professional-testimonials-section, .guarantee-section {
+  background: #f7f8fa;
+}
+
+.hero-section {
+  background: linear-gradient(120deg, #fff 60%, #f7f8fa 100%);
+  border-bottom-left-radius: 2.5rem;
+  border-bottom-right-radius: 2.5rem;
+  box-shadow: 0 4px 32px 0 rgba(255, 152, 0, 0.04);
+}
+
+.features-section, .courses-section, .professional-testimonials-section, .guarantee-section {
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 2px 16px 0 rgba(60,60,60,0.06);
+  margin-bottom: 2.5rem;
+  padding: 2.5rem 1.5rem;
+}
+
+.section-title, .hero-title {
+  color: #ff9800;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.section-subtitle, .hero-subtitle {
+  color: #666;
+  font-size: 1.15rem;
+}
+
+.modern-card, .course-card, .professional-testimonial-card, .guarantee-item {
+  background: #f9fafb;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px 0 rgba(60,60,60,0.08);
+  border: 1.5px solid #ececec;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.modern-card:hover, .course-card:hover, .professional-testimonial-card:hover, .guarantee-item:hover {
+  box-shadow: 0 6px 32px 0 rgba(255,152,0,0.10), 0 3px 12px 0 rgba(120,120,120,0.10);
+  transform: translateY(-4px) scale(1.02);
+}
+
+.btn-primary, .btn-enrollment, .btn-modern {
+  background: linear-gradient(90deg, #ff9800 0%, #ffb74d 100%);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  border-radius: 2rem;
+  box-shadow: 0 2px 12px 0 rgba(255,152,0,0.10);
+}
+
+.btn-primary:hover, .btn-enrollment:hover, .btn-modern:hover {
+  background: linear-gradient(90deg, #ffb74d 0%, #ff9800 100%);
+  color: #fff;
+}
+
+.btn-outline-dark, .btn-secondary {
+  border-radius: 2rem;
+  border: 2px solid #ff9800;
+  color: #ff9800;
+  background: #fff;
+  font-weight: 700;
+}
+
+.btn-outline-dark:hover, .btn-secondary:hover {
+  background: #ff9800;
+  color: #fff;
+}
+
+/* Section divider for trendiness */
+.section-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff9800 0%, #ffb74d 100%);
+  border-radius: 2px;
+  margin: 2rem auto 2.5rem auto;
+}
+
+/* Add more spacing and modern look to all sections */
+section {
+  margin-bottom: 3rem;
+}
+
+/* Subtle pattern for hero overlay */
+.hero-overlay {
+  background: linear-gradient(120deg, rgba(255,255,255,0.85) 60%, #f7f8fa 100%);
 }
