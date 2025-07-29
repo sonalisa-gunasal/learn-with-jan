@@ -1,8 +1,124 @@
-.site-logo {
-  height: 45px;
-  width: 45px;
-  margin-right: 10px;
+/* Ensure main content is visible below the fixed navbar */
+.main-content {
+  margin-top: 84px;
+  min-height: calc(100vh - 84px - 120px); /* header + footer approx heights */
+  padding-bottom: 32px;
 }
+
+body {
+  padding-bottom: 32px;
+}
+/* Footer styles to match header */
+
+.footer-section {
+  background: #b85c00; /* dark orange, subtle */
+  border-top: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: 2.5rem;
+  color: #fff;
+  font-size: 0.97rem;
+  min-height: 28px;
+  /* max-height: 50px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.6rem;
+}
+
+
+.footer-title {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.97rem;
+  margin-bottom: 0;
+  letter-spacing: 0.1px;
+}
+.footer-section .footer-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+.footer-section .social-link {
+  color: #fff;
+  font-size: 1.08rem;
+  opacity: 0.85;
+  transition: color 0.2s, opacity 0.2s, transform 0.2s;
+}
+.footer-section .social-link:hover {
+  color: #ffd54f;
+  opacity: 1;
+  transform: scale(1.15) rotate(-6deg);
+}
+.footer-section .footer-copyright {
+  color: #e0e6ed;
+  font-size: 0.93rem;
+  margin: 0;
+  text-align: right;
+}
+.navbar-comcast-style .navbar-nav .nav-link,
+.navbar-comcast-style .navbar-brand {
+  color: #222 !important;
+  font-weight: 600;
+  font-size: 1.08rem;
+  letter-spacing: 0.2px;
+  transition: color 0.2s;
+}
+
+.navbar-comcast-style .navbar-nav .nav-link:hover,
+.navbar-comcast-style .navbar-brand:hover {
+  color: #ff9800 !important;
+}
+
+/* Dropdown menu styles for clarity */
+.navbar-comcast-style .dropdown-menu {
+  background: #fff;
+  border: 1.5px solid #ffd54f;
+  box-shadow: 0 2px 12px 0 rgba(60,60,60,0.10);
+}
+.navbar-comcast-style .dropdown-item {
+  color: #222 !important;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar-comcast-style .dropdown-item:hover {
+  background: #fffde7;
+  color: #ff9800 !important;
+}
+
+.site-logo {
+  height: 48px;
+  width: 48px;
+  margin-right: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2.5px solid #ffd54f;
+  box-shadow: 0 2px 12px 0 rgba(60,60,60,0.10);
+  object-fit: cover;
+  padding: 2px;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.site-logo:hover {
+  box-shadow: 0 4px 24px 0 rgba(255,152,0,0.18);
+  border-color: #ff9800;
+}
+
+.navbar-comcast-style {
+  background: #fff;
+  box-shadow: 0 2px 16px 0 rgba(60,60,60,0.08);
+  border-bottom: 3px solid #ffd54f;
+  border-radius: 0 0 1.5rem 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+/* Add top padding to hero-section to prevent overlap with fixed navbar */
 
 /* nav {
   position: fixed;

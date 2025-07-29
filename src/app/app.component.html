@@ -12,11 +12,16 @@
         <ul class="navbar-nav mx-auto">
             <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/">Home</a></li>
             <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/about">About Us</a></li>
-            <li class="nav-item dropdown" (mouseenter)="showDropdown('academic')"
-                (mouseleave)="hideDropdown('academic')">
-                <a class="nav-link dropdown-toggle nav-link-comcast-style" routerLink="/academic-courses" id="academicCoursesDropdown"
-                    role="button" [attr.aria-expanded]="dropdownStates.academic">
-                    <i class="fas fa-graduation-cap"></i> Academic Courses
+            <li class="nav-item dropdown">
+                <!-- (mouseenter)="showDropdown('academic')" (mouseleave)="hideDropdown('academic')"> -->
+                <!-- <a class="nav-link dropdown-toggle nav-link-comcast-style" routerLink="/academic-courses"
+                    id="academicCoursesDropdown" role="button" [attr.aria-expanded]="dropdownStates.academic">
+                    <i class="fas fa-graduation-cap"></i> 
+                    Academic Courses
+                </a> -->
+                <a class="nav-link nav-link-comcast-style" routerLink="/academic-courses">
+                    <!-- <i class="fas fa-certificate"></i>  -->
+                    Academic Courses
                 </a>
                 <!-- <ul class="dropdown-menu dropdown-menu-comcast-style" [ngClass]="{'show': dropdownStates.academic}"
                     aria-labelledby="academicCoursesDropdown">
@@ -44,7 +49,8 @@
 
             <li class="nav-item">
                 <a class="nav-link nav-link-comcast-style" routerLink="/professional-courses">
-                    <i class="fas fa-certificate"></i> Professional ISO Training
+                    <!-- <i class="fas fa-certificate"></i>  -->
+                    Professional ISO Training
                 </a>
             </li>
             <li class="nav-item"><a class="nav-link nav-link-comcast-style" routerLink="/training">Training</a></li>
@@ -63,7 +69,10 @@
     </div>
 </nav>
 
-<router-outlet></router-outlet>
+
+<div class="main-content">
+    <router-outlet></router-outlet>
+</div>
 
 <!-- Floating Contact Icons -->
 <div class="floating-contacts">
@@ -80,23 +89,12 @@
 </div>
 <!-- Footer -->
 <footer class="footer-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h5 class="footer-title">GlobalEdge - Quality education for everyone</h5>
-                <!-- <p class="footer-text">Get in Touch with Global Edge Training Academy<br>
-                    We’d love to hear from you — whether you’re a student, parent, or working professional!
-                </p> -->
-            </div>
-            <div class="col-md-6 text-md-end">
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                </div>
-                <p class="footer-copyright">© 2025 GlobalEdge. All rights reserved.</p>
-            </div>
-        </div>
-    </div>
+  <div class="footer-title">GlobalEdge - Quality education for everyone</div>
+  <div class="footer-icons">
+    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class="footer-copyright">© 2025 GlobalEdge. All rights reserved.</div>
 </footer>

@@ -1,5 +1,3 @@
-// src/app/landing/landing.component.ts
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +12,7 @@ import { RouterModule } from '@angular/router';
 })
 export class LandingComponent  {
   // @ViewChildren finds all elements with #submenu (like the 'Boards' li)
- title = 'GlobalEdge';
+  title = 'GlobalEdge';
   isNavbarCollapsed = true;
   modalTitle = '';
   buttonText = '';
@@ -25,6 +23,26 @@ export class LandingComponent  {
     professional: false,
     boards: false
   };
+
+  // Query form data for hero section
+  queryData = {
+    name: '',
+    number: '',
+    email: '',
+    message: ''
+  };
+
+  submitQueryForm() {
+    // Validation: all fields required
+    if (!this.queryData.name.trim() || !this.queryData.number.trim() || !this.queryData.email.trim() || !this.queryData.message.trim()) {
+      alert('❌ Please fill in all fields before submitting your query.');
+      return;
+    }
+    // You can replace this with an API call or other logic
+    console.log('Query submitted:', this.queryData);
+    alert('Thank you for your query! We will get back to you soon.');
+    this.queryData = { name: '', number: '', email: '', message: '' };
+  }
 
   formData = {
     name: '',

@@ -1,7 +1,8 @@
 <!-- Hero Section with Background Video -->
 <section class="hero-section">
     <!-- Background Video (royalty-free placeholder, replace with your own if needed) -->
-    <video class="hero-bg-video" autoplay loop muted playsinline poster="https://images.pexels.com/photos/4145195/pexels-photo-4145195.jpeg?auto=compress&w=1200" tabindex="-1">
+    <video class="hero-bg-video" autoplay loop muted playsinline
+        poster="https://images.pexels.com/photos/4145195/pexels-photo-4145195.jpeg?auto=compress&w=1200" tabindex="-1">
         <source src="https://videos.pexels.com/video-files/4145195/4145195-hd_1920_1080_25fps.mp4" type="video/mp4">
         <!-- Fallback image if video not supported -->
     </video>
@@ -30,17 +31,18 @@
                         🎯 #1 Online Learning Platform
                     </div>
                     <h1 class="hero-title animate__animated animate__fadeInLeft">
-                        Transform Your <span class="gradient-text">Learning Journey</span> Today!
+                        Transform Your Learning Journey Today!
                     </h1>
                     <p class="hero-subtitle animate__animated animate__fadeInLeft animate__delay-1s">
-                        <span class="ad-highlight"><b>Batches Ongoing</b></span><br>
-                        <span class="ad-highlight">🚀 <b>Personalized Learning, Live Sessions, Guaranteed
-                                Results</b></span><br>
-                        <span class="ad-highlight">🌟 <b>Empowering Future Professionals & Scholars</b></span><br>
-                        <span class="ad-highlight">🏅 <b>ISO Auditor Certification for Professionals</b> | <b>Academic
-                                Excellence for Grades 9-12</b></span><br>
-                        <span class="ad-highlight">🤝 <b>Dedicated Mentors</b> | <b>Globally Recognized Training</b> |
-                            <b>Proven Success Stories</b></span>
+                        <span class="ad-highlight"><i class="fas fa-check-circle"></i> <b>Batches Ongoing</b></span><br>
+                        <span class="ad-highlight"><i class="fas fa-check-circle"></i> <b>Personalized Learning, Live
+                                Sessions, Guaranteed Results</b></span><br>
+                        <span class="ad-highlight"><i class="fas fa-check-circle"></i> <b>Empowering Future
+                                Professionals & Scholars</b></span><br>
+                        <span class="ad-highlight"><i class="fas fa-check-circle"></i> <b>ISO Auditor Certification for
+                                Professionals</b> | <b>Academic Excellence for Grades 9-12</b></span><br>
+                        <span class="ad-highlight"><i class="fas fa-check-circle"></i> <b>Dedicated Mentors</b> |
+                            <b>Globally Recognized Training</b> | <b>Proven Success Stories</b></span>
                     </p>
 
                     <!-- Trust Indicators -->
@@ -59,26 +61,26 @@
                     <!-- Discount offer removed -->
                 </div>
                 <div class="col-lg-4">
-                    <div class="hero-visual animate__animated animate__fadeInRight animate__delay-1s">
-                        <div class="learning-dashboard">
-                            <div class="dashboard-header">
-                                <div class="user-avatar"></div>
-                                <div>
-                                    <div class="user-name">Sarah Johnson</div>
-                                    <div class="user-progress">Mathematics Student</div>
-                                </div>
-                            </div>
-                            <div class="progress-ring">
-                                <div class="progress-value">95%</div>
-                                <div class="progress-label">Course Completion</div>
-                            </div>
-                            <div class="achievement-badges">
-                                <div class="badge-item">🏆 Top Performer</div>
-                                <div class="badge-item">📈 98% Test Score</div>
-                                <div class="badge-item">⚡ Fast Learner</div>
-                            </div>
-                        </div>
-                    </div>
+                  <div class="hero-query-form animate__animated animate__fadeInRight animate__delay-1s">
+                    <form (ngSubmit)="submitQueryForm()" #queryForm="ngForm" autocomplete="off">
+                      <h5 class="query-form-title">Raise Your Query</h5>
+                      <div class="mb-3">
+                        <input type="text" class="form-control" name="name" [(ngModel)]="queryData.name" placeholder="Your Name" required>
+                      </div>
+                      <div class="mb-3">
+                        <input type="tel" class="form-control" name="number" [(ngModel)]="queryData.number" placeholder="Mobile Number" required>
+                      </div>
+                      <div class="mb-3">
+                        <input type="email" class="form-control" name="email" [(ngModel)]="queryData.email" placeholder="Email Address" required>
+                      </div>
+                      <div class="mb-3">
+                        <textarea class="form-control" name="message" [(ngModel)]="queryData.message" placeholder="Your Message" rows="2" required></textarea>
+                      </div>
+                      <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-modern">Submit Query</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
             </div>
         </div>
