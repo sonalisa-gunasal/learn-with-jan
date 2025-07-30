@@ -1,0 +1,18 @@
+{
+  "routes": [
+    "/",
+    "/about",
+    "/academic-courses",
+    "/book-demo",
+    "/consultation",
+    "/contact",
+    "/english",
+    "/math",
+    "/mobile-development",
+    "/professional-courses",
+    "/query",
+    "/science",
+    "/training",
+    "/web-development"
+  ]
+}
