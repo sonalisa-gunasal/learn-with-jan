@@ -288,6 +288,7 @@ body, .landing-root {
   position: relative;
   z-index: 4;
   padding: 4rem 0;
+  margin-bottom: 250px;
 }
 
 /* Floating Elements */
