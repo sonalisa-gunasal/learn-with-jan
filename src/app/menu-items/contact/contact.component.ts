@@ -151,6 +151,29 @@ export class ContactComponent {
     { value: 'urgent', label: 'Urgent - Need immediate response' }
   ];
 
+    frequentQuestions = [
+    {
+      question: 'How long does it take to get a response?',
+      answer: 'Response time depends on priority level: Critical (1 hour), High (4 hours), Medium (24 hours), Low (48 hours).'
+    },
+    {
+      question: 'Can I ask questions about homework?',
+      answer: 'Yes! We provide guidance and explanations to help you understand concepts, not just answers.'
+    },
+    {
+      question: 'Is this service free?',
+      answer: 'Basic query support is free. Premium support with faster response is available for enrolled students.'
+    },
+    // {
+    //   question: 'Can I attach files or images?',
+    //   answer: 'Yes, you can mention if you have attachments and our team will guide you on how to share them.'
+    // },
+    {
+      question: 'Do you help with exam preparation?',
+      answer: 'Absolutely! We provide exam strategies, practice problems, and revision guidance.'
+    }
+  ];
+
   submitContactForm() {
     const googleFormUrl = ' https://docs.google.com/forms/u/0/d/e/1FAIpQLScVbQhC8jBGSrukuwWObyD0dq7i9WOEWHJSa9akIL6eM-g2jg/formResponse';
     if (!this.contactData.firstName || !this.contactData.lastName || !this.contactData.email ||

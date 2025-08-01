@@ -84,7 +84,7 @@
             </div>
 
             <div class="col-lg-4">
-                <div class="contact-info-card">
+                <!-- <div class="contact-info-card">
                     <h3>Contact Information</h3>
 
                 <div class="contact-item">
@@ -118,8 +118,63 @@
                             <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
                         </div>
                     </div>
+                </div> -->
+                  <div class="faq-card">
+                    <h3>Frequently Asked</h3>
+                    <div class="faq-item" *ngFor="let faq of frequentQuestions">
+                        <h6>{{faq.question}}</h6>
+                        <p>{{faq.answer}}</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Global Edge Footer -->
+<footer class="global-edge-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>🌐 Global Edge Training Academy</h3>
+                        <p class="footer-tagline">Empowering Students for a Smarter Tomorrow</p>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>📞 +91 96002 23816</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>🏢 HQ: Salem | Branch: Trichy</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>🌐 www.gbledge.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>📧 businessin&#64;gbledge.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-thank-you">
+                        <h4>🙏 Thank You</h4>
+                        <p>Thank you for choosing Global Edge Training Academy. We're excited to support your academic success — every step of the way!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2025 Global Edge Training Academy. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
