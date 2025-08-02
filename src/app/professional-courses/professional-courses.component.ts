@@ -13,11 +13,33 @@ import { RouterModule } from '@angular/router';
 export class ProfessionalCoursesComponent implements OnInit {
 
   constructor(private router: Router) { }
-  
+
+  ngAfterViewInit() {
+    // Ensure videos are muted and handle autoplay
+    this.setupVideoElements();
+  }
+
+  private setupVideoElements() {
+    const videos = document.querySelectorAll('.hero-bg-video');
+    videos.forEach((video: any) => {
+      video.muted = true;
+      video.playsInline = true;
+      video.autoplay = true;
+      video.loop = true;
+      
+      // Handle autoplay issues on mobile
+      video.addEventListener('loadedmetadata', () => {
+        video.play().catch((error: any) => {
+          console.log('Video autoplay failed:', error);
+        });
+      });
+    });
+  }
+
 
   courses: any[] = [];
 
-  ngOnInit():void {
+  ngOnInit(): void {
 
     this.courses = [
       {
@@ -200,6 +222,22 @@ export class ProfessionalCoursesComponent implements OnInit {
       detail: { courseTitle: courseTitle }
     });
     window.dispatchEvent(event);
+  }
+
+  downloadBrochure() {
+    // Create a link element to download the brochure
+    const link = document.createElement('a');
+    link.href = '/assets/Website-GlobalEdgeBrochure.pdf';
+    link.download = 'Global-Edge-Academic-Brochure.pdf';
+    link.target = '_blank';
+
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Optional: Show success message
+    alert('📄 Brochure download started! Check your downloads folder.');
   }
 }
 

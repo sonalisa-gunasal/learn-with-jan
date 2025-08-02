@@ -2649,3 +2649,24 @@ body {
 .section-margin {
   margin: 4rem 0;
 }
+
+.btn-secondary-modern {
+  background: linear-gradient(45deg, var(--global-edge-orange), var(--global-edge-orange-light));
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-secondary-modern:hover {
+  background: linear-gradient(45deg, var(--global-edge-orange-dark), var(--global-edge-orange));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+  color: white;
+}

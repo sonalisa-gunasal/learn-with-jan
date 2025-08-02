@@ -304,11 +304,11 @@
       </div>
 
       <div class="cta-buttons">
-        <button class="btn btn-primary-cta">
+        <button class="btn btn-primary-cta" (click)="openEnrollmentForm()">
           <i class="fas fa-rocket"></i>
           Book Free Demo
         </button>
-        <button class="btn btn-outline-cta">
+        <button class="btn btn-outline-cta" (click)="openBookingForm('consultation')">
           <i class="fas fa-phone"></i>
           Talk to Expert
         </button>
@@ -316,3 +316,27 @@
     </div>
   </div>
 </section>
+
+<!-- Shared Enrollment Form -->
+<app-shared-enrollment-form 
+  *ngIf="showSharedEnrollmentForm"
+  [modalTitle]="modalTitle"
+  [buttonText]="buttonText"
+  [courseTitle]="enrollmentData.courseInterest"
+  [academicCourses]="academicCourses"
+  [professionalCourses]="professionalCourses"
+  [learningModes]="learningModes"
+  (formSubmitted)="onSharedEnrollmentFormSubmitted($event)"
+  (formClosed)="onSharedEnrollmentFormClosed()">
+</app-shared-enrollment-form>
+
+<!-- Shared Consultation Form -->
+<app-shared-consultation-form 
+  *ngIf="showSharedConsultationForm"
+  [modalTitle]="modalTitle"
+  [buttonText]="buttonText"
+  [academicCourses]="academicCourses"
+  [professionalCourses]="professionalCourses"
+  (formSubmitted)="onSharedConsultationFormSubmitted($event)"
+  (formClosed)="onSharedConsultationFormClosed()">
+</app-shared-consultation-form>

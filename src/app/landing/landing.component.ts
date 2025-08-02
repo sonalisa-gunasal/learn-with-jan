@@ -2,22 +2,28 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SharedEnrollmentFormComponent } from '../shared/shared-enrollment-form';
+import { SharedConsultationFormComponent } from '../shared/shared-consultation-form';
 
 @Component({
   selector: 'app-landing',
   standalone: true, // Keep 'standalone: true' if your project uses standalone components
-  imports: [CommonModule, FormsModule, RouterModule], // Include modules as needed by your HTML
+  imports: [CommonModule, FormsModule, RouterModule, SharedEnrollmentFormComponent, SharedConsultationFormComponent], // Include modules as needed by your HTML
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css'] // Ensure this points to your component's CSS file
 })
-export class LandingComponent  {
+export class LandingComponent {
   // @ViewChildren finds all elements with #submenu (like the 'Boards' li)
   title = 'GlobalEdge';
   isNavbarCollapsed = true;
   modalTitle = '';
   buttonText = '';
   successMsg = '';
-  
+
+  // Shared form visibility controls
+  showSharedEnrollmentForm = false;
+  showSharedConsultationForm = false;
+
   dropdownStates = {
     academic: false,
     professional: false,
@@ -38,10 +44,23 @@ export class LandingComponent  {
       alert('❌ Please fill in all fields before submitting your query.');
       return;
     }
-    // You can replace this with an API call or other logic
-    console.log('Query submitted:', this.queryData);
-    alert('Thank you for your query! We will get back to you soon.');
-    this.queryData = { name: '', number: '', email: '', message: '' };
+    const form = new FormData();
+    form.append('entry.1487966399', this.queryData.name);
+    form.append('entry.652009937', this.queryData.email);
+    form.append('entry.571912973', this.queryData.number);
+    form.append('entry.1266232267', this.queryData.message);
+    fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSdOAsu7IWU0n_T8mvBbYG5nxXJmbQvcnH_9ARlflZqVoUd3zg/formResponse", {
+      method: 'POST',
+      mode: 'no-cors',
+      body: form
+    })
+      .then(() => {
+        const successMsg = '🎉 Congratulations! Your Query has been submitted successfully! Our team will contact you within 24 hours to schedule your FREE demo session.';
+        alert(successMsg);
+        this.queryData = { name: '', number: '', email: '', message: '' };
+      }).catch(() => {
+        alert('❌ Something went wrong. Please try again or contact us directly.');
+      });
   }
 
   formData = {
@@ -291,13 +310,9 @@ export class LandingComponent  {
       this.buttonText = 'Book Demo';
       this.formData.message = 'need free demo';
     }
-    
-    // Open Bootstrap modal
-    const modalElement = document.getElementById('bookingModal');
-    if (modalElement) {
-      const modal = new (window as any).bootstrap.Modal(modalElement);
-      modal.show();
-    }
+
+    // Show shared consultation form
+    this.showSharedConsultationForm = true;
   }
 
   openEnrollmentForm(courseTitle?: string) {
@@ -306,28 +321,18 @@ export class LandingComponent  {
     if (courseTitle) {
       this.enrollmentData.courseInterest = courseTitle;
     }
-    
-    // Open Bootstrap modal
-    const modalElement = document.getElementById('enrollmentModal');
-    if (modalElement) {
-      const modal = new (window as any).bootstrap.Modal(modalElement);
-      modal.show();
-    }
+
+    // Show shared enrollment form
+    this.showSharedEnrollmentForm = true;
   }
 
   closeDemoForm() {
-    const modalElement = document.getElementById('bookingModal');
-    if (modalElement) {
-      const modal = (window as any).bootstrap.Modal.getInstance(modalElement);
-      if (modal) {
-        modal.hide();
-      }
-    }
+    this.showSharedConsultationForm = false;
   }
 
   submitConsultationForm() {
     const googleFormUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSfgk40xoIJEWPkLLN4fcPWlvC2c78hFC10bnaMUy5rRhahr_w/formResponse';
-    
+
     if (!this.formData.name || !this.formData.email || !this.formData.phone || !this.formData.grade || !this.formData.courseInterest) {
       alert('❌ Please fill in all required fields.');
       return;
@@ -350,12 +355,12 @@ export class LandingComponent  {
         this.successMsg = '✅ Your demo has been booked! We\'ll contact you soon to schedule your FREE session.';
         alert(this.successMsg);
         this.closeDemoForm();
-        this.formData = { 
-          name: '', 
-          email: '', 
-          phone: '', 
-          grade: '', 
-          board: '', 
+        this.formData = {
+          name: '',
+          email: '',
+          phone: '',
+          grade: '',
+          board: '',
           message: 'need free demo',
           courseInterest: ''
         };
@@ -367,10 +372,10 @@ export class LandingComponent  {
   submitEnrollmentForm() {
     // Enhanced Google Form URL for enrollment (you'll need to create a new form)
     const enrollmentFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdAeToorwMsxejfqIbczqr3XBBbRwpb9Sq4P9B2ihth0ZKQwA/formResponse';
-    
-    if (!this.enrollmentData.studentName || !this.enrollmentData.parentName || !this.enrollmentData.email || 
-        !this.enrollmentData.phone || !this.enrollmentData.grade || !this.enrollmentData.courseInterest || 
-        !this.enrollmentData.preferredTime || !this.enrollmentData.learningMode) {
+
+    if (!this.enrollmentData.studentName || !this.enrollmentData.parentName || !this.enrollmentData.email ||
+      !this.enrollmentData.phone || !this.enrollmentData.grade || !this.enrollmentData.courseInterest ||
+      !this.enrollmentData.preferredTime || !this.enrollmentData.learningMode) {
       alert('❌ Please fill in all required fields.');
       return;
     }
@@ -407,13 +412,7 @@ export class LandingComponent  {
   }
 
   closeEnrollmentForm() {
-    const modalElement = document.getElementById('enrollmentModal');
-    if (modalElement) {
-      const modal = (window as any).bootstrap.Modal.getInstance(modalElement);
-      if (modal) {
-        modal.hide();
-      }
-    }
+    this.showSharedEnrollmentForm = false;
   }
 
   resetEnrollmentForm() {
@@ -439,5 +438,24 @@ export class LandingComponent  {
   getSelectedCourseDetails() {
     const allCourses = [...this.academicCourses, ...this.professionalCourses];
     return allCourses.find(course => course.value === this.enrollmentData.courseInterest);
+  }
+
+  // Shared form event handlers
+  onSharedEnrollmentFormSubmitted(enrollmentData: any) {
+    // Form submission is now handled within the shared component
+    // This method can be used for any additional logic if needed
+  }
+
+  onSharedEnrollmentFormClosed() {
+    this.showSharedEnrollmentForm = false;
+  }
+
+  onSharedConsultationFormSubmitted(formData: any) {
+    // Form submission is now handled within the shared component
+    // This method can be used for any additional logic if needed
+  }
+
+  onSharedConsultationFormClosed() {
+    this.showSharedConsultationForm = false;
   }
 }

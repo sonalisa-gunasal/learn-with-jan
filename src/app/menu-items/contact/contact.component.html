@@ -28,17 +28,9 @@
                                 name="email" required>
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
+                            <label for="phone" class="form-label">Phone Number *</label>
                             <input type="tel" class="form-control" id="phone" [(ngModel)]="contactData.phone"
                                 name="phone">
-                        </div>
-                        <div class="mb-3">
-                            <label for="inquiryType" class="form-label">Inquiry Type *</label>
-                            <select class="form-control" id="inquiryType" [(ngModel)]="contactData.inquiryType" name="inquiryType"
-                                required>
-                                <option value="">Select Inquiry Type</option>
-                                <option *ngFor="let type of inquiryTypes" [value]="type.value">{{type.label}}</option>
-                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="courseInterest" class="form-label">Interested Course *</label>
@@ -54,22 +46,6 @@
                                         {{course.category}} - {{course.title}}
                                     </option>
                                 </optgroup>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="urgencyLevel" class="form-label">Urgency Level *</label>
-                            <select class="form-control" id="urgencyLevel" [(ngModel)]="contactData.urgencyLevel" name="urgencyLevel" required>
-                                <option value="">Select Urgency Level</option>
-                                <option *ngFor="let level of urgencyLevels" [value]="level.value">{{level.label}}</option>
-                            </select>
-                        </div>
-
-                      <div class="mb-3">
-                            <label for="preferredContactTime" class="form-label">Preferred Contact Time</label>
-                            <select class="form-control" id="preferredContactTime" [(ngModel)]="contactData.preferredContactTime" name="preferredContactTime">
-                                <option value="">Select Preferred Time</option>
-                                <option *ngFor="let time of contactTimePreferences" [value]="time.value">{{time.label}}</option>
                             </select>
                         </div>
 
@@ -165,14 +141,6 @@
                         <h4>🙏 Thank You</h4>
                         <p>Thank you for choosing Global Edge Training Academy. We're excited to support your academic success — every step of the way!</p>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p>&copy; 2025 Global Edge Training Academy. All rights reserved.</p>
                 </div>
             </div>
         </div>

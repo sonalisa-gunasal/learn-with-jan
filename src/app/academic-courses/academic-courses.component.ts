@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { SharedEnrollmentFormComponent } from '../shared/shared-enrollment-form/shared-enrollment-form.component';
+import { SharedConsultationFormComponent } from '../shared/shared-consultation-form/shared-consultation-form.component';
 
 @Component({
   selector: 'app-academic-courses',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, SharedEnrollmentFormComponent, SharedConsultationFormComponent],
   templateUrl: './academic-courses.component.html',
   styleUrl: './academic-courses.component.css'
 })
@@ -13,7 +15,60 @@ export class AcademicCoursesComponent {
 
   constructor(private router: Router) { }
 
+  ngAfterViewInit() {
+    // Ensure videos are muted and handle autoplay
+    this.setupVideoElements();
+  }
+
+  private setupVideoElements() {
+    const videos = document.querySelectorAll('.hero-bg-video');
+    videos.forEach((video: any) => {
+      video.muted = true;
+      video.playsInline = true;
+      video.autoplay = true;
+      video.loop = true;
+      
+      // Handle autoplay issues on mobile
+      video.addEventListener('loadedmetadata', () => {
+        video.play().catch((error: any) => {
+          console.log('Video autoplay failed:', error);
+        });
+      });
+    });
+  }
+
   courses: any[] = [];
+
+  // Form control properties
+  showSharedEnrollmentForm = false;
+  showSharedConsultationForm = false;
+  modalTitle = '';
+  buttonText = '';
+  enrollmentData: any = {
+    courseInterest: ''
+  };
+
+  // Course options for forms
+  academicCourses = [
+    'Grade 9 Foundation',
+    'Grade 10 Mastery', 
+    'Grade 11 Deep Dive',
+    'Grade 12 Excellence'
+  ];
+
+  professionalCourses = [
+    'JEE Main & Advanced',
+    'NEET Preparation',
+    'Engineering Entrance',
+    'Medical Entrance'
+  ];
+
+  learningModes = [
+    'Online Live Classes',
+    'Offline Classes',
+    'Hybrid Mode',
+    'Self-Paced Learning'
+  ];
 
   ngOnInit() {
     this.courses = [
@@ -102,18 +157,51 @@ export class AcademicCoursesComponent {
   }
 
   openEnrollmentForm(courseTitle?: string) {
-    // Get parent component reference and call its method
-    const event = new CustomEvent('openEnrollment', { 
-      detail: { courseTitle: courseTitle }
-    });
-    window.dispatchEvent(event);
+    this.modalTitle = 'Enroll Now';
+    this.buttonText = 'Enroll Now';
+    this.enrollmentData.courseInterest = courseTitle || '';
+    this.showSharedEnrollmentForm = true;
   }
 
   openDemoForm(courseTitle?: string) {
-    // Get parent component reference and call its method
-    const event = new CustomEvent('openDemo', { 
-      detail: { courseTitle: courseTitle }
-    });
-    window.dispatchEvent(event);
+    this.modalTitle = 'Book a Free Demo';
+    this.buttonText = 'Book Demo';
+    this.enrollmentData.courseInterest = courseTitle || '';
+    this.showSharedConsultationForm = true;
+  }
+
+  // Form event handlers
+  onSharedEnrollmentFormSubmitted(formData: any) {
+    console.log('Enrollment form submitted:', formData);
+    this.showSharedEnrollmentForm = false;
+  }
+
+  onSharedEnrollmentFormClosed() {
+    this.showSharedEnrollmentForm = false;
+  }
+
+  onSharedConsultationFormSubmitted(formData: any) {
+    console.log('Consultation form submitted:', formData);
+    this.showSharedConsultationForm = false;
+  }
+
+  onSharedConsultationFormClosed() {
+    this.showSharedConsultationForm = false;
+  }
+
+  downloadBrochure() {
+    // Create a link element to download the brochure
+    const link = document.createElement('a');
+    link.href = '/assets/Website-GlobalEdgeBrochure.pdf';
+    link.download = 'Global-Edge-Academic-Brochure.pdf';
+    link.target = '_blank';
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Optional: Show success message
+    alert('📄 Brochure download started! Check your downloads folder.');
   }
 }

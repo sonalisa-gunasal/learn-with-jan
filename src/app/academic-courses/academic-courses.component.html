@@ -1,15 +1,25 @@
-<!-- Hero Section with Background Image -->
+<!-- Hero Section with Background Video -->
 <section class="courses-hero-section">
-  <div class="hero-background-image">
-    <div class="hero-overlay"></div>
-    <div class="floating-elements">
-      <div class="floating-icon" style="top: 15%; left: 8%; animation-delay: 0s;">📚</div>
-      <div class="floating-icon" style="top: 25%; right: 12%; animation-delay: 1s;">🎯</div>
-      <div class="floating-icon" style="bottom: 35%; left: 15%; animation-delay: 2s;">💡</div>
-      <div class="floating-icon" style="bottom: 25%; right: 20%; animation-delay: 3s;">🚀</div>
-      <div class="floating-icon" style="top: 55%; left: 3%; animation-delay: 4s;">⭐</div>
-      <div class="floating-icon" style="top: 65%; right: 8%; animation-delay: 5s;">🏆</div>
-    </div>
+  <video class="hero-bg-video hero-bg-video-desktop" autoplay loop muted playsinline>
+    <source src="/assets/videos/academic.mp4" type="video/mp4">
+    <!-- Fallback for browsers that don't support video -->
+    <div class="hero-background-image"></div>
+  </video>
+  
+  <!-- Mobile Portrait Video (if you have a separate portrait version) -->
+  <video class="hero-bg-video hero-bg-video-mobile" autoplay loop muted playsinline>
+    <source src="/assets/videos/academic.mp4" type="video/mp4">
+    <!-- Fallback for browsers that don't support video -->
+    <div class="hero-background-image"></div>
+  </video>
+  
+  <div class="floating-elements">
+    <div class="floating-icon" style="top: 15%; left: 8%; animation-delay: 0s;">📚</div>
+    <div class="floating-icon" style="top: 25%; right: 12%; animation-delay: 1s;">🎯</div>
+    <div class="floating-icon" style="bottom: 35%; left: 15%; animation-delay: 2s;">💡</div>
+    <div class="floating-icon" style="bottom: 25%; right: 20%; animation-delay: 3s;">🚀</div>
+    <div class="floating-icon" style="top: 55%; left: 3%; animation-delay: 4s;">⭐</div>
+    <div class="floating-icon" style="top: 65%; right: 8%; animation-delay: 5s;">🏆</div>
   </div>
   
   <div class="container">
@@ -107,7 +117,37 @@
           <i class="fas fa-user-tie"></i>
           Talk to the Experts
         </button>
+        <button class="btn btn-secondary-modern btn-lg" (click)="downloadBrochure()">
+          <i class="fas fa-download"></i>
+          Download Brochure
+        </button>
       </div>
     </div>
   </div>
 </section>
+
+
+<!-- Shared Forms -->
+<!-- Shared Enrollment Form -->
+<app-shared-enrollment-form 
+  *ngIf="showSharedEnrollmentForm"
+  [modalTitle]="modalTitle"
+  [buttonText]="buttonText"
+  [courseTitle]="enrollmentData.courseInterest"
+  [academicCourses]="academicCourses"
+  [professionalCourses]="professionalCourses"
+  [learningModes]="learningModes"
+  (formSubmitted)="onSharedEnrollmentFormSubmitted($event)"
+  (formClosed)="onSharedEnrollmentFormClosed()">
+</app-shared-enrollment-form>
+
+<!-- Shared Consultation Form -->
+<app-shared-consultation-form 
+  *ngIf="showSharedConsultationForm"
+  [modalTitle]="modalTitle"
+  [buttonText]="buttonText"
+  [academicCourses]="academicCourses"
+  [professionalCourses]="professionalCourses"
+  (formSubmitted)="onSharedConsultationFormSubmitted($event)"
+  (formClosed)="onSharedConsultationFormClosed()">
+</app-shared-consultation-form>

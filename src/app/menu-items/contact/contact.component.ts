@@ -21,9 +21,6 @@ export class ContactComponent {
     subject: '',
     message: '',
     courseInterest: '',
-    inquiryType: '',
-    preferredContactTime: '',
-    urgencyLevel: ''
   };
 
   // Updated comprehensive course list aligned with academic and professional components
@@ -124,34 +121,7 @@ export class ContactComponent {
     }
   ];
 
-  inquiryTypes = [
-    { value: 'course-inquiry', label: 'Course Information & Curriculum' },
-    { value: 'enrollment', label: 'Enrollment Process & Requirements' },
-    { value: 'pricing', label: 'Pricing & Payment Options' },
-    { value: 'schedule', label: 'Class Schedule & Timing' },
-    { value: 'technical-support', label: 'Technical Support' },
-    { value: 'certification', label: 'Certification & Accreditation' },
-    { value: 'career-guidance', label: 'Career Guidance & Counseling' },
-    { value: 'partnership', label: 'Partnership Opportunity' },
-    { value: 'feedback', label: 'Feedback & Suggestions' },
-    { value: 'other', label: 'Other' }
-  ];
-
-  contactTimePreferences = [
-    { value: 'morning', label: 'Morning (9 AM - 12 PM)' },
-    { value: 'afternoon', label: 'Afternoon (12 PM - 5 PM)' },
-    { value: 'evening', label: 'Evening (5 PM - 8 PM)' },
-    { value: 'anytime', label: 'Anytime' }
-  ];
-
-  urgencyLevels = [
-    { value: 'low', label: 'Low - General Inquiry' },
-    { value: 'medium', label: 'Medium - Need info within 2-3 days' },
-    { value: 'high', label: 'High - Need info within 24 hours' },
-    { value: 'urgent', label: 'Urgent - Need immediate response' }
-  ];
-
-    frequentQuestions = [
+  frequentQuestions = [
     {
       question: 'How long does it take to get a response?',
       answer: 'Response time depends on priority level: Critical (1 hour), High (4 hours), Medium (24 hours), Low (48 hours).'
@@ -176,35 +146,20 @@ export class ContactComponent {
 
   submitContactForm() {
     const googleFormUrl = ' https://docs.google.com/forms/u/0/d/e/1FAIpQLScVbQhC8jBGSrukuwWObyD0dq7i9WOEWHJSa9akIL6eM-g2jg/formResponse';
+    
     if (!this.contactData.firstName || !this.contactData.lastName || !this.contactData.email ||
-      !this.contactData.inquiryType || !this.contactData.message || !this.contactData.courseInterest
-      || this.contactData.preferredContactTime === '' || this.contactData.urgencyLevel === '') {
+      !this.contactData.message || !this.contactData.courseInterest || !this.contactData.phone) {
       alert('Please fill in all required fields.');
       return;
     }
-
-    // Enhanced response based on urgency level
-    let responseTime = '24-48 hours';
-    if (this.contactData.urgencyLevel === 'urgent') {
-      responseTime = '1-2 hours';
-    } else if (this.contactData.urgencyLevel === 'high') {
-      responseTime = '4-6 hours';
-    } else if (this.contactData.urgencyLevel === 'medium') {
-      responseTime = '12-24 hours';
-    }
-
-    alert(`Thank you for your inquiry! We will get back to you within ${responseTime} based on your urgency level.`);
 
     const form = new FormData();
     form.append('entry.1487966399', this.contactData.firstName);
     form.append('entry.1969319244', this.contactData.lastName);
     form.append('entry.997439586', this.contactData.email);
-    form.append('entry.36602274', this.contactData.inquiryType);
     form.append('entry.1873433624', this.contactData.phone);
     form.append('entry.1067673934', this.contactData.courseInterest);
-    form.append('entry.1266232267', this.contactData.preferredContactTime);
-    form.append('entry.707266762', this.contactData.urgencyLevel);
-    form.append('entry.571912973', this.contactData.message); // Optional field
+    form.append('entry.571912973', this.contactData.message); 
 
     fetch(googleFormUrl, {
       method: 'POST',
@@ -212,7 +167,7 @@ export class ContactComponent {
       body: form
     })
       .then(() => {
-        this.successMsg = '✅ Your demo has been booked! We\'ll contact you soon to schedule your FREE session.';
+        this.successMsg = '✅Thank you for your inquiry! We will get back to you within 24 hours.';
         alert(this.successMsg);
         this.closeContactForm();
       }).catch(() => {
@@ -238,10 +193,7 @@ export class ContactComponent {
       phone: '',
       subject: '',
       message: '',
-      courseInterest: '',
-      inquiryType: '',
-      preferredContactTime: '',
-      urgencyLevel: ''
+      courseInterest: ''
     };
   }
 }

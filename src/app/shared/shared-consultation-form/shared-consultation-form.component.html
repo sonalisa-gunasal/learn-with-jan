@@ -1,0 +1,85 @@
+<!-- Shared Consultation Modal -->
+<div class="modal fade show d-block" tabindex="-1" style="background:rgba(0,0,0,0.3);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content booking-modal">
+      <div class="modal-header">
+        <h5 class="modal-title">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" (click)="closeForm()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submitConsultationForm()" #bookingForm="ngForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name *</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="formData.name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address *</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="formData.email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number *</label>
+            <input type="tel" class="form-control" id="phone" [(ngModel)]="formData.phone" name="phone" required>
+          </div>
+          <div class="mb-3">
+            <label for="courseInterest" class="form-label">Course of Interest *</label>
+            <select class="form-control" id="courseInterest" [(ngModel)]="formData.courseInterest" name="courseInterest" required>
+              <option value="">Select a course</option>
+              <optgroup label="🎓 Academic Courses (Grades 9-12)">
+                <option *ngFor="let course of academicCourses" [value]="course.value">
+                  {{course.category}} - {{course.title}}
+                </option>
+              </optgroup>
+              <optgroup label="🏢 Professional ISO Training">
+                <option *ngFor="let course of professionalCourses" [value]="course.value">
+                  {{course.category}} - {{course.title}}
+                </option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="grade" class="form-label">Grade/Level *</label>
+            <select class="form-control" id="grade" [(ngModel)]="formData.grade" name="grade" required>
+              <option value="">Select Grade/Level</option>
+              <optgroup label="🎓 Academic Grades">
+                <option value="9">Class 9</option>
+                <option value="10">Class 10</option>
+                <option value="11">Class 11</option>
+                <option value="12">Class 12</option>
+                <option value="jee">JEE Preparation</option>
+                <option value="neet">NEET Preparation</option>
+              </optgroup>
+              <optgroup label="🏢 Professional Level">
+                <option value="graduate">Graduate</option>
+                <option value="working-professional">Working Professional</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="board" class="form-label">Board/Background</label>
+            <select class="form-control" id="board" [(ngModel)]="formData.board" name="board">
+              <option value="">Select Board/Background</option>
+              <optgroup label="Academic Boards">
+                <option value="CBSE">CBSE</option>
+                <option value="ICSE">ICSE</option>
+                <option value="State Board">State Board</option>
+                <option value="IB">IB (International Baccalaureate)</option>
+                <option value="Cambridge">Cambridge</option>
+                <option value="IGCSE">IGCSE</option>
+              </optgroup>
+              <optgroup label="Professional Background">
+                <option value="Engineering">Engineering</option>
+                <option value="Management">Management</option>
+                <option value="Science">Science Graduate</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Other">Other</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-comcast">{{buttonText}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

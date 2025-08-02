@@ -115,7 +115,28 @@
 /* Courses Grid Section */
 .courses-grid-section {
   padding: 4rem 0;
-  background: var(--global-edge-gray);
+  background: linear-gradient(135deg, var(--global-edge-white) 0%, var(--global-edge-gray) 50%, var(--global-edge-white) 100%);
+  position: relative;
+}
+
+.courses-grid-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--global-edge-orange) 50%, transparent 100%);
+}
+
+.courses-grid-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--global-edge-orange) 50%, transparent 100%);
 }
 
 .course-card {
@@ -143,8 +164,13 @@
 
 .course-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
   border-color: var(--global-edge-orange);
+}
+
+.course-card:hover::before {
+  background: linear-gradient(90deg, var(--global-edge-orange), var(--global-edge-white), var(--global-edge-orange));
+  height: 6px;
 }
 
 .course-image {
@@ -330,11 +356,134 @@
   transform: translateY(-2px);
 }
 
+.btn-secondary-modern {
+  background: linear-gradient(45deg, var(--global-edge-orange), var(--global-edge-orange-light));
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-secondary-modern:hover {
+  background: linear-gradient(45deg, var(--global-edge-orange-dark), var(--global-edge-orange));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+  color: white;
+}
+
+/* Hero Video Background */
+.hero-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Desktop/Landscape Video */
+.hero-bg-video-desktop {
+  display: block;
+}
+
+/* Mobile/Portrait Video */
+.hero-bg-video-mobile {
+  display: none;
+}
+
+/* Responsive Video Handling */
+@media (max-width: 768px) and (orientation: portrait) {
+  .hero-bg-video-desktop {
+    display: none;
+  }
+  
+  .hero-bg-video-mobile {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* Landscape orientation on mobile devices */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-bg-video-desktop {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .hero-bg-video-mobile {
+    display: none;
+  }
+}
+
+/* Desktop and larger screens */
+@media (min-width: 769px) {
+  .hero-bg-video-desktop {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .hero-bg-video-mobile {
+    display: none;
+  }
+}
+
+/* For very small screens, adjust video positioning */
+@media (max-width: 480px) {
+  .hero-bg-video {
+    object-position: center center;
+    transform: scale(1.1); /* Slight zoom to ensure full coverage */
+  }
+  
+  /* Adjust hero section height for mobile */
+  .courses-hero-section {
+    min-height: 50vh;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 481px) and (max-width: 768px) {
+  .courses-hero-section {
+    min-height: 60vh;
+  }
+}
+
 /* CTA Section */
 .cta-section {
-  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  background: linear-gradient(135deg, var(--global-edge-black) 0%, var(--global-edge-orange-dark) 50%, var(--global-edge-orange) 100%);
   padding: 5rem 0;
-  color: white;
+  color: var(--global-edge-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--global-edge-orange) 0%, var(--global-edge-white) 50%, var(--global-edge-orange) 100%);
+}
+
+.cta-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--global-edge-orange) 0%, var(--global-edge-white) 50%, var(--global-edge-orange) 100%);
 }
 
 .cta-title {
