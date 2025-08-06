@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SharedEnrollmentFormComponent } from '../shared/shared-enrollment-form';
 import { SharedConsultationFormComponent } from '../shared/shared-consultation-form';
 
@@ -288,6 +288,14 @@ export class LandingComponent {
     { number: '95%', label: 'Success Rate' }
   ];
 
+  constructor(private route:ActivatedRoute){}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if (params['showDemo'] === 'true') {
+        this.openEnrollmentForm();
+      }
+    });
+  }
   toggleNavbar() {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
   }
