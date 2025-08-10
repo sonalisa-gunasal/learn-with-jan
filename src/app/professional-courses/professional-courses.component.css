@@ -34,13 +34,15 @@
 
 /* Hero Video Background */
 .hero-bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: contain !important; */
+  object-fit: fill;
+  position: absolute;
+  top: 0; left: 0;
   z-index: 1;
+  background: #000;
+  display: none;
 }
 
 /* Desktop/Landscape Video */
@@ -61,8 +63,6 @@
 
   .hero-bg-video-mobile {
     display: block;
-    object-fit: cover;
-    object-position: center;
   }
 }
 
@@ -70,8 +70,6 @@
 @media (max-width: 768px) and (orientation: landscape) {
   .hero-bg-video-desktop {
     display: block;
-    object-fit: cover;
-    object-position: center;
   }
 
   .hero-bg-video-mobile {
@@ -83,8 +81,6 @@
 @media (min-width: 769px) {
   .hero-bg-video-desktop {
     display: block;
-    object-fit: cover;
-    object-position: center;
   }
 
   .hero-bg-video-mobile {
